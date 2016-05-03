@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
 
   def basic_authentication
     authenticate_or_request_with_http_basic do |u, p|
-      return true
       u == Figaro.env.ADMIN_USER && p == Figaro.env.ADMIN_PASSWORD
     end
   end
