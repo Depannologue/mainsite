@@ -1,0 +1,108 @@
+fr:
+
+  activerecord:
+    models:
+      user: Utilisateur
+      address: Adresse
+    attributes:
+
+      user:
+        firstname: Prénom
+        lastname: Nom
+        full_name: Nom complet
+        email: Email
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        remember_me: Se souvenir de moi
+        phone_number: Numéro de téléphone portable
+        role: Rôle
+        created_at: Date de création
+        updated_at: Date de mise à jour
+        available_now: Disponible maintenant
+      address:
+        firstname: Prénom
+        lastname: Nom
+        address1: Adresse
+        address2: Complément d'adresse
+        zipcode: Code postal
+        city: Ville
+        phone_number: Numéro de téléphone portable
+        latitude: Latitude
+        longitude: Longitude
+      intervention_type:
+        kind: Catégorie
+        created_at: Date de création
+        kinds:
+          closed_door: Porte claquée
+          locked_door: Porte verrouillée
+        short_description: Problématique
+        price: Prix
+        down_payment: Acompte
+      intervention:
+        intervention_type_id: Quelle est la problématique ?
+        state: Etat
+        states:
+          pending: En attente de précisions
+          pending_payment: Paiement en attente de validation
+          pending_pro_validation: En attente de validation par un professionnel
+          pro_on_the_road: Professionnel sur la route
+          closed: Cloturée
+          archived: Archivée
+        customer_id: Client
+        contractor_id: Professionnel
+        payment_method_eq: Méthode de paiement
+        created_at: Créée le
+        is_ok: S'est bien déroulé
+        rating: Evaluation du professionnel
+        ratings:
+          a: Très bon
+          b: Bon
+          c: Moyen
+          d: Mauvais
+          e: Très mauvais
+        opinion: Avis
+      weekly_availability:
+        hourly_slots:
+          _0_4: 00h 04h
+          _4_8: 04h 08h
+          _8_12: 08h 12h
+          _12_16: 12h 16h
+          _16_20: 16h 20h
+          _20_24: 20h 00h
+        abbr_day_names:
+          monday: L
+          tuesday: Ma
+          wednesday: M
+          thursday: J
+          friday: V
+          saturday: S
+          sunday: D
+      exceptional_availability:
+        available_now: Disponible maintenant
+
+
+    errors:
+      messages:
+        record_invalid: Enregistrement invalide
+      models:
+
+        user:
+          attributes:
+            email:
+              blank: "l'email est requis"
+              taken: "déjà utilisé. Veuillez vous connecter d'abord."
+            password:
+              too_short: "Choisir un mot de passe de 8 caractères minimum"
+              blank: "champ requis"
+            password_confirmation:
+              confirmation: "veuillez confirmer votre mot de passe"
+            phone_number:
+              blank: "Merci d'indiquer votre numéro"
+        address:
+          attributes:
+            address1:
+              blank: "nous devons connaître votre adresse"
+            zipcode:
+              blank: "code postal requis"
+            city:
+              blank: "ville requise"

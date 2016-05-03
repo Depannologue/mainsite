@@ -1,0 +1,12 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Édition du type d'intervention
+
+= simple_form_for @intervention_type, url: admin_intervention_type_path(@intervention_type), method: :patch do |f|
+  = f.input :kind, collection: InterventionType::KINDS.map{ |kind| [(t("activerecord.attributes.intervention_type.kinds.#{kind}")), kind] }
+  = f.input :short_description
+  = f.input :description
+  = f.input :price
+  = f.button :submit, class: 'btn btn-success'
+  = link_to 'Annuler', admin_intervention_types_path, class: 'btn btn-danger'

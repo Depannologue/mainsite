@@ -1,0 +1,26 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Agglomérations
+    .col-md-4
+      = link_to I18n.t('activerecord.attributes.area.new'), new_admin_area_path, class: 'btn btn-tertiary pull-right'
+%table.table
+  %thead
+    %tr
+      %th.col-md-3= sort_link @q, (Area.human_attribute_name :name), I18n.t('activerecord.attributes.name')    
+      %th.col-md-3= Area.human_attribute_name :code_postal
+      %th.col-md-3
+  %tbody
+    - @areas.find_each do |area|
+      %tr
+        %th= area.name
+        %th= area.zip_codes.map(&:zipcode).join(', ')
+        %th
+          .pull-right
+            = link_to admin_area_path(area), title: 'Voir', class: 'btn btn-success' do
+              %span.icon-search
+            = link_to edit_admin_area_path(area), title: 'Editer', class: 'btn btn-secondary' do
+              %span.icon-edit
+            = link_to admin_area_path(area), title: 'Supprimer', method: :delete, class: 'btn btn-danger', data: { confirm: 'Êtes-vous sûr?' } do
+              %span.icon-trash
+= paginate @areas

@@ -1,0 +1,6 @@
+fr:
+  intervention_steps:
+    steps:
+      define_intervention: Votre intervention
+      depannage: Type d'intervention
+      payment: Confirmation d'intervention

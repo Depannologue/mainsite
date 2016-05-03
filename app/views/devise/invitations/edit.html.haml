@@ -1,0 +1,15 @@
+#workflow.container
+  .row
+    #devise
+      %h1 
+        Créez votre compte Depannologue
+      
+      %h2= t 'devise.invitations.edit.header'
+      = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f|
+        #card-devise
+          #input-devise
+            = devise_error_messages!
+            = f.hidden_field :invitation_token
+            = f.input :password
+            = f.input :password_confirmation
+        = f.button :submit, t("devise.invitations.edit.submit_button"), class: "button orange green devise little"

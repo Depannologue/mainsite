@@ -1,0 +1,43 @@
+.alert {
+  display: block;
+  padding: 20px 40px;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 4px;
+  z-index: 10;
+  position: fixed;
+  width: 350px;
+  left: 50%;
+  margin-left: -175px;
+  
+  &.alert-warning,
+  &.alert-danger {
+    background: #E75D5D;
+    color: #fff;
+  }
+
+  &.alert-info {
+    background: rgb(0, 170, 255);
+    color: #fff;
+  }
+
+  &.alert-success {
+    background: rgb(94, 193, 138);
+    color: #fff;
+  }
+
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    background: transparent;
+    width: initial;
+    font-weight: 0;
+    color: black;
+    opactity: 1;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Interventions
+
+.row
+  .col-md-12
+    = search_form_for [:admin, @q], html: {class: "well form-horizontal"} do |f|
+      %h3.text-center Filtrer la liste des interventions
+      %br
+      
+      .row
+        .col-lg-6
+          .form-group
+            .col-lg-3
+              = f.label :id_eq
+            .col-lg-2
+              = f.search_field :id_eq
+        .col-lg-6
+          .form-group
+            .col-lg-3
+              = f.label :state_eq
+            .col-lg-2
+              = f.select :state_eq, options_for_select(Intervention.aasm.states.map{|state| [(t "activerecord.attributes.intervention.states.#{state.to_s}"), state.to_s]}, @q.state_eq), { include_blank: true }
+      .row
+        .col-lg-6
+          .form-group
+            .col-lg-3
+              = f.label "Email du client contient"
+            .col-lg-2
+              = f.search_field :customer_email_cont
+        .col-lg-6
+          .form-group
+            .col-lg-3
+              = f.label "Email du pro contient"
+            .col-lg-2
+              = f.search_field :contractor_email_cont
+
+      .row
+        .col-lg-6
+          .form-group
+            .col-lg-3
+              = f.label :payment_method_eq
+            .col-lg-2
+              = f.select :payment_method_eq, Intervention.payment_method.options
+      = f.submit 'Filtrer', class: 'btn btn-tertiary pull-right'
+      .clearfix
+
+  .col-md-12
+    %table.table
+      %thead
+        %tr
+          %th.col-md-1= sort_link @q, 'intervention_type_short_description', (InterventionType.human_attribute_name :short_description)
+          %th.col-md-1= sort_link @q, 'customer_email', (Intervention.human_attribute_name :customer_id)
+          %th.col-md-1= sort_link @q, 'contractor_email', (Intervention.human_attribute_name :contractor_id)
+          %th.col-md-2= Intervention.human_attribute_name :state
+          %th.col-md-1= sort_link @q, :payment_method_eq, (Intervention.human_attribute_name :payment_method_eq)
+          %th.col-md-1= sort_link @q, :created_at, (Intervention.human_attribute_name :created_at)
+          %th.col-md-2= Intervention.human_attribute_name :rating
+          %th.col-md-2
+      %tbody
+        - @interventions.each do |intervention|
+          %tr
+            - I18n.with_locale(params[:locale]) do
+              %th= intervention.try(:intervention_type).try(:short_description)
+              %th= intervention.customer.try(:email)
+              %th= intervention.contractor.try(:email)
+              %th= t "activerecord.attributes.intervention.states.#{intervention.state}" if intervention.state.present?
+              %th= intervention.payment_method_text
+              %th= l intervention.created_at, format: :short
+              %th= t "activerecord.attributes.intervention.ratings.#{intervention.rating}" if intervention.rating.present?
+            %th
+              .pull-right
+                = link_to edit_admin_intervention_path(intervention), title: 'Editer', class: 'btn btn-secondary' do
+                  %span.icon-edit
+                = link_to admin_intervention_path(intervention), title: 'Supprimer',
+                                                                 method: :delete,
+                                                                 class: 'btn btn-danger',
+                                                                 data: { confirm: 'Êtes-vous sûr?' } do
+                  %span.icon-trash
+
+= paginate @interventions

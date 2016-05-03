@@ -1,0 +1,64 @@
+#request.container
+  .row
+    .col-md-6.col-md-offset-3.col-xs-12
+      .title-head
+        %i.icon-check
+        Mon prochain rendez-vous
+
+      .warning
+        %i.icon-exclamation-circle
+        Intervention immédiate
+
+      .card.pro
+        .address
+          %span.icon-status
+            - if @intervention.intervention_type.kind == "locked_door"
+              = image_tag ('locked-white.png')
+            - else
+              = image_tag ('closed-white.png')
+          %span.strong
+            = @intervention.intervention_type.short_description
+
+        .address
+          %p.waiting
+            L'adresse complète du client s'affichera si vous accèptez d'intervenir pour ce dépannage.
+          .done
+            %p.strong
+              = @intervention.address.decorate.partial_to_s
+
+      .more-info
+        .step-head
+          .title-step
+            %i.icon-info-circle
+            Informations supplémentaires
+        .commission
+          N'oubliez pas de demander au client de clôturer l'intervention.
+
+      /
+        .more-info
+          .step-head
+            .title-step
+              %i.icon-info-circle
+              Informations supplémentaires
+          .commission
+            .pull-left
+              %p Commission :
+            .pull-right
+              %p.strong ??€
+            .clearfix
+          .trajet
+            .pull-left
+              %p Trajet :
+            .pull-right
+              %p.strong 12min
+            .clearfix
+
+      %section.new-intervention
+        = simple_form_for [:pro, @intervention], url: wizard_path do |f|
+          .next
+            = f.button :submit, "Accepter l'intervention", class: "button orange green little"
+            = link_to "Refuser l'intervention", pro_root_path, class: "btn button gray little"
+
+- content_for :init_javascript_inline do
+  :javascript
+    window.geolocation_url = '#{pro_profile_path}';

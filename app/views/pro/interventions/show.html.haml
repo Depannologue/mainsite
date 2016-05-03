@@ -1,0 +1,72 @@
+#request.container
+  .row
+    .col-md-6.col-md-offset-3.col-xs-12
+      .title-head
+        %i.icon-check
+        Mon prochain rendez-vous
+
+      .warning
+        %i.icon-exclamation-circle
+        Intervention immédiate
+
+      .card.pro
+        .address
+          %span.icon-status
+            - if @intervention.intervention_type.kind == "locked_door"
+              = image_tag ('locked-white.png')
+            - else
+              = image_tag ('closed-white.png')
+          %span.strong
+            = @intervention.intervention_type.short_description
+
+        .address
+          .done
+            %p.strong
+              = @intervention.address.decorate.to_s
+        
+        .address
+          .done
+            %p.strong
+              = @intervention.address.phone_number ? @intervention.address.phone_number : I18n.t('intervention_steps.steps.no_phone_number')              
+
+
+      - if @intervention.may_close_by_client?
+        .more-info
+          .step-head
+            .title-step
+              %i.icon-info-circle
+              Informations supplémentaires
+          .commission
+            N'oubliez pas de demander au client de clôturer l'intervention.
+
+      .action-btn
+        - if @intervention.may_archive?
+          %br
+          .confirm-archive
+            .field
+              = label_tag :confirm_archive do
+                = check_box_tag :confirm_archive
+                Le client m'a bien payé le reste de l'intervention.
+            %br
+          .pull-left
+            = simple_form_for @intervention, url: pro_intervention_path(@intervention), method: :patch, html: { class: 'js-form-archive', style: "display: none;" } do |f|
+              = f.input :event , as: :hidden, input_html: {value: 'archive'}
+              = f.button :submit, "Archiver l'intervention", class: 'blue little'
+        .pull-right
+          = link_to "tel:+33366716167" do
+            %button.little.light Contact
+      .clearfix
+
+- content_for :javascript_inline do
+  :javascript
+    $(function() {
+      $(".confirm-archive input[type='checkbox']").prop('checked', false);
+      $(".js-form-archive").hide();
+      $(".confirm-archive input[type='checkbox']").on('change', function(e) {
+        if($(this).is(':checked')) {
+          $(".js-form-archive").show();
+        } else {
+          $(".js-form-archive").hide();
+        }
+      });
+    });

@@ -1,0 +1,73 @@
+#devise {
+	text-align: center;
+	margin: 10px 0 100px 0;
+
+	h1 {
+		color: $dark-gray;
+		font-size: 22px;
+
+		span {
+			vertical-align: super;
+		}
+
+		&.devise-head {
+			margin-top: 70px;
+			margin-bottom: 50px
+		}
+	}
+
+	h2 {
+		color: $blue;
+		text-align: center;
+		font-size: 18px;
+	}
+
+
+	#card-devise {
+		background-color: $blue;
+		padding: 25px;
+		display: inline-block;
+	  text-align: left;
+	  border-radius: 2px;
+
+		label {
+			color: white;
+		}
+	}
+
+	#input-devise {
+		width: 350px;
+		margin: 0 auto;
+		text-align: left;	
+	}
+
+	@media (max-width: $mobile-screen) {
+		#card-devise {
+			padding: 15px;
+
+			#input-devise {
+				width: 280px;
+			}
+		}
+	}
+
+	input#client_remember_me {
+    display: inline;
+    height: 20px;
+	}
+
+	#shared {
+    margin-top: 40px;
+    font-size: 16px;
+
+    a {
+    	margin-bottom: 10px;
+    	&:hover,
+    	&:focus,
+    	&:active {
+    		text-decoration: none;
+    		color: $blue;
+    	}
+    }
+	}
+}

@@ -1,0 +1,2 @@
+worker: bundle exec sidekiq -e development -i {{UNIQUE_INT}}
+clock: bundle exec clockwork lib/clock.rb

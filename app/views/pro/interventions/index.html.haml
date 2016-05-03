@@ -1,0 +1,64 @@
+#intervention.container
+  .row.title-dispo
+    .col-md-6.col-md-offset-3.col-xs-12
+      .title-head
+        %i.icon-check
+        Mes interventions
+    .col-md-6.col-md-offset-3.col-xs-12
+      #calendar
+        %p Disponibilité ?
+        .available-now
+          = simple_form_for current_pro, url: pro_profile_path, method: :patch do |f|
+            = f.fields_for :exceptional_availabilities, current_pro.exceptional_availabilities.build(available_now: f.object.available_now?) do |c|
+              = c.input :available_now, label: false, input_html: { class: 'js-availability-option' }
+
+  .row
+    .filter
+      .col-md-12
+        = search_form_for [:pro, @q], html: {class: "well form-horizontal"} do |f|
+          %h3.text-center Filtrer la liste de mes interventions
+          .row
+            / .form-group.col-sm-4
+            /   = f.label :id_eq, class: 'col-sm-6 text-right'
+            /   .col-sm-6
+            /     = f.search_field :id_eq
+            .form-group.col-md-6
+              = f.label :state_eq, class: 'col-sm-6 text-right'
+              .col-md-3
+                = f.select :state_eq, options_for_select(Intervention.aasm.states.map{|state| [(t "activerecord.attributes.intervention.states.#{state.to_s}"), state.to_s]}, @q.state_eq), { include_blank: true }
+            .form-group.col-md-6
+              = f.label "Email du client contient", class: 'col-sm-6 text-right'
+              .col-md-3
+                = f.search_field :customer_email_cont
+          .center-button.pull-right
+            = f.submit 'Filtrer', class: 'btn little'
+          .clearfix
+
+    .intervention-list
+      %table.table
+        %thead
+          %tr
+            %th= sort_link @q, :id, (Intervention.human_attribute_name :id)
+            %th= sort_link @q, 'intervention_type_short_description', (InterventionType.human_attribute_name :short_description)
+            %th= sort_link @q, 'customer_email', "Email client"
+            %th= sort_link @q, 'customer_phone_number', "Tel. client"
+            %th= "Adresse client"
+            %th= Intervention.human_attribute_name :state
+            %th= sort_link @q, :created_at, (Intervention.human_attribute_name :created_at)
+            %th
+        %tbody
+          - @interventions.each do |intervention|
+            %tr
+              - I18n.with_locale(params[:locale]) do
+                %td= intervention.id
+                %td= intervention.try(:intervention_type).try(:short_description)
+                %td= intervention.customer.try(:email)
+                %td= intervention.customer.try(:phone_number)
+                %td= intervention.address.decorate.to_s
+                %td= t "activerecord.attributes.intervention.states.#{intervention.state}" if intervention.state.present?
+                %td= l intervention.created_at, format: :short
+              %td
+                = link_to 'Voir', pro_intervention_path(intervention), class: 'red'
+                = link_to 'Clôturer', "#", class: 'btn btn-primary' if intervention.may_archive?
+
+= paginate @interventions

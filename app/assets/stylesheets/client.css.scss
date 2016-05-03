@@ -1,0 +1,27 @@
+/*
+ *= require bootstrap
+ *= require_self
+ */
+
+/* VARIABLES */
+@import "common/variables";
+@import "client/variables";
+
+/* COMMON */
+@import "common/mixins";
+@import "common/typography";
+@import "common/fontawesome";
+@import "common/layout";
+@import "common/forms";
+@import "common/flexbox";
+@import "common/alerts";
+/* PAGES */
+@import "client/pages/workflow";
+@import "client/pages/welcome";
+@import "client/pages/interventions";
+@import "client/pages/static_pages";
+
+@import "client/help-modal";
+@import "client-app/loader";
+
+@import "devise/layout";

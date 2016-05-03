@@ -1,0 +1,31 @@
+/* _forms.scss - Use this file to define all the html forms rules.
+ *
+ * Please verify that this file is correctly import into screen.scss,
+ * the initializer file... (or equivalent):
+ * @import "forms"; */
+
+label {
+  color: $gray;
+  margin-left: 1em;
+}
+
+.form-control {
+  border-radius: 2px;
+  height: 42px;
+  box-shadow: none;
+  color: $gray;
+  font-size: 1.125em;
+
+  &:focus {
+    box-shadow: none;
+    border-color: $primary-color;
+  }
+}
+
+.help-block {
+  text-align: right;
+
+  &.error {
+    color: $red;
+  }
+}

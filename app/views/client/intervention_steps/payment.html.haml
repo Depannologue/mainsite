@@ -1,0 +1,98 @@
+#workflow.container
+
+  = render 'steps'
+
+  .row
+    .col-md-6.col-xs-12
+      %section#recap
+        .step-head
+          .title-step
+            %i.icon-check
+            Validation
+
+        %ul
+          %li
+            %p
+              %span
+                Vous avez besoin d'un dépannage pour une ouverture de
+                %span.strong
+                  = current_intervention.intervention_type.short_description
+                au
+                %span.strong
+                  = current_intervention.address.decorate.to_s
+
+          %li
+            .card.no-color
+              .dispo
+                %span.strong
+                  Dépanneur(s) disponible(s)
+                .white-strong.pull-right
+                  = @pros_now_available_and_nearby.count
+                .clearfix
+              .trajet
+                %span.strong
+                  Temps de route estimé
+                .white-strong.pull-right
+                  30min
+                .clearfix
+              .intervention
+                %span.strong
+                  Prix tout inclus
+                .white-strong.pull-right
+                  = number_to_currency current_intervention.intervention_type.price, locale: :fr
+                .clearfix
+
+
+    .col-md-6.col-xs-12
+      %section#payment
+        .step-head
+          .title-step
+            %i.icon-credit-card
+            Choisissez votre moyen de paiement
+
+          = simple_form_for [:client, current_intervention], url: wizard_path, html: {id: "payment-form"} do |f|
+            .choose-payment
+              = select_tag :payment_method, options_for_select(Intervention.payment_method.options, :credit_card), class: 'selected-payment'
+              %p Paiement sur place après l'intervention
+
+            - unless client_signed_in?
+              = f.simple_fields_for :customer do |c|
+                .row.facture
+                  .second-title
+                    %i.icon-file
+                    Données de facturation
+                  .col-md-6
+                    .field
+                      = c.input :firstname, required: true, label: false, placeholder: "*Prénom"
+                  .col-md-6
+                    .field
+                      = c.input :lastname, required: true, label: false, placeholder: "*Nom"
+                .field
+                  = c.input :email, required: true, label: false, placeholder: "*Email utilisé pour facturation"
+            .tos
+              .field
+                = label_tag :cgu do
+                  = check_box_tag :cgu
+                  = (raw "J'accepte les <a href='#{cgu_path}' target='_blank'>Conditions Générales d'Utilisation</a>.</span>")
+              %br
+            .next#paid
+              = f.button :submit, 'Réserver', class: "button orange green little"
+
+
+= render partial: 'help_carousel'
+
+.clearfix
+
+- content_for :javascript_inline do
+  :javascript
+    $(function() {
+      $(".tos input[type='checkbox']").prop('checked', false);
+      $(".next").hide();
+      $(".tos input[type='checkbox']").on('change', function(e) {
+        if($(this).is(':checked')) {
+          $(".next").show();
+        } else {
+          $(".next").hide();
+        }
+      });
+    });

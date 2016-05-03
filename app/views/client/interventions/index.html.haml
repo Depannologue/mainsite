@@ -1,0 +1,35 @@
+- content_for :page_title do
+  /...
+
+%section#interventions-list
+  .container
+    .row
+      .col-md-12
+        .step-head
+          .title-step
+            %i.icon-wrench
+            Toutes mes interventions
+        .table-responsive
+          %table.table
+            %thead
+              %tr
+                %th.col-md-2= sort_link @q, :id, (Intervention.human_attribute_name :id)
+                %th.col-md-2= sort_link @q, 'intervention_type_short_description', (InterventionType.human_attribute_name :short_description)
+                %th.col-md-2= Address.model_name.human
+                %th.col-md-2= Intervention.human_attribute_name :state
+                %th.col-md-2= sort_link @q, :created_at, (Intervention.human_attribute_name :created_at)
+                %th.col-md-2
+            %tbody
+              - @interventions.each do |intervention|
+                %tr
+                  - I18n.with_locale(params[:locale]) do
+                    %th= intervention.id
+                    %th= intervention.try(:intervention_type).try(:short_description)
+                    %th= intervention.address.decorate.to_s if intervention.address.present?
+                    %th= t "activerecord.attributes.intervention.states.#{intervention.state}" if intervention.state.present?
+                    %th= l intervention.created_at, format: :short
+                  %th
+                    .pull-right
+                      = link_to 'Voir', client_intervention_path(intervention), class: 'btn btn-primary'
+
+    = paginate @interventions

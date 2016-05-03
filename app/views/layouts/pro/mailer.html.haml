@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body{style: "font-family: Arial;"}
+    = yield
+    %p Cordialement,
+    %p
+      Depannologue
+      %br
+      %p{style: "font-weight: bold;"} 07 83 71 74 61
+    = image_tag attachments['logo-blue.png'].url

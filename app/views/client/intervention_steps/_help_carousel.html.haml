@@ -1,0 +1,89 @@
+.all-tutoriels
+  .tutoriel-modal.article-one{"ng-class" => "{'tutoriel-show animation-begin' : uploader.activeStep() == 'clipping'}", data: {article: "1"}}
+    .tutoriel-modal-inner
+      %header.tutoriel-header
+        %h3.pull-left Aide 
+        .pull-right 
+          = link_to "#", class: "btn btn-link action-end" do
+            %i.icon-close
+        .clearfix
+        .border-steps
+          .progress-steps{style: "width: 25%"}
+      .tutoriel-modal-content
+        = image_tag ('help_geoloc.png')
+        %h4.help-title Géolocalisez-vous
+        %p Indiquez votre ville ou votre code postale si vous ne souhaitez pas utiliser la géolocalisation de votre smartphone, dans les deux cas, Depannologue recherche automatique les dépanneurs disponibles près de chez vous.
+      %footer.tutoriel-footer
+        .pull-right
+          = link_to "#", class: "btn blue little action-next" do
+            Suivant
+        .clearfix
+
+  .tutoriel-modal.article-two{data: {article: "2"}}
+    .tutoriel-modal-inner
+      %header.tutoriel-header
+        %h3.pull-left Aide 
+        .pull-right 
+          = link_to "#", class: "btn btn-link action-end" do
+            %i.icon-close
+        .clearfix
+        .border-steps
+          .progress-steps{style: "width: 50%"}
+      .tutoriel-modal-content
+        = image_tag ('help_id.png')
+        %h4.help-title Identifiez votre problème
+        %p Indiquez votre ville ou votre code postale si vous ne souhaitez pas utiliser la géolocalisation de votre smartphone, dans les deux cas, Depannologue recherche automatique les dépanneurs disponibles près de chez vous.
+      %footer.tutoriel-footer
+        .pull-left
+          = link_to "#", class: "btn blue little action-prev" do
+            Précédent
+        .pull-right
+          = link_to "#", class: "btn blue little action-next" do
+            Suivant
+        .clearfix
+
+
+  .tutoriel-modal.article-two{data: {article: "3"}}
+    .tutoriel-modal-inner
+      %header.tutoriel-header
+        %h3.pull-left Aide 
+        .pull-right 
+          = link_to "#", class: "btn btn-link action-end" do
+            %i.icon-close
+        .clearfix
+        .border-steps
+          .progress-steps{style: "width: 75%"}
+      .tutoriel-modal-content
+        = image_tag ('help_price.png')
+        %h4.help-title Prenez connaissance du prix
+        %p Indiquez votre ville ou votre code postale si vous ne souhaitez pas utiliser la géolocalisation de votre smartphone, dans les deux cas, Depannologue recherche automatique les dépanneurs disponibles près de chez vous.
+      %footer.tutoriel-footer
+        .pull-left
+          = link_to "#", class: "btn blue little action-prev" do
+            Précédent
+        .pull-right
+          = link_to "#", class: "btn blue little action-next" do
+            Suivant
+        .clearfix
+
+  .tutoriel-modal.article-two{data: {article: "4"}}
+    .tutoriel-modal-inner
+      %header.tutoriel-header
+        %h3.pull-left Aide 
+        .pull-right
+          = link_to "#", class: "btn btn-link action-end" do
+            %i.icon-close
+        .clearfix
+        .border-steps
+          .progress-steps{style: "width: 100%"}
+      .tutoriel-modal-content
+        = image_tag ('help_valid.png')
+        %h4.help-title Validez votre intervention
+        %p Indiquez votre ville ou votre code postale si vous ne souhaitez pas utiliser la géolocalisation de votre smartphone, dans les deux cas, Depannologue recherche automatique les dépanneurs disponibles près de chez vous.
+      %footer.tutoriel-footer
+        .pull-left
+          = link_to "#", class: "btn blue little action-prev" do
+            Précédent
+        .clearfix
+  #overlay-tutoriel-modal
+

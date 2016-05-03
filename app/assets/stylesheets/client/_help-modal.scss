@@ -1,0 +1,224 @@
+
+body.modal-open {
+  overflow: auto;
+  padding-right: 0 !important;
+}
+
+#overlay-tutoriel-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 500;
+  display: none !important;
+}
+
+.btn.btn-link.action-end {
+  z-index: 600;
+  font-size: 16px !important;
+  text-transform: uppercase;
+  padding: 10px 0 !important;
+}
+
+.tutoriel-modal {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  max-width: 330px;
+  margin-left: -165px;
+  z-index: 600;
+  display: none !important;
+  
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  .tutoriel-modal-inner {
+    background: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,.16), 0 8px 8px rgba(0,0,0,.12), 0 20px 25px rgba(0,0,0,.24);
+
+    .tutoriel-modal-content {
+      padding: 20px 15px;
+      text-align: center;
+
+      h4 {
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin: 5px 40px;
+        font-size: 14px;
+        font-weight: 300px;
+      }
+    }
+
+    header {
+      padding: 15px;
+      position: relative;
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    footer {
+      padding: 15px;
+      border-top: 1px solid #ddd;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+  }
+
+  .steps {
+    font-size: 16px;
+    font-weight: bold;
+    color: $blue;
+  }
+
+  .border-steps,
+  .progress-steps {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+  }
+  
+  .border-steps {
+    width: 100%;
+    background: transparentize(darken($blue, 20%), .8);
+
+    .progress-steps {
+      background-color: $blue;
+    }
+  }
+}
+
+#all-tutoriels.ng-hide {
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tutoriel-show ~ #overlay-tutoriel-modal,
+.tutoriel-show ~ .btn-link.action-end,
+.tutoriel-modal.tutoriel-show {
+  display: block !important;
+}
+
+
+// Animations
+
+$speed: 500ms;
+$negative-rotate: -10deg;
+$rotate: 10deg;
+$negative-translate: -1500px;
+$translate: 1500px;
+
+.animation-begin {
+  @include animation(begin $speed ease-in);
+  animation-fill-mode: forwards;
+}
+
+.animation-exit {
+  @include animation(exit $speed ease-in);
+  animation-fill-mode: forwards;
+}
+
+.animation-exit-invert {
+  @include animation(exit-invert $speed ease-in);
+  animation-fill-mode: forwards;
+}
+
+.animation-entrance {
+  @include animation(entrance $speed ease-out);
+  animation-fill-mode: forwards;
+}
+
+@include keyframes(begin) {
+  0% {
+    @include transform(translateX($negative-translate) scale(0) rotate($negative-rotate));
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    @include transform(translateX(0px) scale(1) rotate(0deg));
+    opacity: 1;
+  }
+}
+
+@include keyframes(entrance) {
+  0% {
+    @include transform(translateX($translate) scale(0) rotate($rotate));
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    @include transform(translateX(0px) scale(1) rotate(0deg));
+    opacity: 1;
+  }
+}
+
+@include keyframes(exit) {
+  0% {
+    @include transform(translateX(0px) scale(1) rotate(0deg));
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    @include transform(translateX($negative-translate) scale(0) rotate($negative-rotate));
+    opacity: 0;
+  }
+}
+
+@include keyframes(exit-invert) {
+  0% {
+    @include transform(translateX(0px) scale(1) rotate(0deg));
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    @include transform(translateX($translate) scale(0) rotate($rotate));
+    opacity: 0;
+  }
+}
+
+// RESPONSIVE
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+  .btn.btn-link.action-end {
+    bottom: 20px;
+  }
+
+  .tutoriel-modal {
+    top: 5%;
+    max-height: 560px;
+    /*overflow: auto;*/
+  }
+}
+
+
+
+

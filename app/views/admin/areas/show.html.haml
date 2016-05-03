@@ -1,0 +1,25 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Détail de l'agglomération
+    .col-md-4
+      = link_to I18n.t('activerecord.attributes.area.edit'), edit_admin_area_path(@area), class: 'btn btn-tertiary pull-right'
+
+
+.container
+  .col-md-8
+    .row
+      .col-lg-8
+        .form-group
+          %label.col-lg-3.control-label Nom
+          .col-lg-8
+            %input.form-control{disabled: true, value: @area.name}
+
+    .row
+      .col-lg-8
+        .form-group
+          %label.col-lg-3.control-label Code postaux
+          .col-lg-8
+            %input.form-control{disabled: true, value: @area.zip_codes.map(&:zipcode).join(', ')}
+%hr
+= link_to 'Retour', admin_areas_path, class: 'btn btn-danger'

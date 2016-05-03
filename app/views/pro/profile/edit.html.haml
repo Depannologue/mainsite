@@ -1,0 +1,90 @@
+- content_for :page_title do
+  / ...
+
+#profile.container
+  .row
+    .col-md-6.col-md-offset-3.col-xs-12
+      .title-head
+        %i.icon-user
+        Votre profil
+
+      .card-profile
+        .user
+          .id-photo
+          %p.pro-name
+            = best_in_place @user, :firstname, as: :input, url: pro_profile_path
+            = best_in_place @user, :lastname, as: :input, url: pro_profile_path
+            %i.icon-pencil
+
+          %p.pro-town.js-pro-town
+            - if @user.address.present?
+              %b Vous êtes à proximité de:
+              %br
+              = @user.address.decorate.to_s
+          %button.map.js-geolocate-me
+            %i.icon-map-marker
+          %br
+          %i Actualiser ma position
+        .info
+          %p
+            %span.light Email:
+            %span #{@user.email}
+          %p
+            %span.light Numéro de téléphone:
+            %span
+              = best_in_place @user, :phone_number, as: :input, url: pro_profile_path
+            %i.icon-pencil
+
+#calendar.container
+  .row
+    .col-md-6.col-md-offset-3.col-xs-12
+      .title-head
+        %i.icon-calendar
+        Planifier mes disponibilités
+
+      %p.now Disponibilité immédiate ?
+
+      .available-now
+        = simple_form_for @user, url: pro_profile_path, method: :patch do |f|
+          = f.fields_for :exceptional_availabilities, @user.exceptional_availabilities.build(available_now: f.object.available_now?) do |c|
+            = c.input :available_now, label: false, input_html: { class: 'js-availability-option' }
+          .rnd
+      .clearfix
+
+      .month
+        %p
+          Disponibilités du mois de
+          %select.strong{:name => "month"}
+            %option{:value => "0"} Janvier
+            %option{:value => "1"} Février
+            %option{:value => "2"} Mars
+            %option{:value => "3"} Avril
+            %option{:value => "4"} Mai
+            %option{:value => "5"} Juin
+            %option{:value => "6"} Juillet
+            %option{:value => "7"} Août
+            %option{:value => "8"} Septembre
+            %option{:value => "9"} Octobre
+            %option{:value => "10"} Novembre
+            %option{:value => "11"} Décembre
+
+      .table-dispo
+        = simple_form_for @user, url: pro_profile_path, method: :patch do |f|
+          = f.simple_fields_for :weekly_availability do |a|
+            %table
+              %thead
+                %tr
+                  %th
+                  - WeeklyAvailability::DAYS.each do |day|
+                    %th{scope: "col"}
+                      %p= t "activerecord.attributes.weekly_availability.abbr_day_names.#{day}"
+              - WeeklyAvailability::TIME_SLOTS.each do |from_to|
+                %tr
+                  %th= t "activerecord.attributes.weekly_availability.hourly_slots._#{from_to}"
+                  - WeeklyAvailability::DAYS.each do |day|
+                    %td
+                      = a.input :"#{day}_#{from_to}_availability", input_html: { class: 'js-availability-option' }, label: false
+
+- content_for :init_javascript_inline do
+  :javascript
+    window.geolocation_url = '#{pro_profile_path}';

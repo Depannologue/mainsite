@@ -1,0 +1,8 @@
+%p{style: "color: #ff7e00;"}
+  Bonjour
+  = ClientDecorator.new(@customer).full_name
+
+%p
+  Le paiement pour votre intervention n°
+  = @intervention.id
+  est confirmé.

@@ -1,0 +1,24 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Clients
+
+%table.table
+  %thead
+    %tr
+      %th.col-md-3= User.human_attribute_name :full_name
+      %th.col-md-3= User.human_attribute_name :email
+      %th.col-md-3= User.human_attribute_name :phone_number
+      %th.col-md-3
+  %tbody
+    - @customers.find_each do |customer|
+      %tr
+        %th= ClientDecorator.new(customer).full_name
+        %th= customer.email
+        %th= customer.phone_number
+        %th
+          .pull-right
+            = link_to edit_admin_customer_path(customer), title: 'Editer', class: 'btn btn-secondary' do
+              %span.icon-edit
+
+= paginate @customers

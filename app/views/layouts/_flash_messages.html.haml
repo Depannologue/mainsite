@@ -1,0 +1,7 @@
+#flash-messages
+  - %i(success notice error alert).each do |value|
+    - if flash[value]
+      .alert.fade.in{ class: bootstrap_class_for(value)}
+        = flash[value]
+        %button.close{type: "button", 'data-dismiss' => "alert"} &times;
+        

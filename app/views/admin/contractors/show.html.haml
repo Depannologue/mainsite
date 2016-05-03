@@ -1,0 +1,79 @@
+- content_for :page_title do
+  .col-md-8
+    %h1 Détail du professionnel
+  .col-md-4
+    = link_to I18n.t('activerecord.attributes.contractor.edit'), edit_admin_contractor_path(@contractor), class: 'btn btn-tertiary pull-right'
+
+.row
+  .col-sm-6
+    .row
+      .form-group
+        %label.col-lg-3.control-label Nom
+        .col-lg-8
+          %input.form-control{disabled: true, value: @contractor.try(:lastname)}
+    .row
+      .form-group
+        %label.col-lg-3.control-label Prénom
+        .col-lg-8
+          %input.form-control{disabled: true, value: @contractor.try(:firstname)}
+    .row
+      .form-group
+        %label.col-lg-3.control-label Email
+        .col-lg-8
+          %input.form-control{disabled: true, value: @contractor.try(:email)}
+    .row
+      .form-group
+        %label.col-lg-3.control-label Numéro de téléphone portable
+        .col-lg-8
+          %input.form-control{disabled: true, value: @contractor.try(:phone_number)}
+    .row
+      .form-group
+        %label.col-lg-3.control-label Disponible maintenant?
+        .col-lg-8
+          %span{class: @contractor.available_now? ? 'icon-check' : 'icon-remove'}
+    .row
+      .form-group
+        %label.col-lg-3.control-label Adresse
+        .col-lg-8
+          %textarea.form-control{disabled: true, rows:5}
+            #{@contractor.address.try(:address1)} &#13; 
+            - if @contractor.address.try(:address2)
+              #{@contractor.address.try(:address2)} &#13; 
+            #{@contractor.address.try(:zipcode)} &#13; 
+            #{@contractor.address.try(:city)} &#13; 
+    .row
+      .form-group
+        %label.col-lg-3.control-label Agglomérations
+        .col-lg-8
+          %input.form-control{disabled: true, value: @contractor.areas_name}
+
+  .col-sm-6
+    #calendar
+      %h3 Disponibilités
+      .table-dispo.no-hover
+        - if @contractor.weekly_availability.nil?
+          #{@contractor.firstname ? @contractor.firstname : 'Ce professionnel'} #{I18n.t 'activerecord.model.weekly_availability.norecord'}
+
+        = simple_form_for @contractor, wrapper: :disabled_form, url: pro_profile_path, method: :patch do |f|
+          = f.simple_fields_for :weekly_availability do |a|
+            %table
+              %thead
+                %tr
+                  %th
+                  - WeeklyAvailability::DAYS.each do |day|
+                    %th{scope: "col"}
+                      %p= t "activerecord.attributes.weekly_availability.abbr_day_names.#{day}"
+              - WeeklyAvailability::TIME_SLOTS.each do |from_to|
+                %tr
+                  %th= t "activerecord.attributes.weekly_availability.hourly_slots._#{from_to}"
+                  - WeeklyAvailability::DAYS.each do |day|
+                    %td
+                      = a.input :"#{day}_#{from_to}_availability", input_html: { class: 'js-availability-option' }, label: false
+
+
+%hr
+= link_to 'Retour', admin_contractors_path, class: 'btn btn-danger'
+
+
+
+

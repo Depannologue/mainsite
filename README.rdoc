@@ -1,0 +1,54 @@
+== README
+
+Depannologue is a web app that lets people find
+a locksmith in emergency while they are locked out.
+
+The project is composed of 3 sub-apps in one
+single Rails application. It could eventually be
+separated in 3 different apps if the project grows.
+
+The 3 sub-application should be accessed on different
+subdomains :
+1 - www.depannologue.fr for the client website
+2 - pro.depannologue.fr for the contractor application
+3 - admin.depannologue.fr for the administration application
+
+Therefore, this Rails app is organized in 3 namespaces :
+ - client
+ - pro
+ - admin
+
+Setup
+-----
+
+1. Change your host to match the 2 subdomains and the domain :
+
+sudo nano /etc/hosts
+
+write a line (for dev environment) :
+
+127.0.0.1       admin.depannologue.dev  www.depannologue.dev  pro.depannologue.dev
+
+sudo apachectl restart
+
+2. Create your database.yml and application.yml files
+
+cp config/application.magnum.yml config/application.yml
+cp config/database.magnum.yml config/database.yml
+
+Add development infos in `config/database.yml` 
+
+3. Create your database and migrate the project
+
+bundle exec rake db:create
+bundle exec rake db:migrate
+
+4. Start the server
+
+rails s
+
+5. Enjoy!
+
+type http://www.depannologue.dev:3000 in your browser to access client app
+type http://pro.depannologue.dev:3000 in your browser to access pro app
+type http://admin.depannologue.dev:3000 in your browser to access admin app

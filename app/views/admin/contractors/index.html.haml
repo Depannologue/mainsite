@@ -1,0 +1,38 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Professionnels
+    .col-md-4
+      = link_to 'Ajouter un professionnel', new_admin_contractor_path, class: 'btn btn-tertiary pull-right'
+
+%table.table
+  %thead
+    %tr
+      %th.col-md-2= User.human_attribute_name :full_name
+      %th.col-md-3= User.human_attribute_name :email
+      %th.col-md-2= User.human_attribute_name :phone_number
+      %th.col-md-1= User.human_attribute_name :available_now
+      %th.col-md-1= User.human_attribute_name :agglomération
+      %th.col-md-3
+  %tbody
+    - @contractors.find_each do |contractor|
+      %tr
+        %th= ProDecorator.new(contractor).full_name
+        %th= contractor.email
+        %th= contractor.phone_number
+        %th
+          %span{class: contractor.available_now? ? 'icon-check' : 'icon-remove'}
+        %th= contractor.areas_name
+        %th
+          .pull-right
+            = link_to admin_contractor_path(contractor), title: 'Voir', class: 'btn btn-success' do
+              %span.icon-search          
+            = link_to edit_admin_contractor_path(contractor), title: 'Editer', class: 'btn btn-secondary' do
+              %span.icon-edit
+            = link_to admin_contractor_path(contractor), title: 'Supprimer',
+                                                         method: :delete,
+                                                         class: 'btn btn-danger',
+                                                         data: { confirm: 'Êtes-vous sûr?' } do
+              %span.icon-trash
+
+= paginate @contractors

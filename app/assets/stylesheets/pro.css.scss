@@ -1,0 +1,27 @@
+/*
+ *= require bootstrap
+ */
+
+/* VARIABLES */
+@import "common/variables";
+@import "pro/variables";
+
+/* COMMON */
+@import "common/mixins";
+@import "common/typography";
+@import "common/fontawesome";
+@import "common/layout";
+@import "common/forms";
+@import "common/flexbox";
+@import "common/alerts";
+
+/* PAGES */
+@import "client/pages/workflow";
+@import "client/pages/welcome";
+
+@import "pro/calendar";
+@import "pro/layout";
+@import "pro/profile";
+@import "pro/intervention";
+
+@import "devise/layout";

@@ -1,0 +1,6 @@
+- content_for :page_title do
+  .col-md-8
+    %h1 Edition de l'agglomération: #{@area.name}
+  .col-md-4
+    = link_to I18n.t('activerecord.attributes.area.show'), admin_area_path(@area), class: 'btn btn-tertiary pull-right'    
+= render 'form'

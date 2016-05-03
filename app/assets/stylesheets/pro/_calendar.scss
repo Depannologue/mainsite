@@ -1,0 +1,201 @@
+#calendar {
+  text-align: center;
+
+  @mixin transition ($prop: all, $time: 0.3s, $effect: ease-out) {
+    -webkit-transition: $prop $time $effect;
+    transition: $prop $time $effect;
+  }
+
+  p.now {
+    font-size: 16px;
+  }
+
+  .available-now {
+    width: 120px;
+    height: 60px;
+    display: inline-block;
+    position: relative;
+
+
+    label {
+      margin-left: 0;
+      background: $red;
+      width: 120px;
+      height: 60px;
+      border-radius: 120px;
+      position: absolute;
+      top: 0;
+      box-shadow: 0 1px #C2BEAD;
+
+      &:before, &:after{
+        font-family: sans-serif;
+        color: white;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        @include transition();
+      }
+
+      &:before{
+        content: "X";
+        left: 7px;
+        font-size: 26px;
+        text-align: center;
+        padding: 6px 15px;
+        border: 2px solid white;
+        border-radius: 100%;
+      }
+
+      &:after{
+        content: "\2713";
+        left: 22px;
+        font-size: 0px;
+      }
+      
+
+      &.is-checked {
+        position: relative;
+        background-color: $green;
+        color: white;
+        transition: 250ms;
+        @include transition();
+
+        &:before{
+          content: "\2713";
+          left: 60px;
+          font-size: 26px;
+          text-align: center;
+          padding: 6px 15px;
+          border: 2px solid white;
+          border-radius: 100%;
+        }
+
+        &:after{
+          content: "X";
+          left: 22px;
+          font-size: 0px;
+        }
+      }
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+  }
+
+  .month {
+    display: inline-block;
+    margin: 25px 0 40px 0;
+    font-size: 16px;
+
+    .strong {
+      color: $orange;
+      padding: 5px 10px;
+      background-color: white;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+  }
+
+  .table-dispo {
+    margin-bottom: 70px;
+
+    thead {
+      tr {
+        height: 45px;
+      }
+
+      th {
+        text-align: center;
+      }
+
+      th > p {
+        background-color: $gray;
+        border-radius: 100%;
+        height: 35px;
+        width: 35px;
+        text-align: center;
+        font-size: 14px;
+        color: white;
+        font-weight: normal;
+        padding: 5px 6px;
+        border: 2px solid #f2f8fa;
+        margin: 0 auto;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    table {
+      margin: 0 auto;
+    }
+
+    tbody:before {
+      line-height: 1em;
+      content: ".";
+      color: transparent;
+      display: block;
+    }
+
+    td {
+      border: 1px solid $gray;
+      border-collapse: collapse;
+    }
+
+    label {
+      width: 45px;
+      height: 45px;
+      flex: 1;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      color: $gray;
+      background-color: white;
+      cursor: pointer;
+      margin-left: 0;
+      transition: 250ms;
+      font-family: 'fontawesome';
+
+      &:hover {
+        background-color: $green;
+        opacity: .5;
+      }
+
+      &.is-checked {
+        position: relative;
+        background-color: $green;
+        content: "\f00c";
+        color: white;
+
+        &:hover {
+          background-color: $red;
+          opacity: .5;
+        }
+      }
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+  }
+
+  @media (max-width: $mobile-screen) {
+    .table-dispo {
+      thead > tr {
+        height: 35px;
+      }
+
+      label {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+}

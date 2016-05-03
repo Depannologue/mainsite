@@ -1,0 +1,36 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Types d'interventions
+    .col-md-4
+      = link_to "Ajouter un type d'intervention", new_admin_intervention_type_path, class: 'btn btn-tertiary pull-right'
+
+%table.table
+  %thead
+    %tr
+      %th.col-md-1= InterventionType.human_attribute_name :id
+      %th.col-md-2= InterventionType.human_attribute_name :kind
+      %th.col-md-2= InterventionType.human_attribute_name :short_description
+      %th.col-md-2= InterventionType.human_attribute_name :price
+      %th.col-md-2= InterventionType.human_attribute_name :created_at
+      %th.col-md-2
+  %tbody
+    - @intervention_types.find_each do |intervention_type|
+      %tr
+        - I18n.with_locale(params[:locale]) do
+          %th= intervention_type.id
+          %th= t("activerecord.attributes.intervention_type.kinds.#{intervention_type.kind}")
+          %th= intervention_type.short_description
+          %th= number_to_currency intervention_type.price, locale: :fr
+          %th= l intervention_type.created_at, format: :short
+        %th
+          .pull-right
+            = link_to edit_admin_intervention_type_path(intervention_type), title: 'Editer', class: 'btn btn-secondary' do
+              %span.icon-edit
+            = link_to admin_intervention_type_path(intervention_type), title: 'Supprimer',
+                                                                       method: :delete,
+                                                                       class: 'btn btn-danger',
+                                                                       data: { confirm: 'Êtes-vous sûr?' } do
+              %span.icon-trash
+
+= paginate @intervention_types

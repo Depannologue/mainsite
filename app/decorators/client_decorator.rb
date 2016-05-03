@@ -1,0 +1,2 @@
+class ClientDecorator < UserDecorator
+end

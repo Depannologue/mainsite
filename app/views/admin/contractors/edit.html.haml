@@ -1,0 +1,8 @@
+- content_for :page_title do
+  .col-md-8
+    %h1
+      Édition du professionnel
+      = @decorated_contractor.full_name
+  .col-md-4
+    = link_to I18n.t('activerecord.attributes.contractor.show'), admin_contractor_path(@contractor), class: 'btn btn-tertiary pull-right'          
+= render partial: 'form', locals: {url: admin_contractor_path(@contractor)}

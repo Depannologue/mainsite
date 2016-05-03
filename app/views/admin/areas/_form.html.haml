@@ -1,0 +1,17 @@
+= simple_form_for [:admin, @area] do |f|
+  .row
+    .col-sm-4
+      = f.input :name, label: I18n.t('activerecord.attributes.name')
+  %hr
+
+  %label= I18n.t('activerecord.model.zip_code.plural')
+  #areas
+    .container
+      .row
+        .col-sm-3
+          = f.simple_fields_for :zip_codes do |zc|     
+            = render 'zip_code_fields', f: zc
+          = link_to_add_association button_tag("<i class='fa fa-plus add_association'> Ajouter un code postal</i>".html_safe, type: "button", class:'btn btn-info clean-margin'), f, :zip_codes
+  %hr
+  = f.button :submit, class: 'btn btn-success'
+  = link_to 'Annuler', admin_areas_path, class: 'btn btn-danger'

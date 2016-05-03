@@ -1,0 +1,7 @@
+%p{style: "color: #ff7e00;"}
+  Bonjour
+  = @pro.email
+
+%p
+  Une nouvelle demande d'intervention vient d'être publiée:
+  = link_to "Intervention n°#{@intervention.id}", pro_intervention_step_url(@intervention.id, id: :request_overview, subdomain: 'pro')

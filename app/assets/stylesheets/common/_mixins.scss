@@ -1,0 +1,89 @@
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin animation($animations) {
+     -moz-animation: #{$animations};
+       -o-animation: #{$animations};
+      -ms-animation: #{$animations};
+  -webkit-animation: #{$animations};
+          animation: #{$animations};
+}
+
+@mixin animation-name($animation-name) {
+     -moz-animation-name: #{$animation-name};
+       -o-animation-name: #{$animation-name};
+      -ms-animation-name: #{$animation-name};
+  -webkit-animation-name: #{$animation-name};
+          animation-name: #{$animation-name};
+}
+
+@mixin animation-duration($animation-duration) {
+     -moz-animation-duration: #{$animation-duration};
+       -o-animation-duration: #{$animation-duration};
+      -ms-animation-duration: #{$animation-duration};
+  -webkit-animation-duration: #{$animation-duration};
+          animation-duration: #{$animation-duration};
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+
+@mixin background-cover($position, $height) {
+  background-position: $position;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: $height;
+}
+
+@mixin background-after-linear($rgba-start, $rgba-end) {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: -webkit-linear-gradient( $rgba-start 0%, $rgba-end 100% );
+    background-image: linear-gradient( $rgba-start 0%, $rgba-end 100% );
+  }
+}
+
+@mixin background-after($bg-color) {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $bg-color;
+  }
+}

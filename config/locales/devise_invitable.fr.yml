@@ -1,0 +1,31 @@
+fr:
+  devise:
+    failure:
+      invited: "You have a pending invitation, accept it to finish creating your account."
+    invitations:
+      send_instructions: "An invitation email has been sent to %{email}."
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      updated: "Votre mot de passe a été mis à jour avec succès. Vous êtes maintenant connecté."
+      updated_not_active: "Votre mot de passe a été mis à jour avec succès."
+      no_invitations_remaining: "No invitations remaining"
+      invitation_removed: "Your invitation was removed."
+      new:
+        header: "Send invitation"
+        submit_button: "Send an invitation"
+      edit:
+        header: "Définissez votre mot de passe"
+        submit_button: "Mettre à jour mon mot de passe"
+    mailer:
+      invitation_instructions:
+        subject: "Invitation instructions"
+        hello: "Bonjour %{email}"
+        someone_invited_you: "Vous venez de faire une demande d'intervention sur %{url}.<br />Afin de suivre votre intervention, nous vous invitons à cliquer sur le lien ci-dessous afin de confirmer votre compte client."
+        accept: "Confirmer mon compte"
+        accept_until: "This invitation will be due in %{due_date}."
+        ignore: "Si vous ne souhaitez pas confirmer votre compte client, vous pouvez ignorer ce message."
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"

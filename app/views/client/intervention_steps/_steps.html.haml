@@ -1,0 +1,8 @@
+%ul.intervention-steps
+  - %i(depannage define_intervention payment).each_with_index do |s, i|
+    %li{class: s == step && 'active'}
+      = link_to wizard_path(s) do
+        %div.status
+          %i.display-active{class: s}
+        / %span.name-step
+        /   #{ i+1 } - #{t('intervention_steps.steps.' + s.to_s)}

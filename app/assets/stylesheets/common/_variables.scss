@@ -1,0 +1,38 @@
+/* _variables.scss - Use this file to define based variables.
+ *
+ * Please verify that this file is correctly import into screen.scss,
+ * the initializer file... (or equivalent):
+ * @import "variables"; */
+
+$sans-serif: 'Fira Sans', sans-serif;
+
+// COLORS
+$red: #E2574C;
+$green: #49CC84;
+$light-green: #87CCA6;
+$dark-green: #2E8053;
+$orange: #EE8819;
+$dark-orange: #BA6723;
+$blue: #59B6E7;
+$gradient-blue: #81D4F1;
+$dark-blue: #3C7899;
+$gray: #8897A7;
+$light-gray: #F3F3F3;
+$yellow: #EDD861;
+$ambiance-color: #F2F8FA;
+$disabled-color: #D6DBDC;
+$text-blue: #1F3856;
+$dark-gray: #333333;
+$red-pro: #731726;
+$gradient-red: #992E40;
+$white: #FFF;
+
+$navbar-height: 50px;
+
+$ease-in-out-sine:  cubic-bezier(0.445,  0.050, 0.550, 0.950);
+
+// RESPONSIVE
+$large-screen: 1280px;
+$medium-screen: 1024px;
+$small-screen: 768px;
+$mobile-screen: 560px;

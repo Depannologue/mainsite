@@ -1,0 +1,4 @@
+%p= t(".hello", email: @resource.email)
+%p= t(".someone_invited_you", url: root_url)
+%p= link_to t(".accept"), accept_invitation_url(@resource, invitation_token: @token)
+%p= t(".ignore").html_safe

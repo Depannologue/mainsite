@@ -1,0 +1,122 @@
+#interventions-list, #intervention-detail {
+	margin-top: 50px;
+	padding: 30px 0;
+
+	.status {
+		font-size: 16px;
+
+		.waiting {
+			color: $orange;
+		}
+
+		p.on-way {
+			color: $green;
+			text-align: center;
+		}
+
+		p.status-done {
+			color: $gray;
+		}
+	}
+
+	.card {
+		margin: 15px auto;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		padding: 15px;
+		border-radius: 2px;
+		font-size: 16px;
+
+		p {
+			margin-top: 15px;
+		}
+
+		.strong {
+			font-weight: bold;
+		}
+
+		.green-strong {
+			font-weight: bold;
+			color: $green;
+			font-size: 18px;
+		}
+	}
+
+	#intervention_end {
+		text-align: center;
+		font-size: 18px;
+
+
+		label[for="intervention_is_ok_true"] {
+			float: left;
+			margin: 40px 0 20px 50px;
+			background: #fff;
+			border-radius: 100%;
+			padding: 25px;
+			color: $green;
+			border: 3px solid $green;
+			font-family: 'fontawesome';
+
+			&::before {
+				content: '\f00c';
+			}
+
+			&.is-active {
+				background: $green;
+				color: #fff;
+			}
+		}
+
+		label[for="intervention_is_ok_false"] {
+			float: right;
+			margin: 40px 50px 20px 0;
+			background: #fff;
+			border-radius: 100%;
+			padding: 25px;
+			color: $orange;
+			border: 3px solid $orange;
+			font-family: 'fontawesome';
+
+			&::before {
+				content: '\f00d';
+			}
+
+			&.is-active {
+				background: $orange;
+				color: #fff;
+			}
+		}
+
+		input[type="radio"] {
+			display: none;
+		}
+
+		p {
+			font-size: 18px;
+
+			&.minus {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.note {
+		.icon-star,
+		.icon-star-o {
+			font-size: 45px;
+			margin-right: 10px;
+			color: $yellow;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	textarea {
+    width: 100%;
+    border: none;
+    color: #ccc;
+    resize: none;
+	}
+}

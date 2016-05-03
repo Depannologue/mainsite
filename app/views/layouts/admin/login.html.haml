@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+    %title Depannologue Administration
+
+    = stylesheet_link_tag 'admin', media: 'all'
+    = csrf_meta_tags
+  %body(style="margin: 80px 0; background-image: none; background-color: #333;")
+    = yield

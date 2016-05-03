@@ -1,0 +1,44 @@
+%header#header-page
+  %nav.navbar.navbar-default
+    .container-fluid
+      .hamburger
+        %span
+        %span
+        %span
+
+      .navbar-header
+        = link_to '/#', class: 'navbar-brand' do
+          = image_tag('logo-blue.png', alt: 'Logo white depannologue, depannage rapide serrurier')
+
+%nav.off-canvas
+  = link_to "#", class: "close-menu" do
+    %i.icon-close
+  %ul
+    / - if (client_signed_in? && current_client.interventions.any?) || (!client_signed_in? && Intervention.where(client_token_ownership: session[:interventions_client_token_ownership]).any?)
+    /   %li
+    /     = link_to "Mes interventions", client_interventions_path
+    %li
+      = link_to "Devenir depannologue", "http://www.blog.depannologue.fr/recrutement-depanneur", :target => "blank"
+    %li
+      = link_to "Contactez-nous", "#myModal", {"data-toggle" => "modal", "data-target" =>"#modal"}
+    %li
+      - unless client_signed_in?
+        = link_to "Se connecter", new_client_session_path
+      - else
+        = link_to "Se déconnecter", destroy_client_session_path, method: :delete
+
+
+#modal.modal.fade{:role => "dialog"}
+  .modal-dialog
+    .modal-content{style: "text-align: center;"}
+      .modal-body
+        .action
+          = link_to "Réservez par téléphone", "tel:0366726167", class: "button blue little"
+          %p au 0366726167
+
+        .action
+          %button.blue.little
+            %a{:href => "mailto:contact@depannologue.fr"}Écrivez-nous
+          %p sur contact@depannologue.fr
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} C'est noté

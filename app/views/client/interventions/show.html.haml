@@ -1,0 +1,87 @@
+- content_for :page_title do
+  /...
+
+%section#intervention-detail
+  .container
+    .row
+      .col-md-6.col-md-offset-3.col-xs-12
+        .step-head
+          .title-step
+            %i.icon-clock-o
+            - if @intervention.closed? || @intervention.archived?
+              Dépannage terminé
+            - else
+              Dépannage en cours
+          .status
+            - if @intervention.pending_pro_validation?
+              .waiting
+                %p Votre demande d'intervention a été envoyée à l'ensemble de nos dépanneurs disponibles.
+                %p Vous recevrez dans moins de 5mn un SMS avec l'ensemble des informations sur votre dépanneur.
+            - if @intervention.pro_on_the_road?
+              %p.on-way Votre dépanneur est sur la route.
+            /
+              -# if @intervention.pro_arrived?
+                %p.status-done Votre dépanneur est à votre domicile.
+
+        .step-head
+          .title-step
+            %i.icon-question
+            Récapitulatif de votre demande
+          .card
+            .intervention.card
+              %span.strong
+                = @intervention.intervention_type.short_description
+              .green-strong.pull-right
+                = number_to_currency @intervention.intervention_type.price, locale: :fr
+              %p
+                %span.strong
+                  = @intervention.address.decorate.to_s
+              %p
+                - if @intervention.pending_pro_validation?
+                  %span.strong
+                    = @pros_now_available_and_nearby.count
+                    = 'dépanneur'.pluralize @pros_now_available_and_nearby.count
+                  disponible(s) pour venir vous dépanner
+                  /
+                    d'ici
+                    %span.strong 20 minutes
+                - if @intervention.pro_on_the_road?
+                  %span.strong
+                    = @pro.full_name
+                  , dépanneur Depannologue, est sur la route.
+                  %span.js-waiting-time
+                    Il devrait arriver d'ici quelques minutes.
+
+        .action-btn
+          - if @intervention.may_close_by_client?
+            .pull-left
+              = link_to client_intervention_step_path(id: :rating, token: @intervention.client_token_ownership) do
+                %button.blue.little Fin d'intervention ?
+          .pull-right
+            = link_to "tel:+33366716167" do
+              %button.blue.little Contact
+        .clearfix
+
+
+- content_for :javascript_inline do
+  - if @intervention.pro_on_the_road? && @intervention.contractor.address.present? && @intervention.contractor.address.latitude.present? && @intervention.contractor.address.longitude.present? && @intervention.address.latitude.present? && @intervention.address.longitude.present?
+    :javascript
+      function initGoogleService() {
+        var service = new google.maps.DistanceMatrixService;
+        service.getDistanceMatrix({
+          origins: [{lat: #{@intervention.contractor.address.latitude}, lng: #{@intervention.contractor.address.longitude}}],
+          destinations: [{lat: #{@intervention.address.latitude}, lng: #{@intervention.address.longitude}}],
+          travelMode: google.maps.TravelMode.DRIVING,
+          unitSystem: google.maps.UnitSystem.METRIC,
+          avoidHighways: false,
+          avoidTolls: false
+        }, function(response, status) {
+          if (status !== google.maps.DistanceMatrixStatus.OK) {
+            console.log('[google.maps.DistanceMatrixService] Error was: ' + status);
+          } else {
+            var durationTxt = response.rows[0].elements[0].duration.text;
+            $('.js-waiting-time').html("Il devrait arriver d'ici <span class='strong'>" + durationTxt + "</span>.");
+          }
+        });
+      }
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.GOOGLE_API_KEY}&callback=initGoogleService"

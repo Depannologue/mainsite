@@ -1,0 +1,74 @@
+#profile {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+
+  .card-profile {
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+
+    .icon-pencil {
+      margin-left: 10px;
+      font-size: 16px;
+    }
+
+    button.map {
+      width: auto;
+      margin-bottom: 0;
+      margin-top: 15px;
+      background-color: #fff;
+      color: $blue;
+      border-radius: 100%;
+      padding: 15px 20px;
+    }
+
+    .user {
+      background-color: $blue;
+      padding: 25px 0;
+      color: white;
+      border-radius: 2px 2px 0 0;
+
+      .id-photo {
+        width: 125px;
+        height: 125px;
+        border-radius: 100%;
+        background: image-url('user-pro.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+      }
+
+      .pro-name {
+        margin-top: 20px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .pro-town {
+        font-weight: 100;
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+
+      input {
+        color: $blue;
+      }
+    }
+
+    .info {
+      padding: 30px 25px;
+      font-size: 16px;
+      display: inline-block;
+
+      .light {
+        color: $gray;
+      }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+class ProDecorator < UserDecorator
+end

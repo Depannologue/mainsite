@@ -1,0 +1,10 @@
+#devise
+  %h1.devise-head Mot de passe oublié ?
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = f.error_notification
+    #input-devise
+      = f.input :email, required: true, autofocus: true
+
+    = f.button :submit, "Recevoir les instructions par mail", class: "button orange green devise little"
+
+  = render "devise/shared/links"

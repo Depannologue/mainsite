@@ -1,0 +1,32 @@
+= simple_form_for @contractor, url: url do |f|
+  .row
+    .col-sm-6
+      = f.input :firstname, required: true
+      = f.input :lastname, required: true
+      = f.input :email, required: true
+      = f.input :phone_number, required: true
+      = f.input :password, label: "Mot de passe"
+      = f.input :password_confirmation, label: "Confirmation du mot de passe"
+      = f.fields_for :exceptional_availabilities, @contractor.exceptional_availabilities.build(available_now: f.object.available_now?) do |c|
+        = c.label :available_now
+        .col-sm-12
+          = c.input :available_now, required: false, label: false
+    .col-sm-6
+      = f.simple_fields_for :address do |a|
+        = a.input :address1, label: 'Adresse', placeholder: "N° rue"
+        = a.input :address2, label: false, placeholder: "Ex: étage, bâtiment..."
+        = a.input :zipcode
+        = a.input :city
+
+      %hr
+
+      %label= I18n.t('activerecord.model.area.plural')
+      #areas
+        .row
+          .col-sm-12
+            = f.simple_fields_for :user_areas do |user_area|
+              = render "user_area_fields", f: user_area
+            = link_to_add_association button_tag("<i class='fa fa-plus add_association'> Ajouter</i>".html_safe, type: "button", class:'btn btn-info btn-association'), f, :user_areas
+  %hr
+  = f.button :submit, class: 'btn btn-success'
+  = link_to 'Annuler', admin_contractors_path, class: 'btn btn-danger'

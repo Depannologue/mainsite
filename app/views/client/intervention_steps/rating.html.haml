@@ -1,0 +1,47 @@
+- content_for :page_title do
+  /...
+
+%section#intervention-detail
+  .container
+    .row
+      .col-md-6.col-md-offset-3.col-xs-12
+        .title-head
+          %i.icon-check
+          Evaluation de l'intervention
+        #intervention_end
+          = simple_form_for [:client, current_intervention], url: wizard_path, token: current_intervention.client_token_ownership do |f|
+            %input{type: :hidden, name: "interventions_client_token_ownership", value: current_intervention.client_token_ownership}
+            .card
+              %p Confirmez-vous le bon déroulé de l'intervention ?
+
+              /= f.input :is_ok, label: false, as: :radio_buttons
+
+              .input.form-group.radio_buttons.optional.intervention_is_ok
+                %span.radio
+                  %label{for: "intervention_is_ok_true"}
+                    %input.radio_buttons.optional.form-control#intervention_is_ok_true{type: 'radio', value: 'true', name: 'intervention[is_ok]'}
+                %span.radio
+                  %label{for: "intervention_is_ok_false"}
+                    %input.radio_buttons.optional.form-control#intervention_is_ok_false{type: 'radio', value: 'false', name: 'intervention[is_ok]'}
+
+              .clearfix
+
+            .note
+              %p.minus Merci de noter et de mettre un avis sur la prestation de votre dépanneur !
+              = f.input :rating, label: false, as: :select, collection: Intervention::RATINGS.map{|r| [(t "activerecord.attributes.intervention.ratings.#{r}"), r]}
+              /
+                .stars
+                  -# étoile cochée .icon-star, étoile non cochée .icon-star-o
+                  %i.icon-star
+                  %i.icon-star
+                  %i.icon-star
+                  %i.icon-star-o
+                  %i.icon-star-o
+
+            .card
+              = f.input :opinion, label: false, placeholder: "Déposez votre avis ici."
+
+            .action-btn
+              .next
+                = link_to "Annuler", client_intervention_path(current_intervention)
+                = f.button :submit, 'Valider', class: "button orange green little"

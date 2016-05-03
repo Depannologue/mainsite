@@ -1,0 +1,39 @@
+require File.expand_path('../boot', __FILE__)
+
+require 'rails/all'
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
+
+module Depannologue
+  class Application < Rails::Application
+
+    config.autoload_paths += %W(#{config.root}/lib)
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.i18n.default_locale = :fr
+    config.time_zone = 'Paris'
+
+    config.assets.enabled = true
+    config.assets.precompile += %w(
+      *.png *.gif
+      admin.css
+      devise.css
+      client.css
+      pro.css
+      client/application.js
+      pro/application.js
+    )
+
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
+
+    config.active_job.queue_adapter = :sidekiq
+
+    Twilio.configure do |config|
+      config.account_sid = Figaro.env.TWILIO_ACCOUNT_SID
+      config.auth_token  = Figaro.env.TWILIO_AUTH_TOKEN
+    end
+  end
+end

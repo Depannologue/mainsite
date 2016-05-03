@@ -1,0 +1,90 @@
+#header-page {
+  .hamburger > span {
+    background-color: $red-pro;
+  }
+}
+
+input#pro_remember_me {
+  margin-left: -20px;
+  margin-top: -10px;
+}
+
+.title-head,
+.warning {
+  font-weight: 600;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.title-head {
+  font-size: 18px;
+
+  i {
+    margin-right: 10px;
+    color: white;
+    background-color: #333;
+    width: 40px;
+    height: 40px;
+    padding: 10px 12px;
+    border-radius: 100%;
+    text-align: center;
+  }
+}
+
+.warning {
+  color: $orange;
+  font-size: 14px;
+
+}
+
+#request {
+  margin-top: 50px;
+  margin-bottom: 70px;
+
+  .card.pro {
+    margin-bottom: 30px;
+    
+    .intervention,
+    .address {
+      text-align: left;
+      padding: 15px;
+      background: linear-gradient(to bottom right, $gradient-red , $red-pro);
+      background: -moz-linear-gradient(bottom right, $gradient-red, $red-pro);
+      background: -o-linear-gradient(bottom right, $gradient-red, $red-pro);
+      background: -webkit-linear-gradient(bottom right, $gradient-red, $red-pro);
+      border-radius: 2px;
+      margin-bottom: 15px;
+
+      p {
+        margin-top: 0;
+      }
+
+      .strong {
+        color: #fff;
+      }
+    }
+  }
+
+  .more-info {
+    .commission,
+    .trajet {
+      padding: 10px 20px;
+      background-color: white;
+      border: 1px solid $red-pro;
+      color: $red-pro;
+      border-radius: 2px;
+      margin-bottom: 5px;
+
+      p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+
+        &.strong {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

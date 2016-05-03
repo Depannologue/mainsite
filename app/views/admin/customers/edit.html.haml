@@ -1,0 +1,10 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Édition du client
+
+= simple_form_for @customer, url: admin_customer_path(@customer), method: :patch do |f|
+  = f.input :email
+  = f.input :phone_number
+  = f.button :submit, class: 'btn btn-success'
+  = link_to 'Annuler', admin_customers_path, class: 'btn btn-danger'

@@ -1,0 +1,22 @@
+%p{style: "font-weight: bold;"}
+  Bonjour
+  = @customer.firstname.capitalize
+  = @customer.lastname.capitalize
+
+%p
+  = @contractor.firstname
+  a accepté votre intervention et est en route pour intervenir à votre adresse.
+
+%p
+  Consultez la fiche de votre intervention
+  = link_to 'ici', client_intervention_url(@intervention, subdomain: 'www', token: @intervention.client_token_ownership)
+  pour connaitre le temps de route de votre dépanneur.
+
+%p
+  Toute l'équipe de Depannologue vous remercie de votre confiance et vous souhaite un bon dépannage.
+
+%p
+  Pour conserver la garantie de votre intervention et la sécurisation de votre paiement, merci d'accepter uniquement les paiements par CB (Via le terminal de paiement de votre dépanneur) et par chèque au nom de Depannologue.
+
+%p
+  En cas de besoin, n'hésitez pas à joindre le SAV Depannologue 24H/24 par mail contact@depannologue.fr ou par téléphone 03 66 72 61 67.

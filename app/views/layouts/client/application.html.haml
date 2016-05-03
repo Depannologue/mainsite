@@ -1,0 +1,68 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %meta{:name => "google-site-verification", :content => "ZEL7stiO1q5NXk1wvRwd_SJBHiSuHWnTFyjrnGRvZHA"}
+
+    %title
+      - if content_for? :title
+        = yield :title
+      - else
+        Dépannologue
+
+    %link{rel: 'shortcut icon', href: "#{image_path 'depannologue-icon.png'}"}
+    %link{rel: 'publisher', href: "https://plus.google.com/104130818781075453057"}
+    %link{rel: 'canonical', href: 'https://www.depannologue.fr'}
+
+    = stylesheet_link_tag 'client', media: 'all'
+    = csrf_meta_tags
+
+    %noscript
+      %img{:alt => "", :height => "1", :src => "https://www.facebook.com/tr?ev=6016488257897&cd[value]=0.00&cd[currency]=EUR&noscript=1", :style => "display:none", :width => "1"}/
+
+    = yield :extra_head
+
+    = render 'layouts/ga' if Rails.env.production?
+
+  %body
+    = render 'layouts/client/header'
+    = render 'layouts/flash_messages'
+    = yield :page_title if content_for? :page_title
+    = yield
+    = render 'layouts/client/footer'
+
+    // used for the menu navigation
+    .overlay
+    = javascript_include_tag 'client/application'
+    = yield :javascript_inline
+
+    %script{:type => "application/ld+json"}
+      :plain
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lille, France",
+            "postalCode": "F-59000",
+            "streetAddress": "165 avenue de Bretagne"
+            },
+          "email": "contact(at)depannologue.fr",
+          "member": [
+            {
+              "@type": "Organization"
+            },
+            {
+              "@type": "Organization"
+            }
+          ],
+          "alumni": [
+            {
+              "@type": "Person",
+              "name": "Olivier Walter"
+            }
+          ],
+          "name": "depannologue.fr",
+          "telephone": "( 33 3) 66 71 61 67"
+        }

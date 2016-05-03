@@ -1,0 +1,11 @@
+%ul#main-nav
+  %li{ class: active_link_to_class(admin_intervention_types_path, active: /intervention_types/) }
+    = link_to "Types d'interventions", admin_intervention_types_path
+  %li{ class: active_link_to_class(admin_interventions_path, active: /interventions/) }
+    = link_to 'Interventions', admin_interventions_path
+  %li{ class: active_link_to_class(admin_customers_path, active: /customers/) }
+    = link_to 'Clients', admin_customers_path
+  %li{ class: active_link_to_class(admin_contractors_path, active: /contractors/) }
+    = link_to 'Professionnels', admin_contractors_path
+  %li{ class: active_link_to_class(admin_areas_path, active: /areas/) }
+    = link_to 'Agglomérations', admin_areas_path    

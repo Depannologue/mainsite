@@ -1,0 +1,56 @@
+- content_for :title do
+  Contactez un dépanneur en intervention rapide en serrurerie
+
+- content_for :extra_head do
+  = tag :meta, name: "description", content: "Laissez vos coordonnées pour une intervention rapide d'un dépanneur en serrurerie"
+  %meta{:name => "robots", :content => "noodp,noydir"}/
+
+  %meta{:content => "Demander une intervention du spécialiste serrurerie français en dépannage !", :property => "og:title"}/
+  %meta{:content => "http://www.depannologue.fr/define_intervention", :property => "og:url"}/
+  %meta{:content => "depannologue-logo-200x200.png", :property => "og:image"}/
+  %meta{:content => "Demandez l'intervention d'un dépanneur rapide pour votre porte claquée ou verrouillée", :property => "og:description"}/
+  %meta{:content => "fr_FR", :property => "og:locale"}/
+  %meta{:content => "543890775761560", :property => "fb:page_id"}/
+  %meta{:content => "Depannologue", :property => "og:site_name"}/
+  %meta{:content => "website", :property => "og:type"}/
+
+  %meta{:content => "summary_large_image", :name => "twitter:card"}/
+  %meta{:content => "@depannologue", :name => "twitter:site"}/
+  %meta{:content => "@depannologue ", :name => "twitter:creator"}/
+  %meta{:content => "Intervention rapide d'un serrurier près de chez vous", :name => "twitter:title"}/
+  %meta{:content => "Depannologue : demandez une intervention rapide en laissant vos coordonnées; votre serrurier rapide et pas cher chez vous", :name => "twitter:description"}/
+  %meta{:content => "depannologue-logo-600x330.png", :name => "twitter:image"}/
+
+#workflow.container
+  = render 'steps'
+
+  %section#form-localize
+    .row
+      .col-md-6.col-md-offset-3.col-xs-12
+        .step-head
+          .title-step
+            Votre intervention :
+            .confirmation
+              %i.icon-key
+              = current_intervention.intervention_type.short_description
+              %p
+                = current_intervention.intervention_type.description
+              .blue-price
+                = number_to_currency current_intervention.intervention_type.price, locale: :fr
+        %h2 Remplissez vos coordonnées et obtenez le prix fixe de votre dépannage
+
+        = simple_form_for [:client, current_intervention], url: wizard_path do |f|
+          = f.simple_fields_for :address do |a|
+            = a.input :address1, label: '* Adresse', placeholder: "Rue, voie, boîte postale, nom de société"
+            = a.input :address2, label: false, placeholder: "Bâtiment, étage, lieu-dit, indication au serrurier"
+            = a.input :zipcode
+            = a.input :city
+            = a.input :phone_number, required: true
+
+
+          .next
+            = f.button :submit, "Obtenez votre devis", class: "button orange little"
+
+          = render partial: 'help_carousel'
+        .contact
+          = link_to "Contactez-nous 24H/24", "tel:0366726167", class: "button blue little"

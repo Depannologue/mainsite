@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+    %title Depannologue Administration
+
+    = stylesheet_link_tag 'admin', media: 'all'
+    = javascript_include_tag 'admin/application'
+    = csrf_meta_tags
+  %body
+    #wrapper
+
+      %h1#site-logo
+        = link_to admin_root_path, class: 'navbar-brand' do
+          = image_tag 'logo-blue.png', style: 'vertical-align: middle; height:29px; width:158px;'
+
+      %header#header
+
+      %nav#top-bar.collapse.top-bar-collapse
+        %ul.nav.navbar-nav.pull-left
+          %li
+            = link_to admin_root_path do
+              %i.fa.fa-home
+              Home
+        %ul.nav.navbar-nav.pull-right
+          %li
+            = link_to 'Déconnexion', destroy_admin_session_path, method: :delete
+
+      - if admin_signed_in?
+        #sidebar-wrapper.collapse.sidebar-collapse
+          / #search
+          /   %form
+          /     %input.form-control.input-sm{:name => "search", :placeholder => "Recherche...", :type => "text"}/
+          /     %button#search-btn.btn{:type => "submit"}
+          /       %i.fa.fa-search
+          %nav#sidebar
+            = render partial: 'layouts/admin/navigation'
+
+      #content
+        #content-header
+          = render 'layouts/flash_messages'
+          - if content_for :page_title
+            = content_for :page_title
+        #content-container
+          = yield
+
+    = javascript_include_tag :application
+    = yield :javascript_tag

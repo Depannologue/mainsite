@@ -1,0 +1,32 @@
+%header#header-page
+  %nav.navbar.navbar-default
+    .container-fluid
+      .hamburger
+        %span
+        %span
+        %span
+
+      .navbar-header
+        = link_to '#', class: 'navbar-brand' do
+          = image_tag('logo-red.png')
+
+
+
+%nav.off-canvas
+  = link_to "#", class: "close-menu" do
+    %i.icon-close
+  %ul
+    %li
+      = link_to "Mes interventions", pro_interventions_path
+    %li
+      = link_to "Devenir depannologue", "http://www.blog.depannologue.fr/recrutement-depanneur"
+    %li
+      = link_to "Contactez-nous", "#footer-page"
+    - unless pro_signed_in?
+      %li
+        = link_to "Se connecter", new_pro_session_path
+    - else
+      %li
+        = link_to "Mon profil", pro_profile_path
+      %li
+        = link_to "Se déconnecter", destroy_pro_session_path, method: :delete

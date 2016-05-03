@@ -1,0 +1,40 @@
+- content_for :page_title do
+  .row
+    .col-md-10
+      %h1
+        Édition de l'intervention n°
+        = @intervention.id
+        %i.small= "(#{(t "activerecord.attributes.intervention.states.#{@intervention.state}").downcase})"
+    .col-md-2
+      - if @intervention.may_close?
+        = simple_form_for @intervention, url: admin_intervention_path(@intervention), method: :patch do |f|
+          = f.input :event , as: :hidden, input_html: {value: 'close'}
+          = f.button :submit, 'Clôturer à la place du client', class: 'btn btn-secondary pull-right'
+      - if @intervention.may_archive?
+        = simple_form_for @intervention, url: admin_intervention_path(@intervention), method: :patch do |f|
+          = f.input :event , as: :hidden, input_html: {value: 'archive'}
+          = f.button :submit, 'Archiver à la place du professionnel', class: 'btn btn-secondary pull-right'
+
+= simple_form_for @intervention, url: admin_intervention_path(@intervention), method: :patch do |f|
+  .col-md-6
+    = f.simple_fields_for :address do |a|
+      = a.input :firstname
+      = a.input :lastname
+      = a.input :address1, label: 'Adresse', placeholder: "N° rue"
+      = a.input :address2, label: false, placeholder: "Ex: étage, bâtiment..."
+      = a.input :zipcode, hint: ''
+      = a.input :city
+      = a.input :phone_number
+  .col-md-6
+    = f.input :contractor_id,
+              as: :select,
+              collection: ( (@intervention.pros_now_available_and_nearby || []) << (@intervention.contractor || nil) ).compact.uniq.map{|pro| [(ProDecorator.new(pro).full_name), pro.id]},
+              disabled: !(f.object.may_assign_to? || f.object.may_unassign?)
+    = f.label I18n.t('activerecord.attributes.intervention.is_ok')
+    = f.input :is_ok, as: :boolean, boolean_style: :inline, label: false
+    = f.input :rating, as: :select, collection: Intervention::RATINGS.map{|r| [(t "activerecord.attributes.intervention.ratings.#{r}"), r]}
+    = f.input :opinion
+
+    %hr
+    = f.button :submit, class: 'btn btn-success'
+    = link_to 'Annuler', admin_interventions_path, class: 'btn btn-danger'
