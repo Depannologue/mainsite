@@ -10,15 +10,16 @@ class AppConstraints
 end
 
 Rails.application.routes.draw do
+  mount Lockup::Engine, at: '/lockup'
   constraints(AppConstraints.new subdomain: 'admin') do
     namespace :admin, module: 'admin', path: '/' do
-      
+
       require 'sidekiq/web'
       authenticate :admin, lambda { |u| u.has_role? :admin } do
-        mount Sidekiq::Web => '/jobs/sidekiq'    
+        mount Sidekiq::Web => '/jobs/sidekiq'
       end
 
-      resources :areas do 
+      resources :areas do
         get '/zipcode/:zipcode', to: 'areas#zipcode', on: :collection
       end
       resources :intervention_types, except: :show

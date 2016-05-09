@@ -46,7 +46,7 @@
                 Expert certifié et qualifié
 
         = simple_form_for [:client, current_intervention], url: wizard_path do |f|
-          .door-selector
+          .door-selector            
             -# = f.label :intervention_type_id
             = f.collection_radio_buttons(:intervention_type_id, InterventionType.all, :id, :short_description, boolean_style: :inline) do |b|
               %span.radio

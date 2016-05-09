@@ -36,8 +36,14 @@ gem 'cocoon', '~> 1.2', '>= 1.2.8'
 gem "font-awesome-rails"
 gem 'validates_zipcode'
 gem 'sinatra', :require => nil
+gem 'lockup', '~> 1.3'
+gem 'unicorn'
 
 group :development, :test do
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-rvm'
+  gem 'capistrano-secrets-yml'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -64,5 +70,5 @@ group :development, :test do
   gem 'meta_request'          # for rails_panel chrome extension
   gem "pry-rails"
   gem "pry-byebug"
-  
+
 end

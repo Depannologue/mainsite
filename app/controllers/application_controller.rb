@@ -2,10 +2,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :check_for_lockup, if: -> { Rails.application.secrets[:lockup_actived] }
 
   layout :layout_by_resource
-
-  before_filter :basic_authentication, if: Figaro.env.LOCK_APP
 
   def after_sign_in_path_for(resource)
     if resource.has_role? :contractor
@@ -16,13 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def basic_authentication
-    authenticate_or_request_with_http_basic do |u, p|
-      u == Figaro.env.ADMIN_USER && p == Figaro.env.ADMIN_PASSWORD
-    end
-  end
-
 
   protected
 

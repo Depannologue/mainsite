@@ -32,8 +32,8 @@ module Depannologue
     config.active_job.queue_adapter = :sidekiq
 
     Twilio.configure do |config|
-      config.account_sid = Figaro.env.TWILIO_ACCOUNT_SID
-      config.auth_token  = Figaro.env.TWILIO_AUTH_TOKEN
+      config.account_sid = Rails.application.secrets.twilio_account_sid
+      config.auth_token  = Rails.application.secrets.twilio_auth_token
     end
   end
 end
