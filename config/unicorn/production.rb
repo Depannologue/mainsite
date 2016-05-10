@@ -1,7 +1,7 @@
 root = "/home/deploy/app/depannologue/current"
 working_directory root
 
-pid "#{root}/tmp/pids/unicorn.pid"
+pid "/home/deploy/app/depannologue/shared/tmp/pids/unicorn.pid"
 
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
