@@ -1,10 +1,10 @@
-root = "/home/deploy/app/depannologue/current"
-working_directory root
+root = "/home/deploy/app/depannologue"
+working_directory "#{root}/current"
 
-pid "#{root}/tmp/pids/unicorn.pid"
+pid "#{root}/shared/tmp/pids/unicorn.pid"
 
-stderr_path "#{root}/log/unicorn.log"
-stdout_path "#{root}/log/unicorn.log"
+stderr_path "#{root}/shared/log/unicorn.log"
+stdout_path "#{root}/shared/log/unicorn.log"
 
 worker_processes Integer(ENV['WEB_CONCURRENCY'])
 timeout 30
@@ -34,5 +34,5 @@ end
 # Force the bundler gemfile environment variable to
 # reference the capistrano "current" symlink
 before_exec do |_|
-  ENV['BUNDLE_GEMFILE'] = File.join(root, 'Gemfile')
+  ENV['BUNDLE_GEMFILE'] = File.join(working_directory , 'Gemfile')
 end
