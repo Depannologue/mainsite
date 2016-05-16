@@ -6,11 +6,11 @@ pid "#{root}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{root}/shared/log/unicorn.log"
 stdout_path "#{root}/shared/log/unicorn.log"
 
-worker_processes Integer(ENV['WEB_CONCURRENCY'])
+worker_processes Integer(ENV['WEB_CONCURRENCY'] || 1)
 timeout 30
 preload_app true
 
-listen '/tmp/unicorn.spui.sock', backlog: 64
+listen '/tmp/unicorn.depannologue.sock', backlog: 64
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
