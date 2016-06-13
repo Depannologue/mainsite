@@ -1,1 +1,1 @@
-ENV["REDIS_URL"] = 'redis://localhost:6379/0'
+ENV["REDIS_URL"] = 'redis://139.59.128.211:6379/0'
