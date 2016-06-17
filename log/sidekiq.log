@@ -1,0 +1,178 @@
+2016-06-16T14:18:45.566Z 1921 TID-621d8 INFO: Running in ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-linux]
+2016-06-16T14:18:45.566Z 1921 TID-621d8 INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2016-06-16T14:18:45.566Z 1921 TID-621d8 INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2016-06-16T14:18:45.566Z 1921 TID-621d8 INFO: Booting Sidekiq 4.1.2 with redis options {:url=>"redis://127.0.0.1:6379/0"}
+2016-06-16T14:18:45.567Z 1921 TID-621d8 INFO: Starting processing, hit Ctrl-C to stop
+2016-06-16T14:20:01.256Z 1921 TID-yn7co NotifyBookingOkBySMSJob JID-b73edf10d4217e4bcd30d7a3 INFO: start
+2016-06-16T14:20:02.884Z 1921 TID-yljew NotifyProsBySMSJob JID-acfbe802676a91d5fc941311 INFO: start
+2016-06-16T14:20:02.913Z 1921 TID-yn7co NotifyBookingOkBySMSJob JID-b73edf10d4217e4bcd30d7a3 INFO: done: 1.657 sec
+2016-06-16T14:20:04.518Z 1921 TID-yljew NotifyProsBySMSJob JID-acfbe802676a91d5fc941311 INFO: done: 1.634 sec
+2016-06-16T14:54:34.619Z 1921 TID-yljew NotifyBookingOkBySMSJob JID-d8e8c786b496501c747c9d44 INFO: start
+2016-06-16T14:54:34.624Z 1921 TID-yljew NotifyBookingOkBySMSJob JID-d8e8c786b496501c747c9d44 INFO: fail: 0.005 sec
+2016-06-16T14:54:34.624Z 1921 TID-yljew WARN: {"class":"ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper","wrapped":"NotifyBookingOkBySMSJob","queue":"default","args":[{"job_class":"NotifyBookingOkBySMSJob","job_id":"dc53d122-7edb-4432-9353-79649fec3c44","queue_name":"default","arguments":[17],"locale":"fr"}],"retry":true,"jid":"d8e8c786b496501c747c9d44","created_at":1466088874.6184187,"enqueued_at":1466088874.6184833,"error_message":"undefined method `phone_number' for nil:NilClass","error_class":"NoMethodError","failed_at":1466088874.6234899,"retry_count":0}
+2016-06-16T14:54:34.624Z 1921 TID-yljew WARN: NoMethodError: undefined method `phone_number' for nil:NilClass
+2016-06-16T14:54:34.624Z 1921 TID-yljew WARN: /home/depanologue/dev/depannologue/app/jobs/notify_booking_ok_by_s_m_s_job.rb:14:in `perform'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/execution.rb:32:in `block in perform_now'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:117:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:117:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:498:in `block (2 levels) in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `block (2 levels) in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/i18n-0.7.0/lib/i18n.rb:257:in `with_locale'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/translation.rb:7:in `block (2 levels) in <module:Translation>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `instance_exec'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `block in make_lambda'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `block in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `block in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:498:in `block (2 levels) in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `block (2 levels) in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:23:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:23:in `block (4 levels) in <module:Logging>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/notifications.rb:164:in `block in instrument'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/notifications.rb:164:in `instrument'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:22:in `block (3 levels) in <module:Logging>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:43:in `block in tag_logger'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/tagged_logging.rb:68:in `tagged'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:43:in `tag_logger'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:19:in `block (2 levels) in <module:Logging>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `instance_exec'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `block in make_lambda'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `block in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `block in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:778:in `_run_perform_callbacks'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/execution.rb:31:in `perform_now'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/execution.rb:21:in `execute'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/queue_adapters/sidekiq_adapter.rb:42:in `perform'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:152:in `execute_job'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:134:in `block (2 levels) in process'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:128:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/active_record.rb:6:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:130:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/retry_jobs.rb:74:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:130:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/logging.rb:11:in `block in call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/logging.rb:32:in `with_context'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/logging.rb:7:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:130:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:133:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:133:in `invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:129:in `block in process'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:168:in `stats'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:128:in `process'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:80:in `process_one'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:68:in `run'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/util.rb:17:in `watchdog'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/util.rb:25:in `block in safe_thread'
+2016-06-16T14:54:35.068Z 1921 TID-yn91s NotifyProsBySMSJob JID-91e18e1aab84606aece50e08 INFO: start
+2016-06-16T14:54:35.818Z 1921 TID-yn91s NotifyProsBySMSJob JID-91e18e1aab84606aece50e08 INFO: done: 0.75 sec
+2016-06-16T14:55:22.535Z 1921 TID-yn7l0 NotifyBookingOkBySMSJob JID-d8e8c786b496501c747c9d44 INFO: start
+2016-06-16T14:55:23.103Z 1921 TID-yn7l0 NotifyBookingOkBySMSJob JID-d8e8c786b496501c747c9d44 INFO: done: 0.568 sec
+2016-06-16T15:00:04.817Z 1921 TID-yn6c0 NotifyBookingOkBySMSJob JID-1bd04d02a49a55223061dc68 INFO: start
+2016-06-16T15:00:04.822Z 1921 TID-yn6c0 NotifyBookingOkBySMSJob JID-1bd04d02a49a55223061dc68 INFO: fail: 0.005 sec
+2016-06-16T15:00:04.822Z 1921 TID-yn6c0 WARN: {"class":"ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper","wrapped":"NotifyBookingOkBySMSJob","queue":"default","args":[{"job_class":"NotifyBookingOkBySMSJob","job_id":"f67d1c2c-3f4b-41e5-bd6a-622d8657078a","queue_name":"default","arguments":[18],"locale":"fr"}],"retry":true,"jid":"1bd04d02a49a55223061dc68","created_at":1466089204.8165996,"enqueued_at":1466089204.816665,"error_message":"undefined method `phone_number' for nil:NilClass","error_class":"NoMethodError","failed_at":1466089204.821322,"retry_count":0}
+2016-06-16T15:00:04.822Z 1921 TID-yn6c0 WARN: NoMethodError: undefined method `phone_number' for nil:NilClass
+2016-06-16T15:00:04.822Z 1921 TID-yn6c0 WARN: /home/depanologue/dev/depannologue/app/jobs/notify_booking_ok_by_s_m_s_job.rb:14:in `perform'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/execution.rb:32:in `block in perform_now'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:117:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:117:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:498:in `block (2 levels) in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `block (2 levels) in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/i18n-0.7.0/lib/i18n.rb:257:in `with_locale'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/translation.rb:7:in `block (2 levels) in <module:Translation>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `instance_exec'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `block in make_lambda'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `block in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `block in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:498:in `block (2 levels) in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:343:in `block (2 levels) in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:23:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:23:in `block (4 levels) in <module:Logging>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/notifications.rb:164:in `block in instrument'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/notifications.rb:164:in `instrument'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:22:in `block (3 levels) in <module:Logging>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:43:in `block in tag_logger'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/tagged_logging.rb:68:in `tagged'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:43:in `tag_logger'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/logging.rb:19:in `block (2 levels) in <module:Logging>'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `instance_exec'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:441:in `block in make_lambda'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:342:in `block in simple'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:497:in `block in around'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:505:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:778:in `_run_perform_callbacks'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activesupport-4.2.4/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/execution.rb:31:in `perform_now'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/execution.rb:21:in `execute'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/activejob-4.2.4/lib/active_job/queue_adapters/sidekiq_adapter.rb:42:in `perform'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:152:in `execute_job'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:134:in `block (2 levels) in process'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:128:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/active_record.rb:6:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:130:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/retry_jobs.rb:74:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:130:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/logging.rb:11:in `block in call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/logging.rb:32:in `with_context'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/server/logging.rb:7:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:130:in `block in invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:133:in `call'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/middleware/chain.rb:133:in `invoke'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:129:in `block in process'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:168:in `stats'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:128:in `process'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:80:in `process_one'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/processor.rb:68:in `run'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/util.rb:17:in `watchdog'
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/sidekiq-4.1.2/lib/sidekiq/util.rb:25:in `block in safe_thread'
+2016-06-16T15:00:05.366Z 1921 TID-otei0 NotifyProsBySMSJob JID-42281870c17a003996ccb769 INFO: start
+2016-06-16T15:00:06.309Z 1921 TID-otei0 NotifyProsBySMSJob JID-42281870c17a003996ccb769 INFO: done: 0.943 sec
+2016-06-16T15:00:47.161Z 1921 TID-otei0 NotifyBookingOkBySMSJob JID-1bd04d02a49a55223061dc68 INFO: start
+2016-06-16T15:00:48.495Z 1921 TID-otei0 NotifyBookingOkBySMSJob JID-1bd04d02a49a55223061dc68 INFO: done: 1.334 sec
+2016-06-16T15:02:28.153Z 1925 TID-47be4 INFO: Running in ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-linux]
+2016-06-16T15:02:28.153Z 1925 TID-47be4 INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2016-06-16T15:02:28.153Z 1925 TID-47be4 INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2016-06-16T15:02:28.153Z 1925 TID-47be4 INFO: Booting Sidekiq 4.1.2 with redis options {:url=>"redis://127.0.0.1:6379/0"}
+2016-06-16T15:02:28.155Z 1925 TID-47be4 INFO: Starting processing, hit Ctrl-C to stop
+2016-06-16T15:23:19.982Z 1771 TID-52e7c INFO: Running in ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-linux]
+2016-06-16T15:23:19.983Z 1771 TID-52e7c INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2016-06-16T15:23:19.983Z 1771 TID-52e7c INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2016-06-16T15:23:19.983Z 1771 TID-52e7c INFO: Booting Sidekiq 4.1.2 with redis options {:url=>"redis://127.0.0.1:6379/0"}
+2016-06-16T15:23:19.984Z 1771 TID-52e7c INFO: Starting processing, hit Ctrl-C to stop
+2016-06-16T15:52:01.429Z 2046 TID-29fmw INFO: Running in ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-linux]
+2016-06-16T15:52:01.430Z 2046 TID-29fmw INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2016-06-16T15:52:01.430Z 2046 TID-29fmw INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2016-06-16T15:52:01.430Z 2046 TID-29fmw INFO: Booting Sidekiq 4.1.2 with redis options {:url=>"redis://127.0.0.1:6379/0"}
+2016-06-16T15:52:01.431Z 2046 TID-29fmw INFO: Starting processing, hit Ctrl-C to stop

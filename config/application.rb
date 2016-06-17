@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Depannologue
   class Application < Rails::Application
-
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
