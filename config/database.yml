@@ -1,13 +1,15 @@
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: depannologue_dev
-  pool: 5
+host: localhost
+adapter: postgresql
+encoding: unicode
+database: depannologue_dev
+username: admin
+pool: 5
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: depannologue_production
-  username: <%= Rails.application.secrets[:database_username] %>
-  password: <%= Rails.application.secrets[:database_password] %>
-  pool: 5
+adapter: postgresql
+encoding: unicode
+database: depannologue_production
+username: <%= Rails.application.secrets[:database_username] %>
+password: <%= Rails.application.secrets[:database_password] %>
+pool: 5
