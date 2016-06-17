@@ -101,7 +101,7 @@ class Intervention < ActiveRecord::Base
       end
       success do # if persist successful
         begin
-          ClientMailer.notify_a_pro_will_happen(self).deliver_now
+          #ClientMailer.notify_a_pro_will_happen(self).deliver_now
           NotifyClientBySMSJob.perform_later(self.id)
         rescue
           puts "ERROR when notify client by email and SMS that pro will happen."

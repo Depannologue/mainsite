@@ -7,10 +7,12 @@ class NotifyClientBySMSJob < ActiveJob::Base
     intervention = Intervention.find intervention_id
     to_phone_number = intervention.address.phone_number
 
-    twilio_client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+
     client_url = client_intervention_url(intervention, intervention_client_token_ownership: intervention.client_token_ownership, domain: Rails.application.secrets.host, host: Rails.application.secrets.host, subdomain: 'www')
     body = "Demande d'intervention acceptée, voir la fiche d'intervention: #{client_url}"
+
     NotifyBySMSService.new.perform(to_phone_number, body)
+
 
   end
 end

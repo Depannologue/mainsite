@@ -1,0 +1,609 @@
+/home/depanologue/.rvm/gems/ruby-2.2.0/gems/clockwork-1.2.0/bin/clockwork:12:in `require': cannot load such file -- ./-e (LoadError)
+	from /home/depanologue/.rvm/gems/ruby-2.2.0/gems/clockwork-1.2.0/bin/clockwork:12:in `<top (required)>'
+	from /home/depanologue/.rvm/gems/ruby-2.2.0/bin/clockwork:23:in `load'
+	from /home/depanologue/.rvm/gems/ruby-2.2.0/bin/clockwork:23:in `<main>'
+	from /home/depanologue/.rvm/gems/ruby-2.2.0/bin/ruby_executable_hooks:15:in `eval'
+	from /home/depanologue/.rvm/gems/ruby-2.2.0/bin/ruby_executable_hooks:15:in `<main>'
+clockwork <clock.rb>
+I, [2016-06-16T17:48:35.146978 #24847]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-16T17:48:35.147053 #24847]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 17:48:35 +0200
+I, [2016-06-16T17:49:35.001279 #24847]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 17:49:35 +0200
+I, [2016-06-16T17:50:35.001348 #24847]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 17:50:35 +0200
+I, [2016-06-16T17:57:20.993036 #7382]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-16T17:57:21.002009 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 17:57:21 +0200
+I, [2016-06-16T17:58:21.001300 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 17:58:21 +0200
+I, [2016-06-16T17:59:21.001290 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 17:59:21 +0200
+I, [2016-06-16T18:00:21.001227 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:00:21 +0200
+I, [2016-06-16T18:01:21.001350 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:01:21 +0200
+I, [2016-06-16T18:02:21.001213 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:02:21 +0200
+I, [2016-06-16T18:03:21.001297 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:03:21 +0200
+I, [2016-06-16T18:04:21.001196 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:04:21 +0200
+I, [2016-06-16T18:05:21.001221 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:05:21 +0200
+I, [2016-06-16T18:06:21.001334 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:06:21 +0200
+I, [2016-06-16T18:07:21.001241 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:07:21 +0200
+I, [2016-06-16T18:08:21.001272 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:08:21 +0200
+I, [2016-06-16T18:09:21.001266 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:09:21 +0200
+I, [2016-06-16T18:10:21.001271 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:10:21 +0200
+I, [2016-06-16T18:10:45.928919 #19076]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-16T18:10:45.928991 #19076]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:10:45 +0200
+I, [2016-06-16T18:11:21.001260 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:11:21 +0200
+I, [2016-06-16T18:11:45.001417 #19076]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:11:45 +0200
+I, [2016-06-16T18:12:21.001300 #7382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-16 18:12:21 +0200
+I, [2016-06-17T11:54:49.806455 #4382]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-17T11:54:49.815559 #4382]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 11:54:49 +0200
+I, [2016-06-17T12:07:35.066069 #956]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-17T12:07:35.066335 #956]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:07:35 +0200
+I, [2016-06-17T12:08:35.001197 #956]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:08:35 +0200
+I, [2016-06-17T12:09:08.374139 #960]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-17T12:09:08.374662 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:09:08 +0200
+I, [2016-06-17T12:10:08.001199 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:10:08 +0200
+I, [2016-06-17T12:11:08.001289 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:11:08 +0200
+I, [2016-06-17T12:12:08.001249 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:12:08 +0200
+I, [2016-06-17T12:13:08.001189 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:13:08 +0200
+I, [2016-06-17T12:14:08.001277 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:14:08 +0200
+I, [2016-06-17T12:15:08.001336 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:15:08 +0200
+I, [2016-06-17T12:16:08.001302 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:16:08 +0200
+I, [2016-06-17T12:17:08.001346 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:17:08 +0200
+I, [2016-06-17T12:18:08.001203 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:18:08 +0200
+I, [2016-06-17T12:19:08.001257 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:19:08 +0200
+I, [2016-06-17T12:20:08.001414 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:20:08 +0200
+I, [2016-06-17T12:21:08.001261 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:21:08 +0200
+I, [2016-06-17T12:22:08.001353 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:22:08 +0200
+I, [2016-06-17T12:23:08.001176 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:23:08 +0200
+I, [2016-06-17T12:24:08.001278 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:24:08 +0200
+I, [2016-06-17T12:25:08.001295 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:25:08 +0200
+I, [2016-06-17T12:26:08.001271 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:26:08 +0200
+I, [2016-06-17T12:27:08.001219 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:27:08 +0200
+I, [2016-06-17T12:28:08.001257 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:28:08 +0200
+I, [2016-06-17T12:29:08.001248 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:29:08 +0200
+I, [2016-06-17T12:30:08.001300 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:30:08 +0200
+I, [2016-06-17T12:31:08.001155 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:31:08 +0200
+I, [2016-06-17T12:32:08.001351 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:32:08 +0200
+I, [2016-06-17T12:33:08.001216 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:33:08 +0200
+I, [2016-06-17T12:34:08.001255 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:34:08 +0200
+I, [2016-06-17T12:35:08.001334 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:35:08 +0200
+I, [2016-06-17T12:36:08.001255 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:36:08 +0200
+I, [2016-06-17T12:37:08.001255 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:37:08 +0200
+I, [2016-06-17T12:38:08.001225 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:38:08 +0200
+I, [2016-06-17T12:39:08.001352 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:39:08 +0200
+I, [2016-06-17T12:40:08.001216 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:40:08 +0200
+I, [2016-06-17T12:41:08.001290 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:41:08 +0200
+I, [2016-06-17T12:42:08.001348 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:42:08 +0200
+I, [2016-06-17T12:43:08.001352 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:43:08 +0200
+I, [2016-06-17T12:44:08.001330 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:44:08 +0200
+I, [2016-06-17T12:45:08.001346 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:45:08 +0200
+I, [2016-06-17T12:46:08.001343 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:46:08 +0200
+I, [2016-06-17T12:47:08.001345 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:47:08 +0200
+I, [2016-06-17T12:48:08.001344 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:48:08 +0200
+I, [2016-06-17T12:49:08.001348 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:49:08 +0200
+I, [2016-06-17T12:50:08.001353 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:50:08 +0200
+I, [2016-06-17T12:51:08.001313 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:51:08 +0200
+I, [2016-06-17T12:52:08.001237 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:52:08 +0200
+I, [2016-06-17T12:53:08.001170 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:53:08 +0200
+I, [2016-06-17T12:54:08.001228 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:54:08 +0200
+I, [2016-06-17T12:55:08.001261 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:55:08 +0200
+I, [2016-06-17T12:56:08.001351 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:56:08 +0200
+I, [2016-06-17T12:57:08.001250 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:57:08 +0200
+I, [2016-06-17T12:58:08.001184 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:58:08 +0200
+I, [2016-06-17T12:59:08.001211 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 12:59:08 +0200
+I, [2016-06-17T13:00:08.001259 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:00:08 +0200
+I, [2016-06-17T13:01:08.001258 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:01:08 +0200
+I, [2016-06-17T13:02:08.001344 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:02:08 +0200
+I, [2016-06-17T13:03:08.001248 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:03:08 +0200
+I, [2016-06-17T13:04:08.001248 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:04:08 +0200
+I, [2016-06-17T13:05:08.001247 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:05:08 +0200
+I, [2016-06-17T13:06:08.001231 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:06:08 +0200
+I, [2016-06-17T13:07:08.001333 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:07:08 +0200
+I, [2016-06-17T13:08:08.001192 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:08:08 +0200
+I, [2016-06-17T13:09:08.001334 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:09:08 +0200
+I, [2016-06-17T13:10:08.001246 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:10:08 +0200
+I, [2016-06-17T13:11:08.001341 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:11:08 +0200
+I, [2016-06-17T13:12:08.001264 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:12:08 +0200
+I, [2016-06-17T13:13:08.001309 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:13:08 +0200
+I, [2016-06-17T13:14:08.001258 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:14:08 +0200
+I, [2016-06-17T13:15:08.001259 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:15:08 +0200
+I, [2016-06-17T13:16:08.001326 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:16:08 +0200
+I, [2016-06-17T13:17:08.001249 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:17:08 +0200
+I, [2016-06-17T13:18:08.001335 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:18:08 +0200
+I, [2016-06-17T13:19:08.002131 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:19:08 +0200
+I, [2016-06-17T13:20:08.001249 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:20:08 +0200
+I, [2016-06-17T13:21:08.001280 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:21:08 +0200
+I, [2016-06-17T13:22:08.001345 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:22:08 +0200
+I, [2016-06-17T13:23:08.001181 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:23:08 +0200
+I, [2016-06-17T13:24:08.001277 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:24:08 +0200
+I, [2016-06-17T13:25:08.001292 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:25:08 +0200
+I, [2016-06-17T13:26:08.001250 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:26:08 +0200
+I, [2016-06-17T13:27:08.001346 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:27:08 +0200
+I, [2016-06-17T13:28:08.001352 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:28:08 +0200
+I, [2016-06-17T13:29:08.001275 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:29:08 +0200
+I, [2016-06-17T13:30:08.001270 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:30:08 +0200
+I, [2016-06-17T13:31:08.001268 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:31:08 +0200
+I, [2016-06-17T13:32:08.001345 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:32:08 +0200
+I, [2016-06-17T13:33:08.001299 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:33:08 +0200
+I, [2016-06-17T13:34:08.001362 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:34:08 +0200
+I, [2016-06-17T13:35:08.001341 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:35:08 +0200
+I, [2016-06-17T13:36:08.001272 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:36:08 +0200
+I, [2016-06-17T13:37:08.001345 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:37:08 +0200
+I, [2016-06-17T13:38:08.001247 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:38:08 +0200
+I, [2016-06-17T13:39:08.001303 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:39:08 +0200
+I, [2016-06-17T13:40:08.001310 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:40:08 +0200
+I, [2016-06-17T13:41:08.001261 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:41:08 +0200
+I, [2016-06-17T13:42:08.001310 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:42:08 +0200
+I, [2016-06-17T13:43:08.001304 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:43:08 +0200
+I, [2016-06-17T13:44:08.001337 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:44:08 +0200
+I, [2016-06-17T13:45:08.001340 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:45:08 +0200
+I, [2016-06-17T13:46:08.001309 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:46:08 +0200
+I, [2016-06-17T13:47:08.001347 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:47:08 +0200
+I, [2016-06-17T13:48:08.001347 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:48:08 +0200
+I, [2016-06-17T13:49:08.001326 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:49:08 +0200
+I, [2016-06-17T13:50:08.001285 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:50:08 +0200
+I, [2016-06-17T13:51:08.001264 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:51:08 +0200
+I, [2016-06-17T13:52:08.001257 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:52:08 +0200
+I, [2016-06-17T13:53:08.001362 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:53:08 +0200
+I, [2016-06-17T13:54:08.001341 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:54:08 +0200
+I, [2016-06-17T13:55:08.001257 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:55:08 +0200
+I, [2016-06-17T13:56:08.001324 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:56:08 +0200
+I, [2016-06-17T13:57:08.001320 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:57:08 +0200
+I, [2016-06-17T13:58:08.001341 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:58:08 +0200
+I, [2016-06-17T13:59:08.001245 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 13:59:08 +0200
+I, [2016-06-17T14:00:08.001309 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:00:08 +0200
+I, [2016-06-17T14:01:08.001340 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:01:08 +0200
+I, [2016-06-17T14:02:08.001330 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:02:08 +0200
+I, [2016-06-17T14:03:08.001253 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:03:08 +0200
+I, [2016-06-17T14:04:08.001174 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:04:08 +0200
+I, [2016-06-17T14:05:08.001252 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:05:08 +0200
+I, [2016-06-17T14:06:08.001193 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:06:08 +0200
+I, [2016-06-17T14:07:08.001255 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:07:08 +0200
+I, [2016-06-17T14:08:08.001343 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:08:08 +0200
+I, [2016-06-17T14:09:08.001263 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:09:08 +0200
+I, [2016-06-17T14:10:08.001353 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:10:08 +0200
+I, [2016-06-17T14:11:08.001349 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:11:08 +0200
+I, [2016-06-17T14:12:08.001330 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:12:08 +0200
+I, [2016-06-17T14:13:08.001346 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:13:08 +0200
+I, [2016-06-17T14:14:08.001268 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:14:08 +0200
+I, [2016-06-17T14:15:08.001284 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:15:08 +0200
+I, [2016-06-17T14:16:08.001379 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:16:08 +0200
+I, [2016-06-17T14:17:08.001257 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:17:08 +0200
+I, [2016-06-17T14:18:08.001181 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:18:08 +0200
+I, [2016-06-17T14:19:08.001328 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:19:08 +0200
+I, [2016-06-17T14:20:08.001325 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:20:08 +0200
+I, [2016-06-17T14:21:08.001234 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:21:08 +0200
+I, [2016-06-17T14:22:08.001250 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:22:08 +0200
+I, [2016-06-17T14:23:08.001256 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:23:08 +0200
+I, [2016-06-17T14:24:08.001271 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:24:08 +0200
+I, [2016-06-17T14:25:08.001253 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:25:08 +0200
+I, [2016-06-17T14:26:08.001271 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:26:08 +0200
+I, [2016-06-17T14:27:08.001269 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:27:08 +0200
+I, [2016-06-17T14:28:08.001181 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:28:08 +0200
+I, [2016-06-17T14:29:08.001327 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:29:08 +0200
+I, [2016-06-17T14:30:08.001245 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:30:08 +0200
+I, [2016-06-17T14:31:08.001325 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:31:08 +0200
+I, [2016-06-17T14:32:08.001209 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:32:08 +0200
+I, [2016-06-17T14:33:08.001213 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:33:08 +0200
+I, [2016-06-17T14:34:08.001253 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:34:08 +0200
+I, [2016-06-17T14:35:08.001219 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:35:08 +0200
+I, [2016-06-17T14:36:08.001171 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:36:08 +0200
+I, [2016-06-17T14:37:08.001308 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:37:08 +0200
+I, [2016-06-17T14:38:08.001250 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:38:08 +0200
+I, [2016-06-17T14:39:08.001348 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:39:08 +0200
+I, [2016-06-17T14:40:08.001216 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:40:08 +0200
+I, [2016-06-17T14:41:08.001223 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:41:08 +0200
+I, [2016-06-17T14:42:08.001228 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:42:08 +0200
+I, [2016-06-17T14:43:08.001384 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:43:08 +0200
+I, [2016-06-17T14:44:08.001259 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:44:08 +0200
+I, [2016-06-17T14:45:08.001449 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:45:08 +0200
+I, [2016-06-17T14:46:08.001266 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:46:08 +0200
+I, [2016-06-17T14:47:08.001371 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:47:08 +0200
+I, [2016-06-17T14:48:08.001218 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:48:08 +0200
+I, [2016-06-17T14:49:08.001228 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:49:08 +0200
+I, [2016-06-17T14:50:08.001203 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:50:08 +0200
+I, [2016-06-17T14:51:08.001251 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:51:08 +0200
+I, [2016-06-17T14:52:08.001336 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:52:08 +0200
+I, [2016-06-17T14:53:08.001264 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:53:08 +0200
+I, [2016-06-17T14:54:08.001187 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:54:08 +0200
+I, [2016-06-17T14:55:08.001166 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:55:08 +0200
+I, [2016-06-17T14:56:08.001267 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:56:08 +0200
+I, [2016-06-17T14:57:08.001323 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:57:08 +0200
+I, [2016-06-17T14:58:08.001243 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:58:08 +0200
+I, [2016-06-17T14:59:08.001199 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 14:59:08 +0200
+I, [2016-06-17T15:00:08.001251 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:00:08 +0200
+I, [2016-06-17T15:01:08.001337 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:01:08 +0200
+I, [2016-06-17T15:02:08.001195 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:02:08 +0200
+I, [2016-06-17T15:03:08.001347 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:03:08 +0200
+I, [2016-06-17T15:04:08.001206 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:04:08 +0200
+I, [2016-06-17T15:05:08.001249 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:05:08 +0200
+I, [2016-06-17T15:06:08.001201 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:06:08 +0200
+I, [2016-06-17T15:07:08.001371 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:07:08 +0200
+I, [2016-06-17T15:08:08.001191 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:08:08 +0200
+I, [2016-06-17T15:09:08.001173 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:09:08 +0200
+I, [2016-06-17T15:10:08.001182 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:10:08 +0200
+I, [2016-06-17T15:11:08.001275 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:11:08 +0200
+I, [2016-06-17T15:12:08.001276 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:12:08 +0200
+I, [2016-06-17T15:13:08.001203 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:13:08 +0200
+I, [2016-06-17T15:14:08.001302 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:14:08 +0200
+I, [2016-06-17T15:15:08.001252 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:15:08 +0200
+I, [2016-06-17T15:16:08.001250 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:16:08 +0200
+I, [2016-06-17T15:17:08.001265 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:17:08 +0200
+I, [2016-06-17T15:18:08.001315 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:18:08 +0200
+I, [2016-06-17T15:19:08.001258 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:19:08 +0200
+I, [2016-06-17T15:20:08.001277 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:20:08 +0200
+I, [2016-06-17T15:21:08.001173 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:21:08 +0200
+I, [2016-06-17T15:22:08.001227 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:22:08 +0200
+I, [2016-06-17T15:23:08.001186 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:23:08 +0200
+I, [2016-06-17T15:24:08.001163 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:24:08 +0200
+I, [2016-06-17T15:25:08.001210 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:25:08 +0200
+I, [2016-06-17T15:26:08.001220 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:26:08 +0200
+I, [2016-06-17T15:27:08.001225 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:27:08 +0200
+I, [2016-06-17T15:28:08.001260 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:28:08 +0200
+I, [2016-06-17T15:29:08.001191 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:29:08 +0200
+I, [2016-06-17T15:30:08.001201 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:30:08 +0200
+I, [2016-06-17T15:31:08.001333 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:31:08 +0200
+I, [2016-06-17T15:32:08.001211 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:32:08 +0200
+I, [2016-06-17T15:33:08.001198 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:33:08 +0200
+I, [2016-06-17T15:34:08.001314 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:34:08 +0200
+I, [2016-06-17T15:35:08.001187 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:35:08 +0200
+I, [2016-06-17T15:36:08.001218 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:36:08 +0200
+I, [2016-06-17T15:37:08.001301 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:37:08 +0200
+I, [2016-06-17T15:38:08.001259 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:38:08 +0200
+I, [2016-06-17T15:39:08.001265 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:39:08 +0200
+I, [2016-06-17T15:40:08.001295 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:40:08 +0200
+I, [2016-06-17T15:41:08.001263 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:41:08 +0200
+I, [2016-06-17T15:42:08.001350 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:42:08 +0200
+I, [2016-06-17T15:43:08.001258 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:43:08 +0200
+I, [2016-06-17T15:44:08.001183 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:44:08 +0200
+I, [2016-06-17T15:45:08.001262 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:45:08 +0200
+I, [2016-06-17T15:46:08.001218 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:46:08 +0200
+I, [2016-06-17T15:47:08.001212 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:47:08 +0200
+I, [2016-06-17T15:48:08.001327 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:48:08 +0200
+I, [2016-06-17T15:49:08.001257 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:49:08 +0200
+I, [2016-06-17T15:50:08.001199 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:50:08 +0200
+I, [2016-06-17T15:51:08.001286 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:51:08 +0200
+I, [2016-06-17T15:52:08.001293 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:52:08 +0200
+I, [2016-06-17T15:53:08.001253 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:53:08 +0200
+I, [2016-06-17T15:54:08.001252 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:54:08 +0200
+I, [2016-06-17T15:55:08.001297 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:55:08 +0200
+I, [2016-06-17T15:56:08.001291 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:56:08 +0200
+I, [2016-06-17T15:57:08.001184 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:57:08 +0200
+I, [2016-06-17T15:58:08.001313 #960]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:58:08 +0200
+I, [2016-06-17T15:58:35.535075 #990]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-17T15:58:35.537794 #990]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:58:35 +0200
+I, [2016-06-17T15:59:35.001206 #990]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 15:59:35 +0200
+I, [2016-06-17T16:02:19.202132 #986]  INFO -- : Starting clock for 2 events: [ test.time interventions.auto_close_all ]
+I, [2016-06-17T16:02:19.202936 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:02:19 +0200
+I, [2016-06-17T16:03:19.001179 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:03:19 +0200
+I, [2016-06-17T16:04:19.001286 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:04:19 +0200
+I, [2016-06-17T16:05:19.001210 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:05:19 +0200
+I, [2016-06-17T16:06:19.001293 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:06:19 +0200
+I, [2016-06-17T16:07:19.001207 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:07:19 +0200
+I, [2016-06-17T16:08:19.001178 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:08:19 +0200
+I, [2016-06-17T16:09:19.001270 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:09:19 +0200
+I, [2016-06-17T16:10:19.001361 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:10:19 +0200
+I, [2016-06-17T16:11:19.001316 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:11:19 +0200
+I, [2016-06-17T16:12:19.001349 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:12:19 +0200
+I, [2016-06-17T16:13:19.001338 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:13:19 +0200
+I, [2016-06-17T16:14:19.001311 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:14:19 +0200
+I, [2016-06-17T16:15:19.001333 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:15:19 +0200
+I, [2016-06-17T16:16:19.001263 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:16:19 +0200
+I, [2016-06-17T16:17:19.001274 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:17:19 +0200
+I, [2016-06-17T16:18:19.001255 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:18:19 +0200
+I, [2016-06-17T16:19:19.001342 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:19:19 +0200
+I, [2016-06-17T16:20:19.001202 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:20:19 +0200
+I, [2016-06-17T16:21:19.001342 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:21:19 +0200
+I, [2016-06-17T16:22:19.001257 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:22:19 +0200
+I, [2016-06-17T16:23:19.001344 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:23:19 +0200
+I, [2016-06-17T16:24:19.001209 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:24:19 +0200
+I, [2016-06-17T16:25:19.001254 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:25:19 +0200
+I, [2016-06-17T16:26:19.001275 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:26:19 +0200
+I, [2016-06-17T16:27:19.001209 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:27:19 +0200
+I, [2016-06-17T16:28:19.001217 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:28:19 +0200
+I, [2016-06-17T16:29:19.001260 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:29:19 +0200
+I, [2016-06-17T16:30:19.001281 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:30:19 +0200
+I, [2016-06-17T16:31:19.001258 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:31:19 +0200
+I, [2016-06-17T16:32:19.001185 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:32:19 +0200
+I, [2016-06-17T16:33:19.001241 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:33:19 +0200
+I, [2016-06-17T16:34:19.001251 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:34:19 +0200
+I, [2016-06-17T16:35:19.001256 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:35:19 +0200
+I, [2016-06-17T16:36:19.001241 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:36:19 +0200
+I, [2016-06-17T16:37:19.001222 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:37:19 +0200
+I, [2016-06-17T16:38:19.001247 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:38:19 +0200
+I, [2016-06-17T16:39:19.001174 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:39:19 +0200
+I, [2016-06-17T16:40:19.001276 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:40:19 +0200
+I, [2016-06-17T16:41:19.001262 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:41:19 +0200
+I, [2016-06-17T16:42:19.001214 #986]  INFO -- : Triggering 'test.time'
+Time is 2016-06-17 16:42:19 +0200
