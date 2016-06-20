@@ -1,8 +1,11 @@
 development:
+  host: localhost
   adapter: postgresql
   encoding: unicode
   database: depannologue_dev
+  username: admin
   pool: 5
+
 
 production:
   adapter: postgresql

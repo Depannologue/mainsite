@@ -8,9 +8,30 @@
 
 User.create(
   email: "admin@depannologue.fr",
-  password: "admin_depannologue_fr",
+  password: "password",
   role: "admin"
 )
+
+InterventionType.create(
+  id: 1,
+  kind: "closed_door",
+  short_description: "Porte claquée non verrouillée",
+  price: 200,
+  created_at: "2016-01-14 15:31:51",
+  updated_at: "2016-05-11 12:47:21",
+  description: ""
+)
+
+InterventionType.create(
+  id: 2,
+  kind: "locked_door",
+  short_description: "Porte fermée à clé",
+  price: 100,
+  created_at: "2016-01-14 15:32:18",
+  updated_at: "2016-03-23 08:04:27",
+  description: nil
+)
+
 if !Rails.env.production?
   User.create(
     email: "pro+1@depannologue.fr",

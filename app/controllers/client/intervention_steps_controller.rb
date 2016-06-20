@@ -41,7 +41,7 @@ class Client::InterventionStepsController < ApplicationController
       jump_to previous_step if current_intervention.address.nil?
       if current_intervention.address.present?
         unless ZipCode.managed? current_intervention.address.zipcode
-          jump_to previous_step 
+          jump_to previous_step
           flash[:error] = I18n.t('intervention_steps.errors.zipcode_not_supported')
         end
         current_intervention.build_customer unless current_intervention.customer.present?
@@ -101,7 +101,7 @@ class Client::InterventionStepsController < ApplicationController
       if current_intervention.pending_pro_validation?
         jump_to next_step
         pros = current_intervention.pros_now_available_and_nearby
-        
+
         if pros.empty?
           begin
             AdminMailer.none_available_pro(current_intervention).deliver_now
@@ -114,7 +114,7 @@ class Client::InterventionStepsController < ApplicationController
               ProMailer.notify_intervention_created(pro, current_intervention).deliver_now
             end
 
-            NotifyProsBySMSJob.perform_later(current_intervention.id)
+            NotifyProsBySMSJob.perform_later(current_intervention)
           rescue
             puts 'ERROR when notify pros by email and SMS.'
           end
