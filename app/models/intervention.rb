@@ -80,10 +80,10 @@ class Intervention < ActiveRecord::Base
       end
       success do # if persist successful
         begin
-          ClientMailer.confirm_booking(self).deliver_now
+          ClientMailer.confirm_booking(self).deliver_later
           client = self.customer
           client.invite! if client.encrypted_password.blank?
-          NotifyBookingOkBySMSJob.perform_later(self.id)
+          NotifyBookingOkBySMSJob.perform_later(self)
         rescue
           puts "ERROR when invite this client to register."
         end
@@ -101,8 +101,7 @@ class Intervention < ActiveRecord::Base
       end
       success do # if persist successful
         begin
-          #ClientMailer.notify_a_pro_will_happen(self).deliver_now
-          NotifyClientBySMSJob.perform_later(self.id)
+          NotifyClientBySMSJob.perform_later(self)
         rescue
           puts "ERROR when notify client by email and SMS that pro will happen."
         end
