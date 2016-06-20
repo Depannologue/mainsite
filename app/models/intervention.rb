@@ -79,14 +79,10 @@ class Intervention < ActiveRecord::Base
         self.payment_method = payment_method
       end
       success do # if persist successful
-        begin
           ClientMailer.confirm_booking(self).deliver_later
           client = self.customer
           client.invite! if client.encrypted_password.blank?
           NotifyBookingOkBySMSJob.perform_later(self)
-        rescue
-          puts "ERROR when invite this client to register."
-        end
       end
 
       transitions from:  :pending,
@@ -100,11 +96,7 @@ class Intervention < ActiveRecord::Base
         self.assigned_at = Time.now
       end
       success do # if persist successful
-        begin
           NotifyClientBySMSJob.perform_later(self)
-        rescue
-          puts "ERROR when notify client by email and SMS that pro will happen."
-        end
       end
 
       transitions from:  :pending_pro_validation,

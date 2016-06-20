@@ -69,5 +69,5 @@ group :development, :test do
   gem 'binding_of_caller'     # extra features for better_errors
   gem 'meta_request'          # for rails_panel chrome extension
   gem "pry-rails"
-
+  gem "pry-byebug"
 end

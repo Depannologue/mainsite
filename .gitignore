@@ -16,8 +16,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
-/tmp
-dump.rdb
+./tmp
+./dump.rdb
+/depannologue.pid
 # Ignore application configuration
 /config/application.yml
 .env
