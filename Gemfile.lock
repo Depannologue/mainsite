@@ -217,6 +217,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.2.0)
+      byebug (~> 5.0)
+      pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     quiet_assets (1.1.0)
@@ -423,6 +426,7 @@ DEPENDENCIES
   pessimize (~> 0.1)
   pg
   phony_rails
+  pry-byebug
   pry-rails
   quiet_assets (~> 1.1)
   rails (= 4.2.4)

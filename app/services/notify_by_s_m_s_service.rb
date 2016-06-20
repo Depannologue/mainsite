@@ -1,7 +1,7 @@
 class NotifyBySMSService
-  def self.perform(to, message){
+  def self.perform(to, message)
     new.perform(to, message)
-  }
+  end
 
   def perform(to, message)
     twilio_client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
