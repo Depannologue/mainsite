@@ -16,7 +16,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
-/tmp
+/tmp/*
 /dump.rdb
 /depannologue.pid
 # Ignore application configuration
