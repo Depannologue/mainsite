@@ -1,5 +1,4 @@
 class Client::InterventionsController < ApplicationController
-  authorize_resource :Intervention
   include Client::AbilityConcern
   layout 'client/application'
 
