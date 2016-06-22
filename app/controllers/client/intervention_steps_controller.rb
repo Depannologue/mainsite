@@ -1,7 +1,8 @@
 class Client::InterventionStepsController < ApplicationController
   include Client::AbilityConcern
   include Wicked::Wizard
-  require 'notify_pros_by_s_m_s_job'
+  #require 'notify_pros_by_s_m_s_service'
+  require 'notify_by_s_m_s_job'
   layout 'client/application'
 
   helper_method :current_intervention
@@ -113,8 +114,7 @@ class Client::InterventionStepsController < ApplicationController
             pros.each do |pro|
               ProMailer.notify_intervention_created(pro, current_intervention).deliver_now
             end
-
-            NotifyProsBySMSJob.perform_later(current_intervention)
+            NotifyProsBySMSService.perform(current_intervention)
           rescue
             puts 'ERROR when notify pros by email and SMS.'
           end

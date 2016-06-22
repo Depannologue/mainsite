@@ -21,9 +21,9 @@
 class Intervention < ActiveRecord::Base
   extend Enumerize
   include AASM
-  require 'notify_booking_ok_by_s_m_s_job'
-  require 'notify_client_by_s_m_s_job'
-
+  require 'notify_booking_ok_by_s_m_s_service'
+  require 'notify_client_by_s_m_s_service'
+  require 'notify_by_s_m_s_job'
   RATINGS = %w(
     a
     b
@@ -82,7 +82,7 @@ class Intervention < ActiveRecord::Base
           ClientMailer.confirm_booking(self).deliver_later
           client = self.customer
           client.invite! if client.encrypted_password.blank?
-          NotifyBookingOkBySMSJob.perform_later(self)
+          NotifyBookingOkBySMSService.perform(self)
       end
 
       transitions from:  :pending,
@@ -96,7 +96,7 @@ class Intervention < ActiveRecord::Base
         self.assigned_at = Time.now
       end
       success do # if persist successful
-          NotifyClientBySMSJob.perform_later(self)
+        NotifyClientBySMSService.perform(self)
       end
 
       transitions from:  :pending_pro_validation,

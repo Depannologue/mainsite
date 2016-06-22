@@ -70,4 +70,6 @@ group :development, :test do
   gem 'meta_request'          # for rails_panel chrome extension
   gem "pry-rails"
   gem "pry-byebug"
+
+
 end

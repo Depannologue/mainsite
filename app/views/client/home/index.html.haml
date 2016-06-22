@@ -1,6 +1,5 @@
 - content_for :title do
 	Dépannage Serrurier Paris Lyon Lille Porte claque ou fermée 7/24
-
 - content_for :extra_head do
 	= tag :meta, name: "description", content: "Serrurier sur Paris,Lyon et Lille pour une ouverture de porte claquée ou fermée"
 	%meta{:content => "Ne restez plus enfermé dehors ! Depannologue, dépanneur serrurier !", :property => "og:title"}/
@@ -21,10 +20,27 @@
 	%meta{:content => "543890775761560", :property => "fb:page_id"}/
 	%meta{:content => "Depannologue", :property => "og:site_name"}/
 	%meta{:content => "website", :property => "og:type"}/
-
 #home
-
 	%section.head
+
+		:javascript
+			window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+			d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+			_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+			$.src="//v2.zopim.com/?3vSmejwThAJ6UyQQ4otuJQXkk7XLiblu";z.t=+new Date;$.
+			type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+		:javascript
+			(function(h,o,t,j,a,r){
+					h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+					h._hjSettings={hjid:235454,hjsv:5};
+					a=o.getElementsByTagName('head')[0];
+					r=o.createElement('script');r.async=1;
+					r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+					a.appendChild(r);
+			})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+
+
+
 		.text
 			.title
 				%h3 Besoin d'un dépannage en serrurerie ?

@@ -31,4 +31,9 @@ class ApplicationController < ActionController::Base
       "client/application"
     end
   end
+
+  # in ApplicationController
+  # in ApplicationController
+  # in ApplicationController
+
 end

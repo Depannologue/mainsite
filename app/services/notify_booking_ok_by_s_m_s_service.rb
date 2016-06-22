@@ -1,12 +1,15 @@
-class NotifyBookingOkBySMSJob < ActiveJob::Base
-  queue_as :default
+class NotifyBookingOkBySMSService
   include Rails.application.routes.url_helpers
+
+  def self.perform(intervention)
+    new.perform(intervention)
+  end
 
   def perform(intervention)
     logger.info "NotifyBookingOkBySMSJob.perform for intervention_id=#{intervention.id}"
     client = intervention.customer
-    phone_number = client.phone_number
+    to = client.phone_number
     message = "Votre demande d'intervention a bien été prise en compte et est en cours de traitement."
-    NotifyBySMSService.perform(phone_number, message)
+    NotifyBySMSJob.perform_later(to, message)
   end
 end
