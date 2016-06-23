@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
-
+set :branch, ENV['master_fix'] if ENV['master_fix']
 set :application, 'depannologue'
 set :repo_url, 'git@github.com:Depannologue/mainsite.git'
 
