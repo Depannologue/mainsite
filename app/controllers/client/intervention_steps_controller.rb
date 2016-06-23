@@ -1,6 +1,7 @@
 class Client::InterventionStepsController < ApplicationController
   include Client::AbilityConcern
   include Wicked::Wizard
+  require 'notify_pros_by_s_m_s_service'
   layout 'client/application'
 
   helper_method :current_intervention
@@ -94,13 +95,13 @@ class Client::InterventionStepsController < ApplicationController
         end
 
       rescue => e
-        Rails.logger.warn "Error: #{e.inspect}"
+        raise e.message.inspect
+        #Rails.logger.warn "Error: #{e.inspect}"
       end
 
       if current_intervention.pending_pro_validation?
         jump_to next_step
         pros = current_intervention.pros_now_available_and_nearby
-
         if pros.empty?
           begin
             AdminMailer.none_available_pro(current_intervention).deliver_now
@@ -108,16 +109,15 @@ class Client::InterventionStepsController < ApplicationController
             puts 'ERROR when notify admin.'
           end
         else
-          begin
+          #begin
             pros.each do |pro|
               ProMailer.notify_intervention_created(pro, current_intervention).deliver_now
             end
-            
-                NotifyProsBySMSService.perform(current_intervention)
+            NotifyProsBySMSService.perform(current_intervention)
 
-          rescue
-            puts 'ERROR when notify pros by email and SMS.'
-          end
+          #rescue
+            #puts 'ERROR when notify pros by email and SMS.'
+          #end
         end
       else
         @pros_now_available_and_nearby = current_intervention.pros_now_available_and_nearby

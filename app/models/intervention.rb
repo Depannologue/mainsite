@@ -77,13 +77,12 @@ class Intervention < ActiveRecord::Base
       before do |payment_method|
         self.payment_method = payment_method
       end
+
       success do # if persist successful
           ClientMailer.confirm_booking(self).deliver_later
           client = self.customer
           client.invite! if client.encrypted_password.blank?
           NotifyBookingOkBySMSService.perform(self)
-
-
       end
 
       transitions from:  :pending,

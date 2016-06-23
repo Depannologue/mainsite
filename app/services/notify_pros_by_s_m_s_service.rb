@@ -1,10 +1,11 @@
 class NotifyProsBySMSService
   include Rails.application.routes.url_helpers
-  def initialize(interventions)
-    @intervention = intervention
+  require 'notify_by_s_m_s_job'
+  def self.perform(intervention)
+    new.perform(intervention)
   end
 
-  def perform
+  def perform(intervention)
     #logger.info "NotifyProsBySMSJob.perform for intervention_id=#{intervention.id}"
     pros_available = intervention.pros_now_available_and_nearby
     if pros_available
