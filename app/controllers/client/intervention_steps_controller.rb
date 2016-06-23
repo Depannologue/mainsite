@@ -112,8 +112,9 @@ class Client::InterventionStepsController < ApplicationController
             pros.each do |pro|
               ProMailer.notify_intervention_created(pro, current_intervention).deliver_now
             end
+            
+                NotifyProsBySMSService.perform(current_intervention)
 
-            NotifyProsBySMSService.perform(current_intervention)
           rescue
             puts 'ERROR when notify pros by email and SMS.'
           end
@@ -189,5 +190,6 @@ class Client::InterventionStepsController < ApplicationController
       end
     end
     intervention
+
   end
 end

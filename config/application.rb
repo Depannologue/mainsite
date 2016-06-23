@@ -10,7 +10,8 @@ module Depannologue
   class Application < Rails::Application
 
     config.autoload_paths += %W(#{config.root}/lib)
-    
+    config.autoload_paths += %W(#{config.root}/app/services)
+    config.eager_load_paths += %W(#{config.root}/app/services)
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.i18n.default_locale = :fr
     config.time_zone = 'Paris'

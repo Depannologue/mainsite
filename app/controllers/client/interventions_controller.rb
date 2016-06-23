@@ -15,6 +15,7 @@ class Client::InterventionsController < ApplicationController
   end
 
   def show
+    raise current_client.inspect
     case @intervention.state
     when "pending_pro_validation"
       @pros_now_available_and_nearby = @intervention.pros_now_available_and_nearby
