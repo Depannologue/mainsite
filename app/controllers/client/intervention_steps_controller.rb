@@ -77,7 +77,7 @@ class Client::InterventionStepsController < ApplicationController
         Rails.logger.info current_intervention.errors.inspect
       end
     when :payment
-      begin
+
         unless params[:intervention].blank?
           current_intervention.assign_attributes permitted_params
         end
@@ -93,31 +93,20 @@ class Client::InterventionStepsController < ApplicationController
           end
           current_intervention.pay! params[:payment_method] if current_intervention.valid?
         end
-
-      rescue => e
-        raise e.message.inspect
-        #Rails.logger.warn "Error: #{e.inspect}"
-      end
-
       if current_intervention.pending_pro_validation?
         jump_to next_step
         pros = current_intervention.pros_now_available_and_nearby
         if pros.empty?
           begin
-            AdminMailer.none_available_pro(current_intervention).deliver_now
+            AdminMailer.none_available_pro(current_intervention).deliver_later
           rescue
             puts 'ERROR when notify admin.'
           end
         else
-          #begin
             pros.each do |pro|
-              ProMailer.notify_intervention_created(pro, current_intervention).deliver_now
+              ProMailer.notify_intervention_created(pro, current_intervention).deliver_later
             end
             NotifyProsBySMSService.perform(current_intervention)
-
-          #rescue
-            #puts 'ERROR when notify pros by email and SMS.'
-          #end
         end
       else
         @pros_now_available_and_nearby = current_intervention.pros_now_available_and_nearby
