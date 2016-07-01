@@ -21,8 +21,9 @@
 class Intervention < ActiveRecord::Base
   extend Enumerize
   include AASM
-  require 'notify_booking_ok_by_s_m_s_service'
-  require 'notify_client_by_s_m_s_service'
+  require 'notify_booking_ok_by_s_m_s_job'
+  require 'notify_client_by_s_m_s_job'
+
   RATINGS = %w(
     a
     b
@@ -77,19 +78,16 @@ class Intervention < ActiveRecord::Base
       before do |payment_method|
         self.payment_method = payment_method
       end
-
       success do # if persist successful
           ClientMailer.confirm_booking(self).deliver_later
           client = self.customer
           client.invite! if client.encrypted_password.blank?
-          NotifyBookingOkBySMSService.perform(self)
+          NotifyBookingOkBySMSJob.perform_later(self)
       end
 
       transitions from:  :pending,
                   to:    :pending_pro_validation,
                   after: :_build_historical_transition
-
-
     end
 
     event :assign_to do
@@ -98,7 +96,7 @@ class Intervention < ActiveRecord::Base
         self.assigned_at = Time.now
       end
       success do # if persist successful
-          NotifyClientBySMSService.perform(self)
+          NotifyClientBySMSJob.perform_later(self)
       end
 
       transitions from:  :pending_pro_validation,
@@ -109,7 +107,6 @@ class Intervention < ActiveRecord::Base
     event :unassign do
       before do
         self.contractor = nil
-
       end
 
       transitions from:  :pro_on_the_road,

@@ -35,10 +35,12 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-after 'deploy:publishing', 'unicorn:restart'
-after 'unicorn:restart', 'sidekiq:restart'
+after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
+  task :restart do
+    invoke 'unicorn:reload'
+  end
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
@@ -48,26 +50,5 @@ namespace :deploy do
       # end
     end
   end
-end
 
-namespace :unicorn do
-  [:start, :stop, :status, :restart].each do | command_sym |
-    desc "#{command_sym} unicorn service"
-    task command_sym do
-      on roles(:admin, :web), in: :parallel do |host|
-        sudo "/etc/init.d/unicorn_depannologue #{command_sym}"
-      end
-    end
-  end
-end
-
-namespace :sidekiq do
-  [:start, :stop, :status, :restart].each do | command_sym |
-    desc "#{command_sym} sidekiq services"
-    task command_sym do
-      on roles(:admin, :web), in: :parallel do |host|
-        sudo "/etc/init.d/init_sidekiq.sh #{command_sym}"
-      end
-    end
-  end
 end
