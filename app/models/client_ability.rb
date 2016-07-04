@@ -11,6 +11,7 @@ class ClientAbility
     end
 
     can :read, Intervention do |intervention, interventions_client_token_ownership|
+
       !intervention.pending? && (
         (
           (

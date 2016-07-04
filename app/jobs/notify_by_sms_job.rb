@@ -1,4 +1,6 @@
-class NotifyBySMSService
+class NotifyBySmsJob < ActiveJob::Base
+  queue_as :default
+
   def self.perform(to, message)
     new.perform(to, message)
   end

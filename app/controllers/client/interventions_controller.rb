@@ -29,7 +29,7 @@ class Client::InterventionsController < ApplicationController
   def load_intervention
     @intervention = Intervention.find(params[:id])
     authorize! :read, @intervention, (
-                      params[:token] ||= 
+                      params[:token] ||=
                       params[:intervention_client_token_ownership] ||=
                       params[:interventions_client_token_ownership] ||=
                       session[:intervention_client_token_ownership] ||=
