@@ -1,7 +1,6 @@
 //= require ../application
 //= require_tree .
 //= require_self
-
 $(document).ready(function() {
   $("#myBtn").click(function(){
     $("#myModal").modal();
