@@ -30,7 +30,6 @@ gem 'mailgun_rails'
 gem 'twilio-ruby', '~> 4.2.1'
 gem 'clockwork' # Handle recurring tasks (a la cron)
 gem 'geocoder'
-gem 'appsignal', '~> 0.11.18'
 gem 'enumerize', '~> 1.0.0'
 gem 'cocoon', '~> 1.2', '>= 1.2.8'
 gem "font-awesome-rails"
@@ -38,6 +37,7 @@ gem 'validates_zipcode'
 gem 'sinatra', :require => nil
 gem 'lockup', '~> 1.3'
 gem 'unicorn'
+gem 'bugsnag'
 
 group :development, :test do
   gem 'capistrano-rails'
