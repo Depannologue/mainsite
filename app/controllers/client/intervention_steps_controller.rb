@@ -80,7 +80,9 @@ class Client::InterventionStepsController < ApplicationController
         unless params[:intervention].blank?
           current_intervention.assign_attributes permitted_params
         end
-
+        if client_signed_in?
+          current_intervention.customer=current_client
+        end
         if (current_intervention.changes.keys.include? 'customer_id') && (cannot? :set_customer, current_intervention)
           current_intervention.errors.add :customer, :invalid
           current_intervention.customer.errors.add :email, :taken
