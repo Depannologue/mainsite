@@ -38,6 +38,7 @@ gem 'validates_zipcode'
 gem 'sinatra', :require => nil
 gem 'lockup', '~> 1.3'
 gem 'unicorn'
+gem 'bugsnag'
 
 group :development, :test do
   gem 'capistrano-rails'
