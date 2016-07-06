@@ -81,7 +81,7 @@ class Client::InterventionStepsController < ApplicationController
           current_intervention.assign_attributes permitted_params
         end
         if client_signed_in?
-          current_intervention.customer=current_client
+          current_intervention.customer = current_client
         end
         if (current_intervention.changes.keys.include? 'customer_id') && (cannot? :set_customer, current_intervention)
           current_intervention.errors.add :customer, :invalid
