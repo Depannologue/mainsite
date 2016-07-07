@@ -10,6 +10,19 @@ class AppConstraints
 end
 
 Rails.application.routes.draw do
+  namespace :client do
+  get 'category/create'
+  end
+
+  get 'category/create'
+
+  namespace 'client' do
+    get 'profession/show'
+  end
+  #get 'profession/show?:profession', to: 'profession#show', as: ':profession'
+  #get "profession/:id", to: "profession#show", as: "plomberie"
+
+
   mount Lockup::Engine, at: '/lockup'
   constraints(AppConstraints.new subdomain: 'admin') do
     namespace :admin, module: 'admin', path: '/' do
