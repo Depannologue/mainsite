@@ -1,4 +1,4 @@
-root = "/home/depanologue/dev/depannologue"
+root = Dir.pwd
 working_directory "#{root}"
 
 pid "#{root}/tmp/pids/unicorn.pid"
