@@ -8,7 +8,6 @@
 class Profession < ActiveRecord::Base
   has_many :InterventionType
 
-
   def self.plomberie
     plomberie = Profession.where(name: 'Plomberie').first
     InterventionType.where(profession_id: plomberie.id)

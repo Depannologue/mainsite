@@ -17,6 +17,8 @@ class InterventionType < ActiveRecord::Base
     locked_door
   ).freeze
 
+  belongs_to :profession
+
   validates :kind,
             :short_description,
             :price,

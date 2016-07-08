@@ -31,14 +31,21 @@
 				%h2 Nos depanneurs en 3 clics à votre domicile
 				%h1 Service disponible 24/7 - Prix les plus bas - Dépannage garantie
 			%div
+				%h2 Je souhaite etre dépanné pour :
 				.container
 					.row
 						.col-md-4
-							= link_to "serrurerie", client_profession_show_path(profession: 'serrurerie'), class: "button  btn-lg btn-primary"
+							%h3 Serrurerie
+							= link_to image_tag('Profession_Logo/serrurerie.png'), client_profession_show_path(profession: 'serrurerie'), class: "button btn-warning btn-sq-lg"
 						.col-md-4
-							= link_to "plomberie", client_profession_show_path(profession: 'plomberie') , class: "button btn btn-lg btn-primary"
+							%h3 Plomberie
+							= link_to image_tag('Profession_Logo/plomberie.png'), client_profession_show_path(profession: 'plomberie'), class: "button btn-primary btn-sq-lg"
 						.col-md-4
-							= link_to "vitrerie", client_profession_show_path(profession: 'vitrerie'), class: "button btn btn-lg btn-primary"
+							%h3 Vitrerie
+							= link_to image_tag('Profession_Logo/vitrerie.png'), client_profession_show_path(profession: 'vitrerie'), class: "button btn-success btn-sq-lg"
+
+
+
 	%section.post-head
 		.container
 			.row
