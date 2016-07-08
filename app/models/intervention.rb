@@ -28,7 +28,14 @@ class Intervention < ActiveRecord::Base
     d
     e
   ).freeze
+  def setIntervention attributes
+    self.assign_attributes attributes
+    self.save(validate: false)
+  end
 
+  def self.getIntervention id
+    find_by(id: id)
+  end
   enumerize :payment_method, in: [:credit_card, :cheque]
 
   belongs_to :intervention_type
@@ -139,8 +146,7 @@ class Intervention < ActiveRecord::Base
     end
   end
 
-  def pros_now_available_and_nearby
-    zipcode = ZipCode.find_by(zipcode: self.address.zipcode)
+  def self.pros_now_available_and_nearby zipcode
     area = zipcode.area if zipcode
     users ||= area.users.contractors.available_now if area
     users

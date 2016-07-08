@@ -16,4 +16,7 @@ class ZipCode < ActiveRecord::Base
   def self.managed? code
     true if find_by(zipcode: code)
   end
+  def self.getZipcode zipcode
+    find_by(zipcode: zipcode)
+  end
 end

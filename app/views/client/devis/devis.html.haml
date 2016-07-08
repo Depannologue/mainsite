@@ -1,0 +1,65 @@
+- content_for :title do
+  Contactez un dépanneur en intervention rapide en serrurerie
+
+- content_for :extra_head do
+  = tag :meta, name: "description", content: "Laissez vos coordonnées pour une intervention rapide d'un dépanneur en serrurerie"
+  %meta{:name => "robots", :content => "noodp,noydir"}/
+
+  %meta{:content => "Demander une intervention du spécialiste serrurerie français en dépannage !", :property => "og:title"}/
+  %meta{:content => "http://www.depannologue.fr/define_intervention", :property => "og:url"}/
+  %meta{:content => "depannologue-logo-200x200.png", :property => "og:image"}/
+  %meta{:content => "Demandez l'intervention d'un dépanneur rapide pour votre porte claquée ou verrouillée", :property => "og:description"}/
+  %meta{:content => "fr_FR", :property => "og:locale"}/
+  %meta{:content => "543890775761560", :property => "fb:page_id"}/
+  %meta{:content => "Depannologue", :property => "og:site_name"}/
+  %meta{:content => "website", :property => "og:type"}/
+
+  %meta{:content => "summary_large_image", :name => "twitter:card"}/
+  %meta{:content => "@depannologue", :name => "twitter:site"}/
+  %meta{:content => "@depannologue ", :name => "twitter:creator"}/
+  %meta{:content => "Intervention rapide d'un serrurier près de chez vous", :name => "twitter:title"}/
+  %meta{:content => "Depannologue : demandez une intervention rapide en laissant vos coordonnées; votre serrurier rapide et pas cher chez vous", :name => "twitter:description"}/
+  %meta{:content => "depannologue-logo-600x330.png", :name => "twitter:image"}/
+
+#workflow.container
+
+  %section#form-localize
+  .row
+    .col-md-6.col-md-offset-3.col-xs-12
+      .step-head
+
+      %h2 Remplissez vos coordonnées et obtenez le prix fixe de votre dépannage
+
+      = form_tag(controller: "devis", action: "create", method: "post") do
+        = field_set_tag do
+          %p
+            = label_tag :firstname, 'Prénom'
+            = text_field_tag :firstname
+          %p
+            = label_tag :lastname, 'Nom'
+            = text_field_tag :lastname
+          %p
+            = label_tag :email, 'Email'
+            = text_field_tag :email
+          %p
+            = submit_tag "Save"
+      %ul
+        %li
+          .card.no-color
+            .dispo
+              %span.strong
+                Dépanneur(s) disponible(s)
+              .white-strong.pull-right
+                = @pros_now_available_and_nearby.count
+              .clearfix
+            .trajet
+              %span.strong
+                Temps de route estimé
+              .white-strong.pull-right
+                30min
+              .clearfix
+            .intervention
+              %span.strong
+                Prix tout inclus
+              .white-strong.pull-right
+                = number_to_currency @intervention_type.price, locale: :fr

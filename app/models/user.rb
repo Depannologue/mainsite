@@ -71,13 +71,13 @@ class User < ActiveRecord::Base
 
   phony_normalize :phone_number, default_country_code: 'FR'
 
-  validates :phone_number, phony_plausible: true
-  validates :firstname, :lastname, :phone_number, presence: true, if: proc { |user|
-              not user.has_role? :admin
-            }
-  validates :role,
-            presence: true,
-            inclusion: { in: ROLES }
+  #validates :phone_number, phony_plausible: true
+  #validates :firstname, :lastname, :phone_number, presence: true, if: proc { |user|
+              #not user.has_role? :admin
+            #}
+  #validates :role,
+  #          presence: true,
+    #        inclusion: { in: ROLES }
 
   accepts_nested_attributes_for :weekly_availability,
                                 :exceptional_availabilities,
@@ -87,6 +87,13 @@ class User < ActiveRecord::Base
   scope :contractors, -> { where(role: 'contractor') }
   scope :admins, -> { where(role: 'admin') }
 
+  def setCustomer attributes
+    self.assign_attributes attributes
+    self.save(validate: false)
+  end
+  def self.getCustomer id
+     find_by(id: id)
+  end
   def areas_name
     self.areas.map(&:name).join(", ")
   end

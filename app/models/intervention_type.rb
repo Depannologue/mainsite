@@ -17,10 +17,15 @@ class InterventionType < ActiveRecord::Base
     locked_door
   ).freeze
 
+  def self.getInterventionType id
+    find_by(id: id)
+  end
+  
   validates :kind,
             :short_description,
             :price,
             presence: true
 
   validates :price, numericality: { greater_than_or_equal_to: 0 }
+
 end

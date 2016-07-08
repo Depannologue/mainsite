@@ -2,4 +2,4 @@
   %ul
     - @interventions.each do |intervention|
       %li
-        = link_to intervention.short_description, client_category_create_path(category: intervention.short_description)
+        = link_to intervention.short_description, client_category_show_path(category: intervention.short_description, id: intervention.id )

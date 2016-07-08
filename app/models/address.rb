@@ -20,7 +20,13 @@
 
 class Address < ActiveRecord::Base
   belongs_to :addressable, polymorphic: true
-
+  def self.getAdressById id
+    add = find_by(id: id)
+  end
+  def setAddress attributes
+    self.assign_attributes attributes
+    self.save(validate: false)
+  end
   attr_accessor :place
 
   reverse_geocoded_by :latitude, :longitude do |obj, results|
