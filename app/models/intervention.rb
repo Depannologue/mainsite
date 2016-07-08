@@ -28,14 +28,7 @@ class Intervention < ActiveRecord::Base
     d
     e
   ).freeze
-  def setIntervention attributes
-    self.assign_attributes attributes
-    self.save(validate: false)
-  end
 
-  def self.getIntervention id
-    find_by(id: id)
-  end
   enumerize :payment_method, in: [:credit_card, :cheque]
 
   belongs_to :intervention_type
@@ -45,18 +38,18 @@ class Intervention < ActiveRecord::Base
 
   has_many :historical_transitions, as: :historisable, dependent: :destroy
 
-  validates :address, presence: true,
-            if: proc { |intervention|
-              !intervention.pending?
-            }
-  validates :is_ok, inclusion: [true, false],
-            if: proc { |intervention|
-              intervention.closed? || intervention.archived?
-            }
-  validates :rating, inclusion: RATINGS,
-            if: proc { |intervention|
-              intervention.closed? || intervention.archived?
-            }
+  #validates :address, presence: true,
+  #          if: proc { |intervention|
+  #            !intervention.pending?
+  #          }
+  #validates :is_ok, inclusion: [true, false],
+  #          if: proc { |intervention|
+  #            intervention.closed? || intervention.archived?
+  #          }
+  #validates :rating, inclusion: RATINGS,
+  #          if: proc { |intervention|
+  #            intervention.closed? || intervention.archived?
+  #          }
 
   accepts_nested_attributes_for :customer, :address
 
@@ -101,6 +94,7 @@ class Intervention < ActiveRecord::Base
       before do |pro|
         self.contractor = pro
         self.assigned_at = Time.now
+
       end
       success do # if persist successful
           NotifyClientBySmsService.perform(self)
@@ -114,7 +108,6 @@ class Intervention < ActiveRecord::Base
     event :unassign do
       before do
         self.contractor = nil
-
       end
 
       transitions from:  :pro_on_the_road,
@@ -141,7 +134,7 @@ class Intervention < ActiveRecord::Base
 
     event :archive do
       transitions from:  :closed,
-                  to:    :archived,
+                  tovalidate:    :archived,
                   after: :_build_historical_transition
     end
   end
@@ -152,10 +145,23 @@ class Intervention < ActiveRecord::Base
     users
   end
 
+  def pros_now_available_and_nearby zipcode
+    area = zipcode.area if zipcode
+    users ||= area.users.contractors.available_now if area
+    users
+  end
+
   def current_distance_of_pro
 
   end
+  def setIntervention attributes
+    self.assign_attributes attributes
+    self.save(validate: false)
+  end
 
+  def self.getIntervention id
+    find_by(id: id)
+  end
   private
 
   def _build_historical_transition
@@ -166,4 +172,5 @@ class Intervention < ActiveRecord::Base
       processed_at: Time.now
     )
   end
+
 end

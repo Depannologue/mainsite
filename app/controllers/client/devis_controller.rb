@@ -17,7 +17,7 @@ class Client::DevisController < ApplicationController
     #Récupérer le zipcode de l'adresse saisie afin de récupérer les pros availble
     zipcode = ZipCode.getZipcode (Address.getAdressById params[:id]).zipcode
     address = Address.getAdressById session[:current_address_id]
-    pros = Intervention.pros_now_available_and_nearby zipcode
+
     #Mise à jour de l'adresse et Attribuer un diplucata de addresse au customer
     if address.setAddress({firstname: params[:firstname], lastname: params[:lastname]})
       customer_address = address.dup
@@ -35,6 +35,7 @@ class Client::DevisController < ApplicationController
     end
     #Création d'une intervention et attribution des différentes variantes
     intervention = Intervention.new
+    pros = intervention.pros_now_available_and_nearby zipcode
     intervention_type = InterventionType.getInterventionType session[:type_intervention_id]
     intervention.setIntervention({state: "pending_pro_validation", customer: customer, address: address, intervention_type: intervention_type })
     #supression de l'address de la session si elle existe
