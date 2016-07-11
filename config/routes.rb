@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
   get 'category/create'
 
-  namespace 'client' do
-    get 'profession/show'
-  end
+
+  get '/profession/:profession', to: 'client/profession#show', as: :profession_show
+
+    #get 'test/:id' => 'client/profession#show/:id'
+
   #get 'profession/show?:profession', to: 'profession#show', as: ':profession'
   #get "profession/:id", to: "profession#show", as: "plomberie"
 
