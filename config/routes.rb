@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
 
   get '/:profession', to: 'client/profession#show', as: :profession_show
-  get '/:profession/:intervention_parent', to: 'client/intervention_type#show', as: :intervention_type_parent_show
-  get '/:profession/:intervention_parent-:intervention_child', to: 'client/intervention_type#show', as: :intervention_type_child_show
+  get '/interventions/:intervention_parent', to: 'client/intervention_type#show', as: :intervention_type_parent_show
+  get '/interventions/:intervention_parent-:intervention_child', to: 'client/intervention_type#show', as: :intervention_type_child_show
 
 
     #get 'test/:id' => 'client/profession#show/:id'
