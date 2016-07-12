@@ -126,17 +126,20 @@ InterventionType.create(
 
 Profession.create(
 
-  name: "Serrurerie"
+  name: "Serrurerie",
+  slug: "serrurerie"
 )
 
 Profession.create(
 
-  name: "Vitrerie"
+  name: "Vitrerie",
+  slug: "vitrerie"
 )
 
 Profession.create(
 
-  name: "Plomberie"
+  name: "Plomberie",
+  slug: "plomberie"
 )
 
 if !Rails.env.production?
