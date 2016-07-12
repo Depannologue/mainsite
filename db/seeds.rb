@@ -85,7 +85,9 @@ InterventionType.create(
   created_at: "2016-01-14 15:32:18",
   updated_at: "2016-03-23 08:04:27",
   description: nil,
-  profession_id: 2
+  profession_id: 2,
+  parent_id: nil,
+  slug:"porte-blindee"
 )
 InterventionType.create(
   id: 7,
@@ -95,18 +97,20 @@ InterventionType.create(
   created_at: "2016-01-14 15:32:18",
   updated_at: "2016-03-23 08:04:27",
   description: nil,
+  parent_id: 6,
   profession_id: 2
 )
 
 InterventionType.create(
   id: 8,
   kind: "locked_door",
-  short_description: "toilettes bouchées",
+  short_description: "débouchage",
   price: 100,
   created_at: "2016-01-14 15:32:18",
   updated_at: "2016-03-23 08:04:27",
   description: nil,
-  profession_id: 3
+  profession_id: 3,
+  parent_id: nil
 )
 InterventionType.create(
   id: 9,
@@ -116,7 +120,8 @@ InterventionType.create(
   created_at: "2016-01-14 15:32:18",
   updated_at: "2016-03-23 08:04:27",
   description: nil,
-  profession_id: 3
+  profession_id: 3,
+  parent_id: 8
 )
 
 Profession.create(

@@ -1,5 +1,5 @@
 %div.some{ :style => "position: absolute; left: 300px; top: 300px;" }
   %ul
-    - @interventions.each do |intervention|
+    - @intervention_parents.each do |intervention|
       %li
-        = link_to intervention.short_description, client_category_create_path(category: intervention.short_description)
+        = link_to intervention.short_description, client_category_create_path(category: intervention.short_description, id: intervention.id)

@@ -15,7 +15,7 @@ class InterventionType < ActiveRecord::Base
   KINDS = %w(
     closed_door
     locked_door
-  ).freeze
+  ).freeze  
 
   belongs_to :profession
 

@@ -6,6 +6,6 @@
 #  name                  :string
 
 class Profession < ActiveRecord::Base
-  has_many :InterventionType
-  
+  has_many :intervention_type
+
 end

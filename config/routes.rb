@@ -16,8 +16,10 @@ Rails.application.routes.draw do
 
   get 'category/create'
 
+  get '/:profession', to: 'client/profession#show', as: :profession_show
+  
 
-  get '/profession/:profession', to: 'client/profession#show', as: :profession_show
+
 
     #get 'test/:id' => 'client/profession#show/:id'
 
