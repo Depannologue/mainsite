@@ -21,7 +21,8 @@ InterventionType.create(
   updated_at: "2016-05-11 12:47:21",
   description: "",
   profession_id: 1,
-  parent_id:nil
+  parent_id:nil,
+  slug:"porte-claquee"
 )
 
 InterventionType.create(
@@ -33,7 +34,8 @@ InterventionType.create(
   updated_at: "2016-03-23 08:04:27",
   description: nil,
   profession_id: 1,
-  parent_id:nil
+  parent_id:nil,
+  slug:"porte-fermee-a-cle"
 )
 
 InterventionType.create(
@@ -45,7 +47,8 @@ InterventionType.create(
   updated_at: "2016-03-23 08:04:27",
   description: nil,
   profession_id: 1,
-  parent_id:2
+  parent_id:2,
+  slug:"porte-blindee"
 )
 
 InterventionType.create(
@@ -57,7 +60,8 @@ InterventionType.create(
   updated_at: "2016-03-23 08:04:27",
   description: nil,
   profession_id: 1,
-  parent_id:2
+  parent_id:2,
+  slug:"porte"
 )
 
 InterventionType.create(
@@ -69,7 +73,8 @@ InterventionType.create(
   updated_at: "2016-03-23 08:04:27",
   description: nil,
   profession_id: 1,
-  parent_id:1
+  parent_id:1,
+  slug:"porte"
 )
 
 InterventionType.create(
