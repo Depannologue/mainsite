@@ -67,7 +67,7 @@ InterventionType.create(
 InterventionType.create(
   id: 5,
   kind: "locked_door",
-  short_description: "Porte claquée",
+  short_description: "Porte",
   price: 100,
   created_at: "2016-01-14 15:32:18",
   updated_at: "2016-03-23 08:04:27",
@@ -87,7 +87,7 @@ InterventionType.create(
   description: nil,
   profession_id: 2,
   parent_id: nil,
-  slug:"porte-blindee"
+  slug:"vitre-cassee"
 )
 InterventionType.create(
   id: 7,
@@ -98,7 +98,8 @@ InterventionType.create(
   updated_at: "2016-03-23 08:04:27",
   description: nil,
   parent_id: 6,
-  profession_id: 2
+  profession_id: 2,
+  slug:"double-vitrage"
 )
 
 InterventionType.create(
@@ -110,7 +111,8 @@ InterventionType.create(
   updated_at: "2016-03-23 08:04:27",
   description: nil,
   profession_id: 3,
-  parent_id: nil
+  parent_id: nil,
+  slug: "debouchage"
 )
 InterventionType.create(
   id: 9,
@@ -121,7 +123,8 @@ InterventionType.create(
   updated_at: "2016-03-23 08:04:27",
   description: nil,
   profession_id: 3,
-  parent_id: 8
+  parent_id: 8,
+  slug: "evier"
 )
 
 Profession.create(
