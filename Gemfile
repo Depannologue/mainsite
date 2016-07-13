@@ -38,7 +38,7 @@ gem 'sinatra', :require => nil
 gem 'lockup', '~> 1.3'
 gem 'unicorn'
 gem 'bugsnag'
-
+gem 'virtus'
 group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
