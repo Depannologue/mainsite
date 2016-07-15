@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/intervention_type#new', as: :intervention_type_child_new
   post '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/intervention_type#new', as: :intervention_type_post_child_new
   patch '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/intervention_type#new', as: :intervention_type_put_child_new
-
+  get '/devis/:id', to: 'client/quotations#show', as: :quotations_show
+  get '/devis/:id', to: 'client/quotations#new', as: :quotations_new
     #get 'test/:id' => 'client/profession#show/:id'
 
   #get 'profession/show?:profession', to: 'profession#show', as: ':profession'
