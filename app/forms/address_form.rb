@@ -33,7 +33,7 @@ class AddressForm
 
  private
 
- def persist
+ def persist 
    address = Address.create(firstname: firstname,
                             lastname: lastname,
                             address1: address1,
@@ -43,6 +43,7 @@ class AddressForm
                             phone_number: phone_number)
   @id = address.id
  end
+
 
 
 end
