@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/intervention/:intervention_parent_slug', to: 'client/intervention_type#show', as: :intervention_type_show
   get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#new', as: :intervention_form_new
   post '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#create', as: :intervention_form_create
-  get '/devis/:id', to: 'client/quotations#new', as: :quotations_new
+  get '/devis', to: 'client/quotations#new', as: :quotations_new
 
 
   mount Lockup::Engine, at: '/lockup'

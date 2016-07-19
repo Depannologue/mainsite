@@ -2,15 +2,19 @@ class Client::FormController < ApplicationController
 
   def new
     raise ActionController::RoutingError.new('Not Found') unless InterventionType.exists?(slug: params[:intervention_parent_slug]) && InterventionType.exists?(slug: params[:intervention_child_slug])
-    intervention_type = InterventionType.find_by_slug(slug: params[:intervention_child_slug])
-    @user_informations_form = UserInformationsForm.new(intervention_type)
+    @user_informations_form = UserInformationsForm.new
   end
 
   def create
     @user_informations_form = UserInformationsForm.new(user_information_form_params)
     if @user_informations_form.save
-      session[:address_id] = @user_informations_form.intervention_id
-      redirect_to quotations_new_path(@user_informations_form.address_id)
+      intervention_type = InterventionType.find_by_slug(params[:intervention_child_slug])
+      intervention = CreateInterventionService.perform(@user_informations_form.address, @user_informations_form.customer, intervention_type)
+      if intervention
+         redirect_to quotations_new_path
+      else
+        render :new
+      end
     else
       render :new
     end
