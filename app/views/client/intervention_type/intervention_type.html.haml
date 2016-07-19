@@ -2,4 +2,4 @@
   %ul
     - @intervention_childs.each do |intervention|
       %li
-        = link_to intervention.short_description, intervention_type_child_new_path(intervention_child_slug: intervention.slug)
+        = link_to intervention.short_description, intervention_form_new_path(intervention_child_slug: intervention.slug)

@@ -13,16 +13,10 @@ Rails.application.routes.draw do
 
 
   get 'profession/:profession', to: 'client/profession#show', as: :profession_show
-  get '/intervention/:intervention_parent_slug', to: 'client/intervention_type#show', as: :intervention_type_parent_show
-  get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#show', as: :intervention_type_child_new
-  post '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#new', as: :intervention_type_post_child_new
-  patch '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#edit', as: :intervention_type_put_child_new
-  get '/devis/:id', to: 'client/quotations#show', as: :quotations_show
+  get '/intervention/:intervention_parent_slug', to: 'client/intervention_type#show', as: :intervention_type_show
+  get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#new', as: :intervention_form_new
+  post '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#create', as: :intervention_form_create
   get '/devis/:id', to: 'client/quotations#new', as: :quotations_new
-    #get 'test/:id' => 'client/profession#show/:id'
-
-  #get 'profession/show?:profession', to: 'profession#show', as: ':profession'
-  #get "profession/:id", to: "profession#show", as: "plomberie"
 
 
   mount Lockup::Engine, at: '/lockup'

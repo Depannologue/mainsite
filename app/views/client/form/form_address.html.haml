@@ -29,7 +29,7 @@
       .step-head
 
       %h2 Remplissez vos coordonnées et obtenez le prix fixe de votre dépannage
-      = form_for @address, url: intervention_type_post_child_new_path do |f|
+      = form_for @address_form, url: intervention_type_post_child_new_path do |f|
         %p
         = f.label :firstname
         = f.text_field :firstname

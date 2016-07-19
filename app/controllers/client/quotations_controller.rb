@@ -7,26 +7,7 @@ class Client::QuotationsController < ApplicationController
       # clone the address objet
       address = Address.find_by_id(params[:id])
       address_customer = address.clone
-      # create a new customer and add address
-      customer = User.new unless session[:customer_id].present?
-      customer = User.find_by_id(session[:customer_id]) if session[:customer_id].present?
-
-      customer.address = address_customer
-      customer.firstname = address_customer.firstname
-      customer.lastname  = address_customer.lastname
-      customer.role = "customer"
-      customer.phone_number = address_customer.phone_number
-      customer.email = "ednaAttegggnte@depannologue.fr"
-
-      if customer.save
-        session[:customer_id] = customer.id
-      else
-        # To-Do traite validation errrors
-        raise 'ok'
-        render 'intervention_type#show'
-        flash[:error] = I18n.t(customer.errors.message)
-
-      end
+      raise address_customer.inspect
       # create a intervention and add a customer
       intervention = Intervention.new
       intervention.state = "pending_pro_validation"
@@ -51,7 +32,7 @@ class Client::QuotationsController < ApplicationController
     else
       raise 'ok3'
     end
-    render 'quotations#show'
+    render 'quotations'
   end
 
 end
