@@ -12,8 +12,10 @@ class UserInformationsForm
   attribute :phone_number, String
   attribute :email, String
 
-
   attr_reader :address_id, :customer_id
+
+
+  end
   ## Validation
   validates :phone_number,
             phony_plausible: true
@@ -29,6 +31,7 @@ class UserInformationsForm
 
   validate :email_is_unique
   validate :zipcode_is_managed
+
   ###
   def save
     if valid?
@@ -68,8 +71,9 @@ class UserInformationsForm
                             address: address,
                             email: email,
                             role: "customer")
-
-    @address_id = address.id
+    intervention_address = address.dup
+    intervention_address.save
+    @address_id  =  intervention_address.id
     @customer_id = customer.id
   end
 end
