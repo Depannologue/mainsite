@@ -69,7 +69,7 @@ class UserInformationsForm
                             address: address,
                             email: email,
                             role: "customer")
-    @address  =  address
+    @address = address
     @customer = customer
   end
 end

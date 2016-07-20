@@ -10,8 +10,8 @@ class Client::FormController < ApplicationController
     if @user_informations_form.save
       intervention_type = InterventionType.find_by_slug(params[:intervention_child_slug])
       intervention = CreateInterventionService.perform(@user_informations_form.address, @user_informations_form.customer, intervention_type)
-      if intervention
-         redirect_to quotations_new_path
+      if intervention.valid?
+        redirect_to quotations_new_path
       else
         render :new
       end
@@ -20,6 +20,9 @@ class Client::FormController < ApplicationController
     end
   end
 
+  def edit
+    raise 'ok'
+  end
   private
   # Using strong parameters
   def user_information_form_params
