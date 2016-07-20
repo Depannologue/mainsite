@@ -11,6 +11,7 @@ class UserInformationsForm
   attribute :city, String
   attribute :phone_number, String
   attribute :email, String
+  attribute :intervention_date, String
 
   attr_reader :address, :customer
 
@@ -25,10 +26,12 @@ class UserInformationsForm
             :firstname,
             :lastname,
             :email,
+            :intervention_date,
             presence: true
 
   validate :email_is_unique
   validate :zipcode_is_managed
+  validate :intervention_date_is_valid
 
   ###
   def save
@@ -52,6 +55,10 @@ class UserInformationsForm
     unless ZipCode.managed? zipcode
      errors.add(:zipcode, 'code postal non désservi')
     end
+  end
+
+  def intervention_date_is_valid
+    raise intervention_date.inspect
   end
 
   def persist

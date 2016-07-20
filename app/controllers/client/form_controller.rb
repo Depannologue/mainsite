@@ -26,7 +26,7 @@ class Client::FormController < ApplicationController
   private
   # Using strong parameters
   def user_information_form_params
-    params.require(:user_informations_form).permit(:firstname, :lastname, :address1, :address2, :zipcode, :phone_number, :city, :email)
+    params.require(:user_informations_form).permit(:firstname, :lastname, :address1, :address2, :zipcode, :phone_number, :city, :email, :intervention_date)
   end
 
 

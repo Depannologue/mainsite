@@ -44,7 +44,12 @@
       <p>
         <%= f.label :email %>
         <%= f.email_field :email %>
-        <%= f.error :email%>
+        <%= f.error :email %>
+      </p>
+      <p>
+        <%= f.label :intervention_date %>
+        <%= f.datetime_select :intervention_date %>
+        <%= f.error :intervention_date %>
       </p>
       <p>
         <%= f.submit %>
