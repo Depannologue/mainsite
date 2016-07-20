@@ -1,0 +1,50 @@
+- content_for :title do
+  Contactez un dépanneur en intervention rapide en serrurerie
+
+- content_for :extra_head do
+  = tag :meta, name: "description", content: "Laissez vos coordonnées pour une intervention rapide d'un dépanneur en serrurerie"
+  %meta{:name => "robots", :content => "noodp,noydir"}/
+
+  %meta{:content => "Demander une intervention du spécialiste serrurerie français en dépannage !", :property => "og:title"}/
+  %meta{:content => "http://www.depannologue.fr/define_intervention", :property => "og:url"}/
+  %meta{:content => "depannologue-logo-200x200.png", :property => "og:image"}/
+  %meta{:content => "Demandez l'intervention d'un dépanneur rapide pour votre porte claquée ou verrouillée", :property => "og:description"}/
+  %meta{:content => "fr_FR", :property => "og:locale"}/
+  %meta{:content => "543890775761560", :property => "fb:page_id"}/
+  %meta{:content => "Depannologue", :property => "og:site_name"}/
+  %meta{:content => "website", :property => "og:type"}/
+
+  %meta{:content => "summary_large_image", :name => "twitter:card"}/
+  %meta{:content => "@depannologue", :name => "twitter:site"}/
+  %meta{:content => "@depannologue ", :name => "twitter:creator"}/
+  %meta{:content => "Intervention rapide d'un serrurier près de chez vous", :name => "twitter:title"}/
+  %meta{:content => "Depannologue : demandez une intervention rapide en laissant vos coordonnées; votre serrurier rapide et pas cher chez vous", :name => "twitter:description"}/
+  %meta{:content => "depannologue-logo-600x330.png", :name => "twitter:image"}/
+
+#workflow.container
+
+  %section#form-localize
+  .row
+    .col-md-6.col-md-offset-3.col-xs-12
+      .step-head
+
+      %h2 Remplissez vos coordonnées et obtenez le prix fixe de votre dépannage
+      = form_tag(controller: "category", action: "create", method: "post") do
+        = field_set_tag do
+          %p
+            = label_tag :address1, 'Addresse*'
+            = text_field_tag :address1, @address1, label: "addresse"
+          %p
+            = label_tag :address2, ""
+            = text_field_tag :address2, @address2
+          %p
+            = label_tag :zipcode, 'Code Postal*'
+            = text_field_tag :zipcode, @zipcode, label: "codepostal"
+          %p
+            = label_tag :city, 'Ville*'
+            = text_field_tag :city, @city
+          %p
+            = label_tag :phone_number, 'Tél*'
+            = text_field_tag :phone_number, @phone_number
+          %p
+            = submit_tag 'Valider'

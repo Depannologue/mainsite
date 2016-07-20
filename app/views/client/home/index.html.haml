@@ -27,13 +27,18 @@
 	%section.head
 		.text
 			.title
-				%h3 Besoin d'un dépannage en serrurerie ?
-				%h2 Nos serruriers en 3 clics à votre domicile
+				%h3 Besoin d'un dépannage ?
+				%h2 Nos depanneurs en 3 clics à votre domicile
 				%h1 Service disponible 24/7 - Prix les plus bas - Dépannage garantie
 			%div
-				= link_to "Réservez en ligne", client_intervention_step_path(id: :start_new_intervention), class: "button blue little"
-				= link_to "Réservez par téléphone", "tel:0366726167", class: "button blue little"
-
+				.container
+					.row
+						.col-md-4
+							= link_to "serrurerie", client_profession_show_path(profession: 'serrurerie'), class: "button  btn-lg btn-primary"
+						.col-md-4
+							= link_to "plomberie", client_profession_show_path(profession: 'plomberie') , class: "button btn btn-lg btn-primary"
+						.col-md-4
+							= link_to "vitrerie", client_profession_show_path(profession: 'vitrerie'), class: "button btn btn-lg btn-primary"
 	%section.post-head
 		.container
 			.row

@@ -19,7 +19,8 @@ InterventionType.create(
   price: 200,
   created_at: "2016-01-14 15:31:51",
   updated_at: "2016-05-11 12:47:21",
-  description: ""
+  description: "",
+  profession_id: 1
 )
 
 InterventionType.create(
@@ -29,7 +30,65 @@ InterventionType.create(
   price: 100,
   created_at: "2016-01-14 15:32:18",
   updated_at: "2016-03-23 08:04:27",
-  description: nil
+  description: nil,
+  profession_id: 1
+)
+
+InterventionType.create(
+  id: 3,
+  kind: "locked_door",
+  short_description: "vitre cassée",
+  price: 100,
+  created_at: "2016-01-14 15:32:18",
+  updated_at: "2016-03-23 08:04:27",
+  description: nil,
+  profession_id: 2
+)
+InterventionType.create(
+  id: 4,
+  kind: "locked_door",
+  short_description: "double vitrage",
+  price: 100,
+  created_at: "2016-01-14 15:32:18",
+  updated_at: "2016-03-23 08:04:27",
+  description: nil,
+  profession_id: 2
+)
+
+InterventionType.create(
+  id: 5,
+  kind: "locked_door",
+  short_description: "toilettes bouchées",
+  price: 100,
+  created_at: "2016-01-14 15:32:18",
+  updated_at: "2016-03-23 08:04:27",
+  description: nil,
+  profession_id: 3
+)
+InterventionType.create(
+  id: 6,
+  kind: "locked_door",
+  short_description: "evier bouché",
+  price: 100,
+  created_at: "2016-01-14 15:32:18",
+  updated_at: "2016-03-23 08:04:27",
+  description: nil,
+  profession_id: 3
+)
+
+Profession.create(
+
+  name: "Serrurerie"
+)
+
+Profession.create(
+
+  name: "Vitrerie"
+)
+
+Profession.create(
+
+  name: "Plomberie"
 )
 
 if !Rails.env.production?
