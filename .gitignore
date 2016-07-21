@@ -7,6 +7,11 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignored pid files
+depannologue.pid
+/config/unicorn/production.rb
+
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -21,6 +26,7 @@
 /config/application.yml
 .env
 .env~
+
 
 # RubyMine
 .idea

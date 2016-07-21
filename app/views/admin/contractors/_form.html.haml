@@ -27,6 +27,13 @@
             = f.simple_fields_for :user_areas do |user_area|
               = render "user_area_fields", f: user_area
             = link_to_add_association button_tag("<i class='fa fa-plus add_association'> Ajouter</i>".html_safe, type: "button", class:'btn btn-info btn-association'), f, :user_areas
+      %label= I18n.t('activerecord.model.profession.plural')
+      #areas
+        .row
+          .col-sm-12
+            = f.simple_fields_for :professions_users do |professions_user|
+              = render "professions_user_fields", f: professions_user
+            = link_to_add_association button_tag("<i class='fa fa-plus add_association'> Ajouter</i>".html_safe, type: "button", class:'btn btn-info btn-association'), f, :professions_users
   %hr
   = f.button :submit, class: 'btn btn-success'
   = link_to 'Annuler', admin_contractors_path, class: 'btn btn-danger'

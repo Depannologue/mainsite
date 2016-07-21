@@ -1,4 +1,4 @@
-class AppConstraints
+  class AppConstraints
   def initialize(options)
     @subdomain = options[:subdomain]
   end
@@ -10,6 +10,15 @@ class AppConstraints
 end
 
 Rails.application.routes.draw do
+
+
+  get 'profession/:profession', to: 'client/profession#show', as: :profession_show
+  get '/intervention/:intervention_parent_slug', to: 'client/intervention_type#show', as: :intervention_type_show
+  get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#new', as: :intervention_form_new
+  post '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#create', as: :intervention_form_create
+  get '/devis', to: 'client/quotations#new', as: :quotations_new
+
+
   mount Lockup::Engine, at: '/lockup'
   constraints(AppConstraints.new subdomain: 'admin') do
     namespace :admin, module: 'admin', path: '/' do
