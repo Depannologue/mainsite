@@ -9,7 +9,7 @@ class Client::FormController < ApplicationController
     @user_informations_form = UserInformationsForm.new(user_information_form_params)
     if @user_informations_form.save
       intervention_type = InterventionType.find_by_slug(params[:intervention_child_slug])
-      intervention = CreateInterventionService.perform(@user_informations_form.address, @user_informations_form.customer, intervention_type)
+      intervention = CreateInterventionService.perform(@user_informations_form.address, @user_informations_form.customer, intervention_type, session[:profession_id])
       if intervention.valid?
         redirect_to quotations_new_path
       else

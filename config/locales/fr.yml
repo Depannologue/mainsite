@@ -14,7 +14,7 @@ fr:
       last: Dernier &raquo;
       next: Suivant &rsaquo;
       previous: "&lsaquo; Précédent"
-      truncate: "&hellip;"  
+      truncate: "&hellip;"
   enumerize:
     intervention:
       payment_method:
@@ -129,7 +129,7 @@ fr:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      invalid_zipcode: Le format du code postal est incorrect.    
+      invalid_zipcode: Le format du code postal est incorrect.
       accepted: doit être accepté(e)
       blank: doit être rempli(e)
       present: doit être vide
@@ -248,12 +248,14 @@ fr:
       zip_code:
         singular: "Code postal"
         plural: "Code postaux"
+      profession:
+        plural: "professions"
     attributes:
       name: "Nom"
       area:
-        new: "Ajouter une agglomération" 
-        edit: "Editer l'agglomération" 
-        show: "Voir l'agglomération" 
+        new: "Ajouter une agglomération"
+        edit: "Editer l'agglomération"
+        show: "Voir l'agglomération"
       zip_code:
         zip_code: "Code postal"
       contractor:

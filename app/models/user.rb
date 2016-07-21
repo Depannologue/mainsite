@@ -54,7 +54,10 @@ class User < ActiveRecord::Base
   has_many :user_areas
   has_many :areas, through: :user_areas, class_name: 'Area', inverse_of: :users
   has_many :zip_codes, through: :areas
-
+  has_and_belongs_to_many :professions
+  has_many :professions_users
+  accepts_nested_attributes_for :professions
+  accepts_nested_attributes_for :professions_users, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :areas
   accepts_nested_attributes_for :user_areas, reject_if: :all_blank, allow_destroy: true
 
@@ -126,6 +129,17 @@ class User < ActiveRecord::Base
       !password.nil? || !password_confirmation.nil?
     else
       super
+    end
+  end
+  #
+  def with_client_profession profession_id
+    profession = Profession.find_by_slug(profession_id)
+
+    #raise self.professions.inspect
+    if self.professions.include? profession
+      true
+    else
+      false
     end
   end
 end

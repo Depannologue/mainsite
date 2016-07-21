@@ -1,4 +1,4 @@
-root = "/home/henri/dev/depannologue"
+root = "/home/depanologue/dev/depannologue"
 working_directory "#{root}"
 
 pid "#{root}/tmp/pids/unicorn.pid"

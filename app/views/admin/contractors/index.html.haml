@@ -13,7 +13,7 @@
       %th.col-md-2= User.human_attribute_name :phone_number
       %th.col-md-1= User.human_attribute_name :available_now
       %th.col-md-1= User.human_attribute_name :agglomération
-      %th.col-md-3
+      %th.col-md-3= User.human_attribute_name :professions
   %tbody
     - @contractors.find_each do |contractor|
       %tr
@@ -24,9 +24,13 @@
           %span{class: contractor.available_now? ? 'icon-check' : 'icon-remove'}
         %th= contractor.areas_name
         %th
+          - contractor.professions.each do |profession|
+            = profession.name
+
+        %th
           .pull-right
             = link_to admin_contractor_path(contractor), title: 'Voir', class: 'btn btn-success' do
-              %span.icon-search          
+              %span.icon-search
             = link_to edit_admin_contractor_path(contractor), title: 'Editer', class: 'btn btn-secondary' do
               %span.icon-edit
             = link_to admin_contractor_path(contractor), title: 'Supprimer',

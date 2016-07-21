@@ -1,9 +1,9 @@
 class CreateInterventionService
-  def self.perform(address, customer, intervention_type)
-    new.perform(address, customer, intervention_type)
+  def self.perform(address, customer, intervention_type, profession_id)
+    new.perform(address, customer, intervention_type, profession_id)
   end
 
-  def perform(address, customer, intervention_type)
+  def perform(address, customer, intervention_type, profession_id)
     # Duplicate the address with a new id for the intervention
     intervention_address = address.dup
     intervention_address.save
@@ -12,12 +12,14 @@ class CreateInterventionService
     # send mail and sms to client
     ClientMailer.confirm_booking(intervention).deliver_later
     NotifyBookingOkBySmsService.perform(intervention)
-    # send mail and sms to pros available and nearby
+    # send mail and sms to pros available and nearby and matched profession
     pros = intervention.pros_now_available_and_nearby
     pros.each do |pro|
-      ProMailer.notify_intervention_created(pro, intervention).deliver_later
+      if pro.with_client_profession profession_id
+        ProMailer.notify_intervention_created(pro, intervention).deliver_later
+        NotifyProsBySmsService.perform(intervention, pro)
+      end
     end
-    NotifyProsBySmsService.perform(intervention, pros)
     intervention
   end
 
