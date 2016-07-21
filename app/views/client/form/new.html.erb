@@ -4,8 +4,121 @@
     <div class='col-md-6 col-md-offset-3 col-xs-12'>
       <div class='step-head'></div>
       <h2>Remplissez vos coordonnées et obtenez le prix fixe de votre dépannage</h2>
-      <%=simple_form_for @user_informations_form, url: intervention_form_create_path do |f| %>
 
+
+
+
+      <%= form_for @user_informations_form, url: intervention_form_create_path do |user_informations_form| %>
+        <fieldset>
+
+          <div class="form-group">
+            <%= user_informations_form.label :firstname, :class => "control-label" %>
+            <%= user_informations_form.text_field :firstname, :class => "input-xlarge form-control", :'aria-describedby' => "helpBlock2" %>
+            <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:firstname][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <%= user_informations_form.label :lastname, :class => "control-label" %>
+            <%= user_informations_form.text_field :lastname, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:lastname][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <%= user_informations_form.label :address1, :class => "control-label" %>
+            <%= user_informations_form.text_field :address1, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:address1][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <%= user_informations_form.label :address2, :class => "control-label" %>
+            <%= user_informations_form.text_field :address2, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:address2][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <%= user_informations_form.label :zipcode, :class => "control-label" %>
+            <%= user_informations_form.text_field :zipcode, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:zipcode][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <%= user_informations_form.label :city, :class => "control-label" %>
+            <%= user_informations_form.text_field :city, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:city][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <%= user_informations_form.label :phone_number, :class => "control-label" %>
+            <%= user_informations_form.text_field :phone_number, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:phone_number][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <%= user_informations_form.label :email, :class => "control-label" %>
+            <%= user_informations_form.text_field :email, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:email][0] %></span>
+          </div>
+
+          <div class="control-group">
+            <p><%= user_informations_form.label "date d'intervention", :class => "control-label" %></p>
+            <%= user_informations_form.check_box :now %>
+            <%= user_informations_form.datetime_select :intervention_date, :class => "input-xlarge form-control" %>
+            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:intervention_date][0] %></span>
+          </div>
+
+          <div class="form-actions">
+            <%= user_informations_form.submit :class => "btn btn-primary" %>
+          </div>
+
+        </fieldset>
+      <% end %>
+
+
+
+      <!-- <form action= <%intervention_form_create_path%> >
+        <div class="form-group">
+          <label for="firstname">firstname</label>
+          <input type="text" class="form-control" id="firstname">
+        </div>
+        <div class="form-group">
+          <label for="lastname">lastname</label>
+          <input type="text" class="form-control" id="lastname">
+        </div>
+        <div class="form-group">
+          <label for="address1">address1</label>
+          <input type="text" class="form-control" id="address1">
+        </div>
+        <div class="form-group">
+          <label for="address2">address2</label>
+          <input type="text" class="form-control" id="address2">
+        </div>
+        <div class="form-group">
+          <label for="zipcode">zipcode</label>
+          <input type="text" class="form-control" id="zipcode">
+        </div>
+        <div class="form-group">
+          <label for="city">city</label>
+          <input type="text" class="form-control" id="city">
+        </div>
+        <div class="form-group">
+          <label for="phone_number">phone_number</label>
+          <input type="text" class="form-control" id="phone_number">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+          <label for="intervention_date">intervention_date</label>
+          <input type="text" class="form-control" id="intervention_date">
+        </div>
+        <button type="submit" class="btn btn-default">Valider</button>
+      </form> -->
+
+
+
+
+      <!-- <%=simple_form_for @user_informations_form, url: intervention_form_create_path do |f| %>
       <p>
         <%= f.label :firstname %>
         <%= f.text_field :firstname%>
@@ -53,7 +166,7 @@
       </p>
       <p>
         <%= f.submit %>
-      </p>
+      </p> -->
       <% end %>
     </div>
   </div>

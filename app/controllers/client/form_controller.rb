@@ -6,9 +6,10 @@ class Client::FormController < ApplicationController
   end
 
   def create
-    @user_informations_form = UserInformationsForm.new(user_information_form_params)
+    @user_informations_form = UserInformationsForm.new(user_informations_form_params)
     if @user_informations_form.save
       intervention_type = InterventionType.find_by_slug(params[:intervention_child_slug])
+      raise @user_informations_form.intervention_date.inspec
       intervention = CreateInterventionService.perform(@user_informations_form.address, @user_informations_form.customer, intervention_type)
       if intervention.valid?
         redirect_to quotations_new_path
@@ -25,9 +26,18 @@ class Client::FormController < ApplicationController
   end
   private
   # Using strong parameters
-  def user_information_form_params
-    params.require(:user_informations_form).permit(:firstname, :lastname, :address1, :address2, :zipcode, :phone_number, :city, :email, :intervention_date)
+
+
+
+  def user_informations_form_params
+    parameters = params.require(:user_informations_form).permit(:firstname, :lastname, :address1, :address2, :zipcode, :phone_number, :city, :email, :intervention_date)
+    intervention_time = DateTime.new(parameters["intervention_date(1i)"].to_i, parameters["intervention_date(2i)"].to_i, parameters["intervention_date(3i)"].to_i,parameters["intervention_date(4i)"].to_i, parameters["intervention_date(5i)"].to_i, parameters["intervention_date(6i)"].to_i).change(:offset => "+0200")
+    parameters = parameters.merge(intervention_date: intervention_time)
   end
+
+
+
+
 
 
 end

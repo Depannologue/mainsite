@@ -11,7 +11,8 @@ class UserInformationsForm
   attribute :city, String
   attribute :phone_number, String
   attribute :email, String
-  attribute :intervention_date, String
+  attribute :intervention_date, DateTime
+  attribute :now, Boolean
 
   attr_reader :address, :customer
 
@@ -26,7 +27,6 @@ class UserInformationsForm
             :firstname,
             :lastname,
             :email,
-            :intervention_date,
             presence: true
 
   validate :email_is_unique
@@ -58,8 +58,16 @@ class UserInformationsForm
   end
 
   def intervention_date_is_valid
-    raise intervention_date.inspect
+    elapsed_hours = ((intervention_date - DateTime.now) * 24 ).to_i
+    if elapsed_hours <= -1
+      errors.add(:intervention_date, "choisissez un horaire ulterieur à l'horaire actuel")
+    end
+    raise now.inspect
   end
+
+
+
+
 
   def persist
     address = Address.create(firstname: firstname,
@@ -78,5 +86,6 @@ class UserInformationsForm
                             role: "customer")
     @address = address
     @customer = customer
+    @dateintervention = intervention_date
   end
 end
