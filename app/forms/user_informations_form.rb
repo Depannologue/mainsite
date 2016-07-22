@@ -11,8 +11,10 @@ class UserInformationsForm
   attribute :city, String
   attribute :phone_number, String
   attribute :email, String
+  attribute :intervention_date, DateTime
+  attribute :immediate_intervention, Boolean
 
-  attr_reader :address, :customer
+  attr_reader :address, :customer , :is_immediate, :date_intervention
 
   ## Validation
   validates :phone_number,
@@ -25,10 +27,12 @@ class UserInformationsForm
             :firstname,
             :lastname,
             :email,
+            :intervention_date,
             presence: true
 
   validate :email_is_unique
   validate :zipcode_is_managed
+  validate :intervention_date_is_valid
 
   ###
   def save
@@ -54,6 +58,20 @@ class UserInformationsForm
     end
   end
 
+  def intervention_date_is_valid
+    unless immediate_intervention
+      unless intervention_date.is_a?(DateTime)
+        errors.add(:intervention_date, "Date non valide")
+      end
+      elapsed_minutes = ((intervention_date - DateTime.now) * 24 *60).to_i
+      if elapsed_minutes <= 0
+        errors.add(:intervention_date, "Choisissez un horaire ulterieur à l'horaire actuel ou cochez intervention immediate")
+      end
+    end
+  end
+
+
+
   def persist
     address = Address.create(firstname: firstname,
                             lastname: lastname,
@@ -71,5 +89,9 @@ class UserInformationsForm
                             role: "customer")
     @address = address
     @customer = customer
+    @is_immediate = immediate_intervention
+    @date_intervention = intervention_date
+
+
   end
 end
