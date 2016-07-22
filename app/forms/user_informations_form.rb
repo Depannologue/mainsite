@@ -12,9 +12,9 @@ class UserInformationsForm
   attribute :phone_number, String
   attribute :email, String
   attribute :intervention_date, DateTime
-  attribute :now, Boolean
+  attribute :immediate_intervention, Boolean
 
-  attr_reader :address, :customer
+  attr_reader :address, :customer , :is_intervention_immediate, :date_intervention 
 
   ## Validation
   validates :phone_number,
@@ -27,6 +27,8 @@ class UserInformationsForm
             :firstname,
             :lastname,
             :email,
+            :intervention_date,
+            :immediate_intervention,
             presence: true
 
   validate :email_is_unique
@@ -58,14 +60,16 @@ class UserInformationsForm
   end
 
   def intervention_date_is_valid
-    elapsed_hours = ((intervention_date - DateTime.now) * 24 ).to_i
-    if elapsed_hours <= -1
-      errors.add(:intervention_date, "choisissez un horaire ulterieur à l'horaire actuel")
+    unless immediate_intervention
+      unless intervention_date.is_a?(DateTime)
+        errors.add(:intervention_date, "Date non valide")
+      end
+      elapsed_minutes = ((intervention_date - DateTime.now) * 24 *60).to_i
+      if elapsed_minutes <= 0
+        errors.add(:intervention_date, "Choisissez un horaire ulterieur à l'horaire actuel ou cochez intervention immediate")
+      end
     end
-    raise now.inspect
   end
-
-
 
 
 
@@ -86,6 +90,7 @@ class UserInformationsForm
                             role: "customer")
     @address = address
     @customer = customer
-    @dateintervention = intervention_date
+    @is_intervention_immediate = immediate_intervention
+    @date_intervention = intervention_date
   end
 end
