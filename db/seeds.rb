@@ -12,6 +12,7 @@ User.create(
   role: "admin"
 )
 
+
 InterventionType.create(
   id: 1,
   kind: "closed_door",
@@ -128,19 +129,16 @@ InterventionType.create(
 )
 
 Profession.create(
-
   name: "Serrurerie",
   slug: "serrurerie"
 )
 
 Profession.create(
-
   name: "Vitrerie",
   slug: "vitrerie"
 )
 
 Profession.create(
-
   name: "Plomberie",
   slug: "plomberie"
 )
@@ -162,4 +160,5 @@ if !Rails.env.production?
     lastname: 'Def',
     phone_number: '0606060606'
   )
+
 end
