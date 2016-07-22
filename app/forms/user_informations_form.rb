@@ -14,7 +14,7 @@ class UserInformationsForm
   attribute :intervention_date, DateTime
   attribute :immediate_intervention, Boolean
 
-  attr_reader :address, :customer , :is_intervention_immediate, :date_intervention 
+  attr_reader :address, :customer , :is_immediate, :date_intervention
 
   ## Validation
   validates :phone_number,
@@ -28,7 +28,6 @@ class UserInformationsForm
             :lastname,
             :email,
             :intervention_date,
-            :immediate_intervention,
             presence: true
 
   validate :email_is_unique
@@ -90,7 +89,9 @@ class UserInformationsForm
                             role: "customer")
     @address = address
     @customer = customer
-    @is_intervention_immediate = immediate_intervention
+    @is_immediate = immediate_intervention
     @date_intervention = intervention_date
+
+
   end
 end
