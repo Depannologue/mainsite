@@ -2,32 +2,32 @@ class AddInitialProfessions < ActiveRecord::Migration
   def change
     Profession.create(
       name: "Serrurerie",
-      slug: "#{name.parameterize}"
+      slug: "serrurerie"
     )
 
     Profession.create(
       name: "Vitrerie",
-      slug: "#{name.parameterize}"
+      slug: "vitrerie"
     )
 
     Profession.create(
       name: "Plomberie",
-      slug: "#{name.parameterize}"
+      slug: "plomberie"
     )
 
     Profession.create(
       name: "Electricité",
-      slug: "#{name.parameterize}"
+      slug: "electricite"
     )
 
     Profession.create(
       name: "Chauffage",
-      slug: "#{name.parameterize}"
+      slug: "chauffage"
     )
 
     Profession.create(
       name: "Rénovation",
-      slug: "#{name.parameterize}"
+      slug: "renovation"
     )
   end
 end
