@@ -1,24 +1,16 @@
-<<<<<<< HEAD
-root = "/home/henri/dev/depannologue"
-=======
-root = Dir.pwd
->>>>>>> origin/master
-working_directory "#{root}"
+root = "/home/deploy/app/depannologue"
+working_directory "#{root}/current"
 
-pid "#{root}/tmp/pids/unicorn.pid"
+pid "#{root}/shared/tmp/pids/unicorn.pid"
 
-stderr_path "#{root}/log/unicorn.log"
-stdout_path "#{root}/log/unicorn.log"
+stderr_path "#{root}/shared/log/unicorn.log"
+stdout_path "#{root}/shared/log/unicorn.log"
 
 worker_processes Integer(ENV['WEB_CONCURRENCY'] || 1)
 timeout 30
 preload_app true
 
-if File.exists?('/etc/redhat-release')
-  listen '/home/app/unicorn.depannologue.sock', backlog: 64
-else
-  listen '/tmp/unicorn.depannologue.sock', backlog: 64
-end
+listen '/tmp/unicorn.depannologue.sock', backlog: 64
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
