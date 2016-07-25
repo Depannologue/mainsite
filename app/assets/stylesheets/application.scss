@@ -1,0 +1,62 @@
+//= require foundation
+@import "foundation_and_overrides";
+@import url(https://fonts.googleapis.com/css?family=Hind:400,300,500,600,700);
+
+body {
+  font-family: 'Hind', sans-serif;
+  color: #b9bdbd;
+}
+
+#notice {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.top-notice {
+  height: 39px;
+  line-height: 39px;
+  font-size: 14px;
+  font-weight: 600;
+  height: 39px;
+  line-height: 39px;
+}
+
+.top-notice > a {
+  color: #0eaed0;
+}
+
+ul.menu {
+  margin-top: 8px;
+}
+.menu  a {
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+section#banner {
+  background-image: image-url('plomberie.jpg');
+  background-size: cover;
+  height: 550px;
+  span {
+    font-weight: 600;
+    color: white;
+    font-size: 42px;
+    h2 {
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+    }
+  }
+}
+.banner-text {
+  margin-top: 230px;
+}
+
+.banner-text a {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: white;
+  color: black;
+  border-radius: 17px;
+}

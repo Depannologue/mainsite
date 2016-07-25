@@ -3,6 +3,6 @@ class Client::HomeController < ApplicationController
   layout 'client/application'
 
   def index
-    
+    @profession = Profession.all
   end
 end
