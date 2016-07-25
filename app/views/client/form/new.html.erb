@@ -3,10 +3,8 @@
   <div class='row'>
     <div class='col-md-6 col-md-offset-3 col-xs-12'>
       <div class='step-head'></div>
+      <p>
       <h2>Remplissez vos coordonnées et obtenez le prix fixe de votre dépannage</h2>
-
-
-
 
       <%= form_for @user_informations_form, url: intervention_form_create_path do |user_informations_form| %>
         <fieldset>
@@ -73,6 +71,7 @@
           <div class="form-actions">
             <%= user_informations_form.submit :class => "btn btn-primary" %>
           </div>
+          <p>
 
         </fieldset>
       <% end %>

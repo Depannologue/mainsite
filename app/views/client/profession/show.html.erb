@@ -1,0 +1,20 @@
+<div class='container' id='workflow'>
+  <section id='form-localize'></section>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3 col-xs-12'>
+      <div class='step-head'></div>
+      <h2>Veuillez selectionner le type de panne</h2>
+      <%@intervention_parents.each do |intervention| %>
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="panel panel-primary" onmouseover="this.style.background='#3D6AA2';" onmouseout="this.style.background='white';" style="-moz-transition: all 0.5s ease; cursor: pointer;" onclick="location.href='<%=intervention_type_show_url(intervention_parent_slug: intervention.slug)%>';">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%=intervention.short_description%></h3>
+            </div>
+            <div class="panel-body"> <%= image_tag('Intervention_Type_Logo/Porte claquée.png')%> </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
