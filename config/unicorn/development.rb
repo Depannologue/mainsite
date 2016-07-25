@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-root = "/home/henri/dev/depannologue"
-=======
 root = Dir.pwd
->>>>>>> origin/master
 working_directory "#{root}"
 
 pid "#{root}/tmp/pids/unicorn.pid"
