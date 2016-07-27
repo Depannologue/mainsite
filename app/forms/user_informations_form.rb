@@ -80,7 +80,6 @@ class UserInformationsForm
                             zipcode: zipcode,
                             city: city,
                             phone_number: phone_number)
-
     customer = User.create(firstname: firstname,
                             lastname: lastname,
                             phone_number: phone_number,

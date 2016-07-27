@@ -73,4 +73,13 @@ Rails.application.routes.draw do
     end
     devise_for :clients, class_name: 'User'
   end
+  #api
+  constraints(AppConstraints.new subdomain: 'api') do
+    namespace :api do
+      namespace :v1 do
+        resources :professions, only: [:index, :create, :show, :update, :destroy]
+        resources :interventions, only: [:index, :create, :show, :update, :destroy]
+      end
+    end
+  end
 end

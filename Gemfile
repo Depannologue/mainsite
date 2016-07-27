@@ -39,6 +39,8 @@ gem 'lockup', '~> 1.3'
 gem 'unicorn'
 gem 'bugsnag'
 gem 'virtus'
+gem 'active_model_serializers', '0.9.2'
+gem 'active_hash_relation', github: 'kollegorna/active_hash_relation'
 group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'

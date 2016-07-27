@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/kollegorna/active_hash_relation.git
+  revision: ad20d03ccaa97008d1830cc9d6000d47dd5002d7
+  specs:
+    active_hash_relation (1.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -23,6 +29,8 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
     active_link_to (1.0.3)
       actionpack
+    active_model_serializers (0.9.2)
+      activemodel (>= 3.2)
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -401,7 +409,9 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  active_hash_relation!
   active_link_to
+  active_model_serializers (= 0.9.2)
   annotate
   best_in_place (~> 3.0.1)
   better_errors
@@ -464,3 +474,6 @@ DEPENDENCIES
   virtus
   web-console (~> 2.0)
   wicked
+
+BUNDLED WITH
+   1.12.5
