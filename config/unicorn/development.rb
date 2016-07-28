@@ -10,7 +10,11 @@ worker_processes Integer(ENV['WEB_CONCURRENCY'] || 1)
 timeout 30
 preload_app true
 
-listen '/tmp/unicorn.depannologue.sock', backlog: 64
+if File.exists?('/etc/redhat-release')
+  listen '/home/app/unicorn.depannologue.sock', backlog: 64
+else
+  listen '/tmp/unicorn.depannologue.sock', backlog: 64
+end
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do

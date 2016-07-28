@@ -1,0 +1,14 @@
+<section id="bar">
+  <div class="row">
+    <div class="small-4 columns"><%= image_tag('logo-blue') %></div>
+    <div class="small-8 columns">
+      <ul class="menu">
+        <% Profession.all.each do |profession| %>
+          <li>
+            <%= link_to profession.name, profession_show_path(profession: profession.slug) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</section>

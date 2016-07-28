@@ -1,0 +1,57 @@
+<%= render partial: 'layouts/client/description', locals: {description: "Vous êtes à un clic de votre intervention de #{@profession.name}!"} %>
+<br>
+<section>
+  <div class="row">
+    <div>
+      <div class="small-offset-3 small-5 end columns"><i class="fa fa-check fa-2x blue"></i>Disponible 24h/24 & 7J/7</div>
+      <div class="small-offset-3 small-5 end columns"><i class="fa fa-check fa-2x blue"></i>Prix fixe communiqué à l'avance</div>
+      <div class="small-offset-3 small-5 end columns"><i class="fa fa-check fa-2x blue"></i>Dépanneur qualifié et individuellement selectionné</div>
+    </div>
+    <br>
+  </div>
+</section>
+<br>
+<section>
+  <div class="row">
+    <div class="small-12 columns text-center"><h4>Votre intervention:</h4></div>
+      <% @intervention_parents.each do |intervention| %>
+        <div class="small-6 columns">
+          <div class="card">
+             <div class="content">
+               <span class="title"><%= intervention.short_description %></span>
+               <p><%= intervention.price %><i class="fa fa-euro fa-6x"></i></p>
+             </div>
+             <div class="action">
+               <a href="#" class="float-left">En savoir plus</a>
+               <%= link_to '<strong>>> Je reserve</strong>'.html_safe, intervention_form_new_path(intervention_parent_slug: @profession.slug, intervention_child_slug: intervention.slug), class: 'float-right' %>
+               <br>
+            </div>
+           </div>
+         </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<br><br>
+<section>
+  <div class="row text-center">
+    <div class="card">
+      <div class="small-offset-1 small-2 columns txt-center">
+        <div><h2 class="round">1</h2><small class="grey"><%= @profession.name %></small></div>
+      </div>
+      <div class="small-2 columns txt-center">
+        <h2><i class="fa fa-arrow-right"></i></h2>
+      </div>
+      <div class="small-2 columns txt-center">
+        <div class="round"><h2><strong>2</strong></h2><small class="blue">En cours</small></div>
+      </div>
+      <div class="small-2 columns txt-center">
+        <h2><i class="fa fa-arrow-right grey"></i></h2>
+      </div>
+      <div class="small-2 columns txt-center end">
+        <div class="round"><h2 class="grey">3</h2></div>
+      </div>
+    </div>
+  </div>
+</section>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,0 +1,119 @@
+//= require foundation
+@import "foundation_and_overrides";
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Hind:400,300,500,600,700);
+
+body {
+  font-size: rem-calc(20);
+}
+
+#notice {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+#description {
+  background-color: $blue;
+}
+
+h3 {
+  color: $white;
+}
+.top-notice {
+  height: 39px;
+  line-height: 39px;
+  font-size: 14px;
+  font-weight: 600;
+  height: 39px;
+  line-height: 39px;
+  color: $dark-gray;
+}
+
+
+.top-notice > a {
+  color: $blue;
+}
+
+ul.menu {
+  margin-top: 8px;
+}
+.menu  a {
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+section#banner {
+  background-image: image-url('plomberie.jpg');
+  background-size: cover;
+  height: 550px;
+  span {
+    font-weight: 600;
+    color: $white;
+    font-size: 42px;
+    h2 {
+      // font-weight: 600;
+      // text-transform: uppercase;
+    }
+  }
+}
+.banner-text {
+  margin-top: 100px;
+}
+
+.banner-text a {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 17px;
+}
+
+.blue {
+  color: $blue;
+}
+
+.grey {
+  color: $dark-gray;
+}
+
+img.repair-logo {
+  width: 100px;
+  border: 3px solid $blue;
+  border-radius: 53px;
+}
+
+.card {
+  overflow: hidden;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: $blue;
+  border-radius: 2px; }
+  .card .title {
+    line-height: 3rem;
+    font-size: 1.5rem;
+    font-weight: 300; }
+  .card .content {
+    padding: 1.3rem;
+    font-weight: 300;
+    border-radius: 0 0 2px 2px; }
+  .card p {
+    color: $dark-gray;
+    margin: 0; }
+  .card .action {
+    background-color: $blue;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 1.3rem; }
+  .card a {
+    color: $white;
+    margin-right: 1.3rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    text-decoration: none; }
+  .card .image {
+    position: relative; }
+    .card .image .title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 1.3rem;
+      color: #fff; }
+    .card .image img {
+      border-radius: 2px 2px 0 0; }

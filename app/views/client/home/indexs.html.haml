@@ -1,0 +1,177 @@
+- content_for :title do
+	Dépannage Serrurier Paris Lyon Lille Porte claque ou fermée 7/24
+
+- content_for :extra_head do
+	= tag :meta, name: "description", content: "Serrurier sur Paris,Lyon et Lille pour une ouverture de porte claquée ou fermée"
+	%meta{:content => "Ne restez plus enfermé dehors ! Depannologue, dépanneur serrurier !", :property => "og:title"}/
+	%meta{:content => "https://www.depannologue.fr/", :property => "og:url"}/
+	%meta{:content => "banniere-facebook-og.jpg", :property => "og:image"}/
+	%meta{:content => " Dépannage rapide en serrurerie à Lille Lyon Paris. Trouvez rapidement un serrurier pas cher", :property => "og:description"}/
+	%meta{:content => "fr_FR", :property => "og:locale"}/
+	%meta{:content => "543890775761560", :property => "fb:page_id"}/
+	%meta{:content => "Depannologue", :property => "og:site_name"}/
+	%meta{:content => "website", :property => "og:type"}/
+
+	%meta{:content => "summary_large_image", :name => "twitter:card"}/
+	%meta{:content => "@depannologue", :name => "twitter:site"}/
+	%meta{:content => "@depannologue ", :name => "twitter:creator"}/
+	%meta{:content => "Dépannage rapide pas cher de serrurier", :name => "twitter:title"}/
+	%meta{:content => "Depannologue : le premier site dédié au dépannage de serrurier pour porte claqué ou porte verrouillée dans votre ville. Demandez un dépannage express de Sérurier professionnel ! ", :name => "twitter:description"}/
+	%meta{:content => "depannologue-logo-600x330.png", :name => "twitter:image"}/
+	%meta{:content => "543890775761560", :property => "fb:page_id"}/
+	%meta{:content => "Depannologue", :property => "og:site_name"}/
+	%meta{:content => "website", :property => "og:type"}/
+
+#home
+
+	%section.head
+		.text
+			.title
+				%h3 Besoin d'un dépannage ?
+				%h2 Nos depanneurs en 3 clics à votre domicile
+				%h1 Service disponible 24/7 - Prix les plus bas - Dépannage garantie
+			%div
+				%h2 Je souhaite etre dépanné pour :
+				.container
+					.row
+						.col-md-4
+							%h3 Serrurerie
+							= link_to image_tag('Profession_Logo/serrurerie.png'), profession_show_path(profession: 'serrurerie'), class: "button btn-warning btn-sq-lg"
+						.col-md-4
+							%h3 Plomberie
+							= link_to image_tag('Profession_Logo/plomberie.png'), profession_show_path(profession: 'plomberie'), class: "button btn-primary btn-sq-lg"
+						.col-md-4
+							%h3 Vitrerie
+							= link_to image_tag('Profession_Logo/vitrerie.png'), profession_show_path(profession: 'vitrerie'), class: "button btn-success btn-sq-lg"
+
+
+
+	%section.post-head
+		.container
+			.row
+				.service.col-lg-4.col-md-4.col-sm-12
+					.icon
+						%i.fontawesome.icon-code-fork
+					%h4 Dépannage express
+					%p Dès la réservation en ligne effectuée, nos serruriers vous dépannent sous 30 minutes et 24h/7J.
+				.service.col-lg-4.col-md-4.col-sm-12
+					.icon
+						%i.fontawesome.icon-euro
+					%h4 Prix fixe
+					%p Chaque dépannage a un prix fixe qui le reste jour et nuit. Nos serruriers se déplacent gratuitement. Vous profitez des prix les plus bas.
+				.service.col-lg-4.col-md-4.col-sm-12
+					.icon
+						%i.fontawesome.icon-hand-peace-o
+					%h4 Satisfaction garantie
+					%p Nous travaillons uniquement avec des serruriers hautement qualifiés. Tous nos dépannages sont garantis 24 mois. Réservez avec confiance.
+
+	%section.what
+		%h3 Les journées sont trop courtes pour rester à la porte !
+		.container
+			.row
+				.col-lg-6.col-md-6.col-sm-12.hidden-sm.hidden-xs
+					= image_tag ('appview.png')
+				.col-lg-6.col-md-6.col-sm-12
+					.point
+						%span.circle 1
+						.text
+							%h5 Choisissez votre intervention
+							%p Porte claquée non verrouillée ou porte verrouillée fermée à clé.
+					.point
+						%span.circle 2
+						.text
+							%h5 Saisissez vos coordonnées
+							%p Renseignez votre adresse et numéro de téléphone ainsi que toute autre information utile pour que notre serrurier vous dépanne le plus vite.
+					.point
+						%span.circle 3
+						.text
+							%h5 Réservez votre serrurier
+							%p Vous connaissez le prix de l'intervention et le temps de route du dépanneur. Notre serrurier arrive chez vous.
+
+
+	%section.avis-list
+		%h3 Nos clients en parlent le mieux
+		.avis
+			.picture-holder
+				.picture-module
+					= image_tag ('client-dominique.png')
+			.post-text
+				%p Clé cassée dans la serrure
+			.customer-comment
+				%p
+					J’étais paniquée à l’idée de faire appel à un serrurier, et je suis très contente d’avoir découvert Depannologue. Jérôme qui m’a dépannée a été très aimable et de bon conseil. Le tout à prix intéressant.
+			.customer-details
+				Dominique - Lille
+
+		.avis
+			.picture-holder
+				.picture-module
+					= image_tag ('client-nicolas.png')
+			.post-text
+				%p Porte claquée
+			.customer-comment
+				%p
+					Après avoir claqué ma porte en oubliant les clés à l’intérieur, j'ai pu réserver l'intervention sur mon mobile très rapidement. Le concept est très sympa et le dépanneur est arrivé 15 minutes après pour ouvrir ma porte.
+			.customer-details
+				Nicolas - Lille
+
+		.avis
+			.picture-holder
+				.picture-module
+					= image_tag ('client-marie.png')
+			.post-text
+				%p Clé perdue porte verrouillée
+			.customer-comment
+				%p
+					Après m’être fait voler mon sac, j’étais anxieuse à l’idée de me faire arnaquer en me faisant dépanner, surtout en pleine nuit. Et finalement, tout s’est très bien passé. Prix intéressant et surtout transparent. Merci.
+			.customer-details
+				Marie - Lille
+
+
+	%section.french-loc
+		%h3 Nos services sont disponibles dans plusieurs villes de France
+		.container
+			.row.row-center
+				.col-md-6
+					= link_to client_lille_path do
+						.lille
+							.home-city
+								%p.text-center
+									Lille
+				.col-md-6
+					= link_to client_lyon_path do
+						.lyon
+							.home-city
+								%p.text-center
+									Lyon
+
+			%p ... et bientôt sur toute la France !
+
+	%section.help-you
+		%h3 Comment pouvons-nous vous aider ?
+		.container
+			.row.text
+				.col-md-6.col-centered.text-center
+					%p Nos services sont disponibles 24H/24 et 7J/7
+			.row.row-center
+				.col-sm-4.col-sm-offset-2
+					= link_to "Nos conseils sur la serrurerie", "http://www.blog.depannologue.fr/", class: "button little light"
+				.col-sm-4
+					= link_to "Réservez en ligne", client_intervention_step_path(id: :start_new_intervention), class: "button blue little"
+
+	%section.confiance
+		%h3 Il nous font confiance
+		.container
+			.row
+				.col-lg-3.col-xs-12
+					= link_to "http://www.euratechnologies.com/", target: "_blank" do
+						= image_tag ('euratech-logo.png')
+				.col-lg-3.col-xs-12
+					= link_to "http://www.reseau-entreprendre-nord.fr/", target: "_blank" do
+						= image_tag ('logo-reseau.jpg')
+				.col-lg-3.col-xs-12
+					= link_to "http://www.initiative-lillemetropolesud.fr/", target: "_blank" do
+						= image_tag ('ilms-logo.png')
+				.col-lg-3.col-xs-12
+					= link_to "https://www.cic.fr/fr/", target: "_blank" do
+						= image_tag ('cic-logo.jpg')
