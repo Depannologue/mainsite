@@ -12,55 +12,9 @@
   </head>
 
   <body>
-    <section id="notice">
-      <div class="row">
-        <div class="top-notice">
-          <div class="small-7 centered columns">Une urgence en Serrurerie, Plomberie ou Vitrerie? : <a>Appelez nous maintenant au 03.66.72.61.67</a></div>
-          <div class="small-5 centered columns">Définissez votre panne et reservez en ligne <a class="button">Me connecter</a></div>
-        </div>
-      </div>
-    </section>
+    <%= render 'layouts/client/notice' %>
     <br>
-    <section id="bar">
-      <div class="row">
-        <div class="small-4 columns"><%= image_tag('logo-blue') %></div>
-        <div class="small-8 columns">
-          <ul class="menu">
-            <% Profession.all.each do |profession| %>
-              <li>
-                <%= link_to profession.name, profession_show_path(profession: profession.slug) %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section id="banner">
-      <div class="row">
-        <div class="small-12 text-center columns">
-          <div class="banner-text">
-            <span><h2>Nos plombiers sont à votre service</h2> pour tout dépannage</span><br>
-            <a class="button">Reserver en ligne</a>
-            <a class="button">Obtenir un devis</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="services">
-      <div class="row">
-        <div class="small-4 columns">
-          <%= image_tag 'electricity'%>
-        </div>
-        <div class="small-4 columns">
-          <%= image_tag 'glaziery' %>
-        </div>
-        <div class="small-4 columns">
-          <%= image_tag 'plumbing' %>
-        </div>
-      </div>
-
-    </section>
+    <%= render 'layouts/client/menu' %>
     <%= yield %>
-
   </body>
 </html>
