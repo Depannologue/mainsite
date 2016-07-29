@@ -11,6 +11,11 @@ class UserInformationsForm
   attribute :city, String
   attribute :phone_number, String
   attribute :email, String
+  attribute :intervention_date_3i , String
+  attribute :intervention_date_2i , String
+  attribute :intervention_date_1i , String
+  attribute :intervention_date_4i , String
+  attribute :intervention_date_5i , String
   attribute :intervention_date, DateTime
   attribute :immediate_intervention, Boolean
 

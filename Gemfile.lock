@@ -244,6 +244,7 @@ GEM
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
+    rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -452,6 +453,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   quiet_assets (~> 1.1)
+  rack-cors
   rails (= 4.2.4)
   rails-erd
   rails_best_practices (~> 1.15)

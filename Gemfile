@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'haml'
-
+gem 'rack-cors', :require => 'rack/cors'
 gem 'aasm'
 gem 'cancancan', '~> 1.10'
 gem 'draper', '~> 1.3'

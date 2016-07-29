@@ -35,8 +35,8 @@ class Api::V1::InterventionsController < Api::V1::BaseController
   private
 
   def user_informations_form_params
-    parameters = params.require(:intervention).permit(:firstname, :lastname, :address1, :address2, :zipcode, :phone_number, :city, :email, :intervention_date, :immediate_intervention)
-    intervention_time = DateTime.new(parameters["intervention_date(1i)"].to_i, parameters["intervention_date(2i)"].to_i, parameters["intervention_date(3i)"].to_i,parameters["intervention_date(4i)"].to_i, parameters["intervention_date(5i)"].to_i, parameters["intervention_date(6i)"].to_i).change(:offset => "+0200")
+    parameters = params.require(:intervention).permit(:firstname, :lastname, :address1, :address2, :zipcode, :phone_number, :city, :email, :intervention_date, :immediate_intervention,:intervention_date_1i, :intervention_date_2i, :intervention_date_3i, :intervention_date_4i, :intervention_date_5i, :intervention_date_6i)
+    intervention_time = DateTime.new(parameters["intervention_date_1i"].to_i, parameters["intervention_date_2i"].to_i, parameters["intervention_date_3i"].to_i,parameters["intervention_date_4i"].to_i, parameters["intervention_date_5i"].to_i, parameters["intervention_date_6i"].to_i).change(:offset => "+0200")
     parameters = parameters.merge(intervention_date: intervention_time)
   end
 

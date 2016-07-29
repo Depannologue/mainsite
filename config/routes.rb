@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   constraints(AppConstraints.new subdomain: 'api') do
     namespace :api do
       namespace :v1 do
+
         resources :professions, only: [:index, :create, :show, :update, :destroy]
         resources :interventions, only: [:index, :create, :show, :update, :destroy]
       end
