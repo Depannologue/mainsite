@@ -1,7 +1,36 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Site Title</li>
+      <li>
+        <a href="#">One</a>
+        <ul class="menu vertical">
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Two</a></li>
+      <li><a href="#">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
+
 <section id="bar">
   <div class="row">
+<<<<<<< Updated upstream
     <div class="small-4 columns"><%= image_tag('logo-blue') %></div>
     <div class="small-8 columns">
+=======
+    <div class="large-4 columns"><%= image_tag('/logo-blue.png') %></div>
+    <div class="large-8 columns">
+>>>>>>> Stashed changes
       <ul class="menu">
         <% Profession.all.each do |profession| %>
           <li>

@@ -2,6 +2,7 @@
 //= require_tree .
 //= require_self
 $(document).ready(function() {
+  alert('---');
   $("#myBtn").click(function(){
     $("#myModal").modal();
   });
