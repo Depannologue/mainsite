@@ -2,8 +2,7 @@ class Api::V1::InterventionsController < Api::V1::BaseController
   include ActiveHashRelation
 
   def index
-    interventions = Intervention.all
-    interventions = apply_filters(interventions, params)
+    interventions = Api::V1::InterventionsFilter.new(Intervention.all, params).collection
     render(
       json: ActiveModel::ArraySerializer.new(
         interventions,
@@ -21,9 +20,8 @@ class Api::V1::InterventionsController < Api::V1::BaseController
   def create
     user_informations_form = UserInformationsForm.new(user_informations_form_params)
     return api_error(status: 422, errors: user_informations_form.errors) unless user_informations_form.save
-
     intervention_type = InterventionType.find_by_slug(params[:intervention][:intervention_child_slug])
-    intervention = CreateInterventionService.perform(user_informations_form.address, user_informations_form.customer, intervention_type, params[:intervention][:profession_id],user_informations_form.is_immediate,user_informations_form.date_intervention)
+    intervention = CreateInterventionService.perform(user_informations_form.address, user_informations_form.customer, intervention_type, intervention_type.profession_id,user_informations_form.is_immediate,user_informations_form.date_intervention)
     return api_error(status: 422, errors: intervention.errors) unless intervention.valid?
     render(
       json: Api::V1::InterventionSerializer.new(intervention).to_json,

@@ -23,30 +23,8 @@ class Address < ActiveRecord::Base
 
   attr_accessor :place
 
-  reverse_geocoded_by :latitude, :longitude do |obj, results|
-    if geo = results.first
-      obj.address1 = [geo.street_number, geo.route].reject { |e| e.blank? }.join(' ')
-      obj.zipcode = geo.postal_code
-      obj.city    = geo.city
-    end
-  end
-  geocoded_by :place
-  before_validation do
-    if (latitude_changed? || longitude_changed?) &&
-      latitude.present? &&
-      longitude.present?
-      reverse_geocode
-    elsif (address1_changed? || zipcode_changed? || city_changed?) &&
-      address1.present? &&
-      zipcode.present? &&
-      city.present?
-      self.place = [
-        address1,
-        [zipcode, city].reject { |e| e.blank? }.join(' ')
-      ].reject { |e| e.blank? }.join(', ')
-      geocode
-    end
-  end
+
+
 
   phony_normalize :phone_number, default_country_code: 'FR'
 
