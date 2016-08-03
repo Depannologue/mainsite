@@ -14,20 +14,5 @@ class AddInitialProfessions < ActiveRecord::Migration
       name: "Plomberie",
       slug: "plomberie"
     )
-
-    Profession.create(
-      name: "Electricité",
-      slug: "electricite"
-    )
-
-    Profession.create(
-      name: "Chauffage",
-      slug: "chauffage"
-    )
-
-    Profession.create(
-      name: "Rénovation",
-      slug: "renovation"
-    )
   end
 end

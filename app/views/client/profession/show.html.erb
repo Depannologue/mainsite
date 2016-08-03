@@ -3,9 +3,9 @@
 <section>
   <div class="row">
     <div>
-      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x blue"></i>Disponible 24h/24 & 7J/7</div>
-      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x blue"></i>Prix fixe communiqué à l'avance</div>
-      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x blue"></i>Dépanneur qualifié et individuellement selectionné</div>
+      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x dark-blue"></i>&nbsp;&nbsp;<span class="bigger blue">Disponible 24h/24 & 7J/7</span></div>
+      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x dark-blue"></i>&nbsp;&nbsp;<span class="bigger blue">Dépanneur qualifié et individuellement selectionné</span></div>
+      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x dark-blue"></i>&nbsp;&nbsp;<span class="bigger blue">Prix fixe communiqué à l'avance</span></div>
     </div>
     <br>
   </div>
@@ -13,45 +13,27 @@
 <br>
 <section>
   <div class="row">
-    <div class="large-12 columns text-center"><h4>Votre intervention:</h4></div>
+    <div class="large-12 columns text-center"><h4>Votre intervention:</h4><br><br></div>
       <% @intervention_parents.each do |intervention| %>
         <div class="large-6 columns">
           <div class="card">
              <div class="content">
                <span class="title"><%= intervention.short_description %></span>
-               <p><%= intervention.price %><i class="fa fa-euro fa-6x"></i></p>
+               <p class="bigger"><%= intervention.price.to_i %><i class="fa fa-euro fa-6x"></i></p>
              </div>
-             <div class="action">
-               <a href="#" class="float-left">En savoir plus</a>
-               <%= link_to '<strong>>> Je reserve</strong>'.html_safe, intervention_form_new_path(intervention_parent_slug: @profession.slug, intervention_child_slug: intervention.slug), class: 'float-right' %>
+               <div class="float-left back-link">
+                 <a href="#" class="float-left">En savoir plus</a>
+               </div>
+               <div class="action float-right">
+                 <%= link_to '<strong>>> Je reserve</strong>'.html_safe, intervention_form_new_path(intervention_parent_slug: @profession.slug, intervention_child_slug: intervention.slug), class: 'float-right' %>
+               </div>
                <br>
             </div>
            </div>
-         </div>
       <% end %>
     </div>
   </div>
 </section>
-<br><br>
-<section>
-  <div class="row text-center">
-    <div class="card">
-      <div class="large-offset-1 large-2 columns txt-center">
-        <div><h2 class="round">1</h2><small class="grey"><%= @profession.name %></small></div>
-      </div>
-      <div class="large-2 columns txt-center">
-        <h2><i class="fa fa-arrow-right"></i></h2>
-      </div>
-      <div class="large-2 columns txt-center">
-        <div class="round"><h2><strong>2</strong></h2><small class="blue">En cours</small></div>
-      </div>
-      <div class="large-2 columns txt-center">
-        <h2><i class="fa fa-arrow-right grey"></i></h2>
-      </div>
-      <div class="large-2 columns txt-center end">
-        <div class="round"><h2 class="grey">3</h2></div>
-      </div>
-    </div>
-  </div>
-</section>
+<br><br><br><br>
+<%= render partial: 'ariane', locals: { profession: @profession } %>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
