@@ -14,22 +14,22 @@
 <section>
   <div class="row">
     <div class="large-12 columns text-center"><h4>Votre intervention:</h4><br><br></div>
-      <% @intervention_parents.each do |intervention| %>
-        <div class="large-6 columns">
-          <div class="card">
-             <div class="content">
-               <span class="title"><%= intervention.short_description %></span>
-               <p class="bigger"><%= intervention.price.to_i %><i class="fa fa-euro fa-6x"></i></p>
-             </div>
-               <div class="float-left back-link">
-                 <a href="#" class="float-left">En savoir plus</a>
+        <% @intervention_parents.each do |intervention| %>
+          <div class="large-6 columns">
+            <div class="card">
+               <div class="content">
+                 <span class="title"><%= intervention.short_description %></span>
+                 <p class="bigger"><%= intervention.price.to_i %><i class="fa fa-euro fa-6x"></i></p>
                </div>
-               <div class="action float-right">
-                 <%= link_to '<strong>>> Je reserve</strong>'.html_safe, intervention_form_new_path(intervention_parent_slug: @profession.slug, intervention_child_slug: intervention.slug), class: 'float-right' %>
-               </div>
-               <br>
-            </div>
-           </div>
+                 <div class="float-left back-link">
+                   <a href="#" class="float-left">En savoir plus</a>
+                 </div>
+                 <div class="action float-right">
+                   <%= link_to '<strong>>> Je reserve</strong>'.html_safe, intervention_form_new_path(intervention_parent_slug: @profession.slug, intervention_child_slug: intervention.slug), class: 'float-right' %>
+                 </div>
+                 <br>
+              </div>
+          </div>
       <% end %>
     </div>
   </div>
