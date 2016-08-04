@@ -133,8 +133,7 @@ class User < ActiveRecord::Base
   end
   #
   def with_client_profession profession_id
-    profession = Profession.find_by_slug(profession_id)
-
+    profession = Profession.find_by_id(profession_id)
     #raise self.professions.inspect
     if self.professions.include? profession
       true
