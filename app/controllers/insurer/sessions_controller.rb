@@ -1,17 +1,17 @@
 class Insurer::SessionsController < Devise::SessionsController
   before_filter :configure_sign_in_params, only: [:create]
 
-   GET /insurer/sign_in
+  #  GET /insurer/sign_in
    def new
     super
    end
 
-  POST /insurer/sign_in
+  # POST /insurer/sign_in
   def create
    super
   end
 
-  DELETE /insurer/sign_out
+  # DELETE /insurer/sign_out
   def destroy
     super
   end
