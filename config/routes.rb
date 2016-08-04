@@ -74,7 +74,7 @@ Rails.application.routes.draw do
     devise_for :clients, class_name: 'User'
   end
 
-  constraints(AppConstraints.new subdomain: 'insurer') do
+  constraints(AppConstraints.new subdomain: 'api') do
     namespace :insurer, module: 'insurer', path: '/' do
       get  '/insurer/sign_in', to: 'sessions#new'
     end
