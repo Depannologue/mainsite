@@ -1,0 +1,91 @@
+<div class='container' id='workflow'>
+  <section id='form-localize'></section>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3 col-xs-12'>
+      <div class='step-head'></div>
+      <p>
+      <h2><center>Remplissez ce formulaire pour devenir un de nos depanneur</center></h2>
+
+      <%= form_for @service_provider_informations_form, url: service_provider_create_path do |service_provider_informations_form| %>
+        <fieldset>
+
+          <div class="form-group">
+            <%= service_provider_informations_form.text_field :firstname, :class => "form-control", :placeholder => "Prenom" ,:required => "",:'aria-describedby' => "helpBlock2" %>
+            <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:firstname][0] %></span>
+          </div>
+          <div class="form-group">
+            <%= service_provider_informations_form.text_field :lastname, :class => "form-control", :placeholder => "Nom" ,:required => "",:'aria-describedby' => "helpBlock2" %>
+            <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:lastname][0] %></span>
+          </div>
+          <div class="form-group">
+            <%= service_provider_informations_form.email_field :email, :class => "form-control", :placeholder => "Adresse Email" ,:required => "",:'aria-describedby' => "helpBlock2" %>
+            <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:email][0] %></span>
+          </div>
+          <div class="form-group">
+            <%= service_provider_informations_form.text_field :phone_number, :class => "form-control", :placeholder => "Numero de telephone" ,:required => "",:'aria-describedby' => "helpBlock2" %>
+            <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:phone_number][0] %></span>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Professions</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="checkbox">
+                   <label><%= service_provider_informations_form.check_box :is_a_plumber %>Serrurerie</label>
+                  </div>
+                  <div class="checkbox">
+                   <label><%= service_provider_informations_form.check_box :is_a_locksmith %>Plomberie</label>
+                  </div>
+                  <div class="checkbox">
+                   <label><%= service_provider_informations_form.check_box :is_a_glazier %>Vitrerie</label>
+                  </div>
+
+                    <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:is_a_plumber][0] %></span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <label>Statut</label></br>
+          <%= service_provider_informations_form.select :status, options_for_select(["Choisissez votre situation", "Auto-entrepreneur", "SAS", "SARL" ,"EURL" ,"SASU" ,"EI"],:disabled => ["Choisissez votre situation"], :selected => ["Choisissez votre situation"]) %>
+          <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:status][0] %></span>
+          </br>
+          <label for="number_of_employees">Nombre d'employés</label></br>
+          <%= service_provider_informations_form.number_field :number_of_employees,:placeholder => 0,:value => 0,:required => "",:min => "0" %>
+          <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:number_of_employees][0] %></span>
+          </br>
+          </br>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Fichiers</h3>
+            </div>
+            <div class="panel-body">
+              <label class="control-label">KBIS</label>
+              <%= service_provider_informations_form.file_field :file_kbis,:required => "" %>
+              <label class="control-label">Assurance professionelle</label>
+              <%= service_provider_informations_form.file_field :file_professional_insurance,:required => "" %>
+              <label class="control-label">IBAN</label>
+              <%= service_provider_informations_form.file_field :file_iban,:required => "" %>
+            </div>
+          </div>
+
+
+          <label>Possedez vous un smartphone ?</label></br>
+
+            <label class="radio-inline"><%= service_provider_informations_form.radio_button :has_a_smartphone, 'true' ,:checked => "checked"%>Oui</label>
+            <label class="radio-inline"><%= service_provider_informations_form.radio_button :has_a_smartphone, 'false' %>Non</label>
+            <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @service_provider_informations_form.errors[:has_a_smartphone][0] %></span>
+
+          <div class="form-actions">
+            <%= service_provider_informations_form.submit :class => "btn btn-primary", :value =>"valider" %>
+          </div>
+          <p>
+
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>

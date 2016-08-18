@@ -1,0 +1,31 @@
+Nouvelle demande de depanneur
+<div>&nbsp;</div>
+Prenom : <%=@service_provider_informations.firstname %>
+<div>&nbsp;</div>
+Nom : <%=@service_provider_informations.lastname %>
+<div>&nbsp;</div>
+Email : <%=@service_provider_informations.email %>
+<div>&nbsp;</div>
+Numero de Telephone :<%= @service_provider_informations.phone_number %>
+<div>&nbsp;</div>
+<% if @service_provider_informations.is_a_plumber %>
+  Plombier
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_locksmith %>
+  Serrurier
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_glazier %>
+  Vitrier
+  <div>&nbsp;</div>
+<% end %>
+Statut : <%= @service_provider_informations.status %>
+<div>&nbsp;</div>
+Nombre d'employés : <%= @service_provider_informations.number_of_employees %>
+<div>&nbsp;</div>
+<% if @service_provider_informations.has_a_smartphone %>
+Possède un smartphone
+<% else %>
+Ne possède pas de smartphone
+<% end %>
