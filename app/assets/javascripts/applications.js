@@ -17,7 +17,7 @@
 //= require best_in_place
 //= require cocoon
 //= require_self
-$(document).foundation();
+
 $(function(){
 
   $('label').each(function() {

@@ -464,3 +464,6 @@ DEPENDENCIES
   virtus
   web-console (~> 2.0)
   wicked
+
+BUNDLED WITH
+   1.12.5
