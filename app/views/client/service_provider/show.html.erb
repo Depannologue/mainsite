@@ -1,22 +1,22 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="menu">
-      <li class="menu-text"><%= image_tag('logo-blue.png', :alt => "Depannologue") %></li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <a class="large button" href="#"><h3>Rejoignez <%= image_tag('logo-white.png', :alt => "Depannologue") %></h3> Inscrivez-vous</a>
-    </ul>
-  </div>
-</div>
+<div class="divSubHeader" >
+  <div class="top-bar" id="realEstateMenu">
+    <div class="top-bar-left">
 
-<div class="callout large divSubHeader" >
+      <%= image_tag('logo-blue.png', :alt => "Depannologue",:class => "menu-text") %>
+
+    </div>
+
+  </div>
+
   <div class="row column text-center" >
-    <h3 class="center shad">Les artisans français préfèrent Depannologue </h3>
-    <h3 class="center shad">pour leurs apporter des interventions qualifiées</h3>
+    <br>
+      <h3 class="center shad semiBR">Les artisans français préfèrent <b>Depannologue</b><br>
+        pour leurs apporter des interventions qualifiées </h3>
     </br>
-    <a href="#" class="button large">Rejoignez nous</a>
+      <a class="button hollowe" style="" href=<%=service_provider_new_path %>><h3><b>Rejoignez</b> </h3><%= image_tag('logo-white.png', :alt => "Depannologue") %></a>
+    </div>
+  <div class="row">
+    <div class="small-12 large-12 columns text-center"><%= image_tag('3GuysStanding.png', :alt => "Depannologue") %></div>
   </div>
 </div>
 
@@ -29,66 +29,64 @@
 </div>
 <div class="main-container">
   <div class="swipe-tabs-container" >
-    <div class="swipe-tab-content swipe-tab-content1">
-      <div class="col-sm-12 text-center align-middle">
+    <div class="swipe-tab-content swipe-tab-content1" >
+      <div class="text-center center-vertically">
           <h1 class="center shad"><B>80%</B></h1>
-          <h2 class="center shad">De commission sur le montant des interventions</h2>
+          <h2 class="center shad">De commission sur le montant des interventions</h2></br></br>
           <h3 class="center shad">Taux progressif jusqu'a +5% selon le taux de satisfaction client et le taux d'acceptation d'interventions</h3>
       </div>
     </div>
-    <div class="swipe-tab-content swipe-tab-content2"></div>
-    <div class="swipe-tab-content swipe-tab-content3"></div>
+    <div class="swipe-tab-content swipe-tab-content2">
+      <div class="text-center center-vertically">
+          <h3 class="center shad">Taux progressif jusqu'a +5% selon le taux de satisfaction client et le taux d'acceptation d'interventions</h3>
+      </div>
+    </div>
+    <div class="swipe-tab-content swipe-tab-content3">
+      <div class="text-center center-vertically">
+        <h2 class="center shad">De commission sur le montant des interventions</h2>
+        <h3 class="center shad">Taux progressif jusqu'a +5% selon le taux de satisfaction client et le taux d'acceptation d'interventions</h3>
+      </div>
+    </div>
   </div>
 </div>
 
-</br>
-
-<div class="row">
+<div class="dl-app" >
   <div class="large-12 medium-12 columns">
-    <div class="callout">
-      <h1 class="text-center">Telechargez notre Application</h1>
-      <h4 class="text-center">Android / IOS / Windows Phone</h4>
+    <div >
+      <br>
+      <h1 class="text-center shad"><b>Telechargez notre Application</b></h1>
+      <div class="text-center" data-equalizer="app-dl-button">
+        <button class="large button app-dl-button" data-equalizer-watch="app-dl-button"><t class="fi-social-apple style5"> iOS</t></button>
+        <button class="large button app-dl-button" data-equalizer-watch="app-dl-button"><t class="fi-social-android style5"> Android</t></button>
+      </div>
+
     </div>
   </div>
-  <h4 class="text-center">Comment ça marche ?</h4>
+  <br>
+  <h3 class="text-center">Comment ça marche ?</h3>
+  <br>
   <!-- Grid Example -->
   <div class="row" data-equalizer="step-div">
-    <div class="large-5 medium-5 columns step-div" >
-      <div class="text-center">
-        1
-      </div>
-      <div  data-equalizer-watch="step-div">
-        <h4 class="text-center">Postulez pour rejoindre le réseau en renseignant les informations et documents demandés</h4>
-      </div>
+
+    <div class="medium-5 large-5 columns card-step1" data-equalizer-watch="step-div">
+      <center><div class="circle"><div class="circle-number">1</b></div></center>
+      <h4 class="text-center">Postulez pour rejoindre le réseau en renseignant les informations et documents demandés</h4>
     </div>
-    <div class="large-5 medium-5 columns step-div" >
-      <div class="text-center">
-        2
-      </div>
-      <div  data-equalizer-watch="step-div">
-        <h4 class="text-center">Telechargez l'application sur votre smartphone et renseignez vos disponibilités</h4>
-      </div>
+
+    <div class="medium-5 large-5 columns card-step2" data-equalizer-watch="step-div">
+      <center><div class="circle"><div class="circle-number">2</b></div></center>
+      <h4 class="text-center">Telechargez l'application sur votre smartphone et renseignez vos disponibilités</h4>
     </div>
+
   </div>
-  </br>
   <div class="row" data-equalizer="step-div">
-    <div class="large-5 medium-5 columns step-div">
-    <div class="text-center">
-        3
-      </div>
-      <div   data-equalizer-watch="step-div">
-        <h4 class="text-center">Recevez des interventions lorsque vous êtes disponible, que vous pouvez accepter ou refuser</h4>
-      </div>
+    <div class="medium-5 large-5 columns card-step3" data-equalizer-watch="step-div">
+      <center><div class="circle"><div class="circle-number">3</b></div></center>
+      <h4 class="text-center">Recevez des interventions lorsque vous êtes disponible, que vous pouvez accepter ou refuser</h4>
     </div>
-    <div class="large-5 medium-5 columns step-div">
-      <div class="text-center">
-        4
-      </div>
-      <div  data-equalizer-watch="step-div">
-        <h4 class="text-center">Vous recevez le total de commission chaque mois avec une facturation automatique</h4>
-      </div>
+
+    <div class="medium-5 large-5 columns card-step4" data-equalizer-watch="step-div">
+      <center><div class="circle"><div class="circle-number">4</b></div></center>
+      <h4 class="text-center">Vous recevez le total de commission chaque mois avec une facturation automatique</h4>
     </div>
   </div>
-  </br>
-  <h3 class="text-center">Concentrez vous sur votre coeur de métier, on s'occupe du reste !</h3>
-</div>
