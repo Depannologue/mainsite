@@ -4,5 +4,3 @@ class Api::V1::ContractorFilter < Api::V1::BaseFilter
     return self.with_associations(interventions)
   end
 end
-
-end
