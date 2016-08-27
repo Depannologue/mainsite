@@ -127,6 +127,26 @@ InterventionType.create(
   parent_id: 8,
   slug: "evier"
 )
+Insurer.create(
+  name: 'axa',
+  parent_id: nil
+)
+Insurer.create(
+  name: 'axa-lille ',
+  parent_id: 1
+)
+Insurer.create(
+  name: 'axa-lyon ',
+  parent_id: 1
+)
+Insurer.create(
+  name: 'ircem',
+  parent_id: nil
+)
+Insurer.create(
+  name: 'ircem-lille ',
+  parent_id: 4
+)
 
 if !Rails.env.production?
   User.create(

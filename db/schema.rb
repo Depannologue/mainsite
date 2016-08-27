@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722095604) do
+ActiveRecord::Schema.define(version: 20160826170813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20160722095604) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contractors_declines", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "intervention_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contractors_declines", ["intervention_id"], name: "index_contractors_declines_on_intervention_id", using: :btree
+  add_index "contractors_declines", ["user_id"], name: "index_contractors_declines_on_user_id", using: :btree
+
   create_table "exceptional_availabilities", force: :cascade do |t|
     t.integer  "user_id"
     t.boolean  "available_now"
@@ -59,6 +69,11 @@ ActiveRecord::Schema.define(version: 20160722095604) do
   end
 
   add_index "historical_transitions", ["historisable_id"], name: "index_historical_transitions_on_historisable_id", using: :btree
+
+  create_table "insurers", force: :cascade do |t|
+    t.string  "name"
+    t.integer "parent_id"
+  end
 
   create_table "intervention_types", force: :cascade do |t|
     t.string   "kind"
@@ -88,6 +103,9 @@ ActiveRecord::Schema.define(version: 20160722095604) do
     t.string   "payment_method"
     t.boolean  "immediate_intervention"
     t.datetime "intervention_date"
+    t.integer  "insurer_id"
+    t.string   "auth_id"
+    t.text     "picture"
   end
 
   add_index "interventions", ["client_token_ownership"], name: "index_interventions_on_client_token_ownership", unique: true, using: :btree
@@ -155,6 +173,7 @@ ActiveRecord::Schema.define(version: 20160722095604) do
     t.integer  "invitations_count",      default: 0
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "auth_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

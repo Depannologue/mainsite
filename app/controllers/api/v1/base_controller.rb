@@ -1,6 +1,5 @@
 class Api::V1::BaseController < ApplicationController
   protect_from_forgery with: :null_session
-
   before_action :destroy_session
 
 
@@ -26,6 +25,7 @@ class Api::V1::BaseController < ApplicationController
 
      render json: jsonapi_format(errors).to_json, status: status
  end
+
  def jsonapi_format(errors)
     return errors if errors.is_a? String
     errors_hash = {}
