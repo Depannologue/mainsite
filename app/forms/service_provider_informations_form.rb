@@ -27,7 +27,6 @@ class ServiceProviderInformationsForm
   attribute :number_of_employees, Integer
   attribute :has_a_smartphone, Boolean
 
-
   ## Validation
 
   validates :firstname,

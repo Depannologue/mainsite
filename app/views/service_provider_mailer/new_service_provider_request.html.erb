@@ -1,57 +1,60 @@
 Nouvelle demande de depanneur
 <div>&nbsp;</div>
-Prenom : <%=@service_provider_informations.firstname %>
+<b>Prenom</b> : <%=@service_provider_informations.firstname %>
 <div>&nbsp;</div>
-Nom : <%=@service_provider_informations.lastname %>
+<b>Nom</b> : <%=@service_provider_informations.lastname %>
 <div>&nbsp;</div>
-Email : <%=@service_provider_informations.email %>
+<b>Email</b> : <%=@service_provider_informations.email %>
 <div>&nbsp;</div>
-Numero de Telephone :<%= @service_provider_informations.phone_number %>
+<b>Numero de Telephone</b> : <%= @service_provider_informations.phone_number %>
 <div>&nbsp;</div>
-Société :<%= @service_provider_informations.society %>
+<b>Société</b> : <%= @service_provider_informations.society %>
 <div>&nbsp;</div>
-N°Siret :<%= @service_provider_informations.siret %>
+<b>N°Siret</b> : <%= @service_provider_informations.siret %>
 <div>&nbsp;</div>
-Adresse du siège :<%= @service_provider_informations.siege_address %>
+<b>Adresse du siège</b> : <%= @service_provider_informations.siege_address %>
 <div>&nbsp;</div>
+<b>Profession(s)</b> :
+<ul>
 <% if @service_provider_informations.is_a_plumber %>
-  Plombier
+  <li>Plombier</li>
   <div>&nbsp;</div>
 <% end %>
 <% if @service_provider_informations.is_a_locksmith %>
-  Serrurier
+  <li>Serrurier</li>
   <div>&nbsp;</div>
 <% end %>
 <% if @service_provider_informations.is_a_glazier %>
-  Vitrier
+  <li>Vitrier</li>
   <div>&nbsp;</div>
 <% end %>
 <% if @service_provider_informations.is_a_heating_engineer %>
-  Chauffagiste
+  <li>Chauffagiste</li>
   <div>&nbsp;</div>
 <% end %>
 <% if @service_provider_informations.is_an_electrician %>
-  Electricien
+  <li>Electricien</li>
   <div>&nbsp;</div>
 <% end %>
 <% if @service_provider_informations.is_a_drywall_worker %>
-  Plaquiste
+  <li>Plaquiste</li>
   <div>&nbsp;</div>
 <% end %>
 <% if @service_provider_informations.is_a_painter %>
-  Peintre
+  <li>Peintre</li>
   <div>&nbsp;</div>
 <% end %>
 <% if @service_provider_informations.is_a_ground_setter %>
-  Poseur de sol
+  <li>Poseur de sol</li>
   <div>&nbsp;</div>
 <% end %>
-Statut : <%= @service_provider_informations.status %>
+</ul>
+<b>Statut</b> : <%= @service_provider_informations.status %>
 <div>&nbsp;</div>
-Nombre d'employés : <%= @service_provider_informations.number_of_employees %>
+<b>Nombre d'employés</b> : <%= @service_provider_informations.number_of_employees %>
 <div>&nbsp;</div>
 <% if @service_provider_informations.has_a_smartphone %>
-Possède un smartphone
+<b>Possède un smartphone</b>
 <% else %>
-Ne possède pas de smartphone
+<b>Ne possède pas de smartphone</b>
 <% end %>

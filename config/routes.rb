@@ -11,7 +11,7 @@ end
 
 Rails.application.routes.draw do
 
-  get 'test' , to: 'client/service_provider#show'
+  get 'test' , to: 'client/service_provider#show', as: :service_provider_show
   get 'test/form' , to: 'client/service_provider#new', as: :service_provider_new
   post 'test/form/create' , to: 'client/service_provider#create', as: :service_provider_create
   get 'profession/:profession', to: 'client/profession#show', as: :profession_show
