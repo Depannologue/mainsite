@@ -6,9 +6,20 @@ class ServiceProviderInformationsForm
   attribute :lastname, String
   attribute :email, String
   attribute :phone_number, String
+  attribute :society, String
+  attribute :siret, String
+  attribute :siege_address, String
+
   attribute :is_a_plumber, Boolean
   attribute :is_a_locksmith, Boolean
   attribute :is_a_glazier, Boolean
+  attribute :is_a_heating_engineer, Boolean
+  attribute :is_an_electrician, Boolean
+  attribute :is_a_drywall_worker, Boolean
+  attribute :is_a_painter, Boolean
+  attribute :is_a_ground_setter, Boolean
+  attribute :profession, Boolean
+
   attribute :status, String
   attribute :file_kbis, Tempfile
   attribute :file_professional_insurance, Tempfile
@@ -18,20 +29,16 @@ class ServiceProviderInformationsForm
 
 
   ## Validation
-  validates :phone_number,
-            phony_plausible: true
 
   validates :firstname,
             :lastname,
             :email,
             :phone_number,
-            :file_kbis,
-            :file_professional_insurance,
-            :file_iban,
             :status,
             :number_of_employees,
-            :has_a_smartphone,
             presence: true
+
+  validates :has_a_smartphone, inclusion: { in: [ true, false ] }
 
   validate :number_of_employees_is_positive
   validate :must_have_at_least_one_profession
@@ -55,11 +62,8 @@ class ServiceProviderInformationsForm
 
   def must_have_at_least_one_profession
     unless is_a_plumber || is_a_locksmith || is_a_glazier
-      errors.add(:is_a_plumber, "Vous devez selectionner au moins une profession")
+      errors.add(:profession, "Vous devez selectionner au moins une profession")
     end
   end
 
-  def persist
-
-  end
 end

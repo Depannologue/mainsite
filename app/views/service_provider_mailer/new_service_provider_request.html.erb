@@ -8,6 +8,12 @@ Email : <%=@service_provider_informations.email %>
 <div>&nbsp;</div>
 Numero de Telephone :<%= @service_provider_informations.phone_number %>
 <div>&nbsp;</div>
+Société :<%= @service_provider_informations.society %>
+<div>&nbsp;</div>
+N°Siret :<%= @service_provider_informations.siret %>
+<div>&nbsp;</div>
+Adresse du siège :<%= @service_provider_informations.siege_address %>
+<div>&nbsp;</div>
 <% if @service_provider_informations.is_a_plumber %>
   Plombier
   <div>&nbsp;</div>
@@ -18,6 +24,26 @@ Numero de Telephone :<%= @service_provider_informations.phone_number %>
 <% end %>
 <% if @service_provider_informations.is_a_glazier %>
   Vitrier
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_heating_engineer %>
+  Chauffagiste
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_an_electrician %>
+  Electricien
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_drywall_worker %>
+  Plaquiste
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_painter %>
+  Peintre
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_ground_setter %>
+  Poseur de sol
   <div>&nbsp;</div>
 <% end %>
 Statut : <%= @service_provider_informations.status %>

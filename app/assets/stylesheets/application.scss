@@ -159,6 +159,11 @@ img.repair-logo {
     .card .image img {
       border-radius: 2px 2px 0 0; }
 
+.style3 {
+    font-size: 20px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    color: #FFFFFF;
+}
 .style4 {
     font-size: 70px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.25);
@@ -168,6 +173,32 @@ img.repair-logo {
     font-size: 40px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.25);
     color: #2199e8;
+}
+.style6 {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    color: #00cf21;
+    font-size: 20px;
+    @media all and (min-width: 70em) {
+      font-size: 40px;
+    }
+}
+.style7 {
+
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    color: white;
+    font-size: 20px;
+    @media all and (min-width: 70em) {
+      font-size: 40px;
+    }
+}
+.style8 {
+
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+    @media all and (min-width: 70em) {
+      font-size: 32px;
+    }
 }
 .app-dl-button {
   color: #2199e8;
@@ -195,7 +226,7 @@ background-color: #fefefe;
 border-radius: 2px;
 }
 
-$swipe-tab-color: #eeeeee;
+$swipe-tab-textcolor: #eeeeee;
 $swipe-active-tab-color: #eeeeee;
 $swipe-active-tab-color2: #eeeeee;
 $swipe-hover-tab-color: #000000;
@@ -218,11 +249,11 @@ $swipe-hover-tab-color: #000000;
     background-size: cover;
   }
   .swipe-tab-content2 {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg') no-repeat center center ;
+    background: url('HandShaking.png') no-repeat center center ;
     background-size: cover;
   }
   .swipe-tab-content3 {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg') no-repeat center center ;
+    background: url('HandShaking.png') no-repeat center center ;
     background-size: cover;
   }
 
@@ -230,9 +261,9 @@ $swipe-hover-tab-color: #000000;
     line-height: 1;
     align-items: center;
     justify-content: center;
-    background: #2199e8;
+    background: #326DB0;
     border: 0;
-    color: $swipe-tab-color;
+    color: $swipe-tab-textcolor;
     cursor: pointer;
     text-align: center;
     border-bottom: 0px solid rgba($swipe-active-tab-color, 0.5);
@@ -243,8 +274,8 @@ $swipe-hover-tab-color: #000000;
     }
 
     &.active-tab {
-      background: #156396;
-      border-bottom: 10px solid rgba(#f5c400, 1);
+      background: #255284;
+      border-bottom: 8px solid rgba(white, 1);
       color: $swipe-active-tab-color;
     }
 
@@ -255,6 +286,8 @@ $swipe-hover-tab-color: #000000;
 .main-container {
   background: #f1f1f1;
   margin-bottom: 0px;
+  background: url('HandShaking.png') no-repeat center center ;
+  background-size: cover;
 }
 
 
@@ -276,7 +309,7 @@ $swipe-hover-tab-color: #000000;
 }
 
 .swipe-tab-content h2 {
-  font-size: 38px; /* mobile */
+  font-size: 30px; /* mobile */
   @media all and (min-width: 50em) {
   font-size: 50px; /* desktop */
   }
@@ -318,10 +351,10 @@ $grey: #ccc;
 
 .form-content {
   background-color: #f8f6f6;
-  border-left: 1px solid $grey;
-  border-right: 1px solid $grey;
-  border-bottom: 3px solid $grey;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 3px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .fieldset-legend {
@@ -334,11 +367,21 @@ $grey: #ccc;
 }
 
 .center-vertically {
+  height:300px;
   position: relative;
- top: 50%;
- -webkit-transform: translateY(-50%);
- -ms-transform: translateY(-50%);
- transform: translateY(-50%);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.bottom-vertically {
+  height:100px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .hollowe {
@@ -354,7 +397,10 @@ $grey: #ccc;
 }
 
 .semiBR {
-  line-height: 50px;
+  line-height: 20px;
+  @media all and (min-width: 50em) {
+    line-height: 50px;
+  }
 }
 
 .dl-app {
@@ -364,7 +410,7 @@ $grey: #ccc;
   box-shadow: inset 0px 20px 40px -6px;
   color:#0c1b2a;
   background-color:transparent;
-  background: url('http://eskipaper.com/images/minimalist-wallpaper-14.jpg') no-repeat center center ;
+  background: url('app-dl-section-background.png') no-repeat center center ;
   background-size: cover;
 
   h1{
@@ -413,4 +459,24 @@ $grey: #ccc;
   color:black;
   font-size: 30px;
   font-weight: bold;
+}
+
+.citation-swipe-tab{
+    display:table-cell;
+  vertical-align:bottom;
+}
+
+footer {
+  background: #2c3840;
+  padding: 10px 0 10px;
+  margin-top: 10px;
+
+}
+body {
+  background-color: #24303a;
+}
+
+.containerFormOk {
+  height: 100%;
+  margin-bottom: -80px;
 }
