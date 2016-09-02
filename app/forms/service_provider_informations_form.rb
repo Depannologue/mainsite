@@ -27,6 +27,10 @@ class ServiceProviderInformationsForm
   attribute :number_of_employees, Integer
   attribute :has_a_smartphone, Boolean
 
+  attribute :have_read_partnership_general_conditions, Boolean
+  attribute :accepted_partnership_general_conditions, Boolean
+
+
   ## Validation
 
   validates :firstname,
@@ -41,6 +45,7 @@ class ServiceProviderInformationsForm
 
   validate :number_of_employees_is_positive
   validate :must_have_at_least_one_profession
+  validate :must_accept_and_read_partnership_general_conditions
 
   ###
   def save
@@ -60,8 +65,14 @@ class ServiceProviderInformationsForm
   end
 
   def must_have_at_least_one_profession
-    unless is_a_plumber || is_a_locksmith || is_a_glazier
+    unless is_a_plumber || is_a_locksmith || is_a_glazier || is_a_heating_engineer || is_an_electrician || is_a_drywall_worker || is_a_painter || is_a_ground_setter
       errors.add(:profession, "Vous devez selectionner au moins une profession")
+    end
+  end
+
+  def must_accept_and_read_partnership_general_conditions
+    unless have_read_partnership_general_conditions && accepted_partnership_general_conditions
+      errors.add(:have_read_partnership_general_conditions, "Vous devez lire et accepter les conditions conditions générales de partenariat")
     end
   end
 

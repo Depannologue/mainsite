@@ -58,3 +58,9 @@ Nouvelle demande de depanneur
 <% else %>
 <b>Ne possède pas de smartphone</b>
 <% end %>
+<div>&nbsp;</div>
+<% if @service_provider_informations.have_read_partnership_general_conditions && @service_provider_informations.accepted_partnership_general_conditions %>
+<b style="color:green">a lu et accepté les conditions générales de partenariat</b>
+<% else %>
+<b style="color:red">n'a pas lu et accepté les conditions générales de partenariat</b>
+<% end %>

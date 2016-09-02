@@ -2,7 +2,7 @@
 
   <div class='row form-content' >
 
-      <%= form_for @service_provider_informations_form, url: service_provider_create_path do |service_provider_informations_form| %>
+      <%= form_for @service_provider_informations_form, url: pro_service_provider_create_path do |service_provider_informations_form| %>
         <fieldset>
           <div class="form-header">
             <h1>Rejoignez-nous &nbsp;</h1>
@@ -128,6 +128,38 @@
             </div>
               <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:has_a_smartphone][0] %></span>
           </div>
+          <br>
+          <div class="row">
+            <div class="medium-6 small-12 small-centered large-centered columns ">
+              <div class="medium-1 small-1 columns">
+                <%= service_provider_informations_form.check_box :have_read_partnership_general_conditions %>
+              </div>
+              <div class="medium-11 small-11 columns">
+
+                  Je déclare avoir lu attentivement l'intégralité des <a href="https://www.ovh.com/fr/support/documents_legaux/Conditions_generales_de_partenariat.pdf" target="_blank">conditions générales de partenariats
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </br>
+          <div class="row">
+            <div class="medium-6 small-12 small-centered large-centered columns ">
+              <div class="medium-1 small-1 columns">
+                <%= service_provider_informations_form.check_box :accepted_partnership_general_conditions %>
+              </div>
+              <div class="medium-11 small-11 columns">
+
+                  J'accepte les <a href="https://www.ovh.com/fr/support/documents_legaux/Conditions_generales_de_partenariat.pdf" target="_blank">conditions générales de partenariat
+                </a>
+
+              </div>
+            </div>
+          </div>
+          <div claa="row">
+            <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:have_read_partnership_general_conditions][0] %></span>
+          </div>
+
           <div class="medium-6 small-12 small-centered large-centered columns ">
             <%= service_provider_informations_form.submit :class => "primary button", :value =>"valider" %>
           </div>

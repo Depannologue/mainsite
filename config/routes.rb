@@ -11,9 +11,7 @@ end
 
 Rails.application.routes.draw do
 
-  get 'test' , to: 'client/service_provider#show', as: :service_provider_show
-  get 'test/form' , to: 'client/service_provider#new', as: :service_provider_new
-  post 'test/form/create' , to: 'client/service_provider#create', as: :service_provider_create
+  
   get 'profession/:profession', to: 'client/profession#show', as: :profession_show
   get '/intervention/:intervention_parent_slug', to: 'client/intervention_type#show', as: :intervention_type_show
   get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#new', as: :intervention_form_new
@@ -50,6 +48,9 @@ Rails.application.routes.draw do
           resources :intervention_steps, only: [:show, :update]
         end
       end
+      get '' , to: 'service_provider#show', as: :service_provider_show
+      get '/form' , to: 'service_provider#new', as: :service_provider_new
+      post '/form/create' , to: 'service_provider#create', as: :service_provider_create
       get '/profile', to: 'profile#edit'
       put '/profile', to: 'profile#update'
       patch '/profile', to: 'profile#update'
