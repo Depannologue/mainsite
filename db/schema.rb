@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 20160826170813) do
     t.boolean  "immediate_intervention"
     t.datetime "intervention_date"
     t.integer  "insurer_id"
-    t.string   "auth_id"
     t.text     "picture"
   end
 

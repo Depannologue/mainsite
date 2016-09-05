@@ -1,10 +1,15 @@
 
 var redis = require('redis').createClient();
-var io = require('socket.io').listen(5001);
+var io1 = require('socket.io').listen(5001);
+var client = require('socket.io-client');
+
 redis.subscribe('rt-change');
 
-io.on('connection', function(socket){
+io1.on('connection', function(socket){
+
   redis.on('message', function(channel, message){
     socket.emit('rt-change', JSON.parse(message));
   });
+
+
 });
