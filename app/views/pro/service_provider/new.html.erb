@@ -1,0 +1,174 @@
+<div class='container ' id='workflow'>
+
+  <div class='row form-content' >
+
+      <%= form_for @service_provider_informations_form, url: pro_service_provider_create_path do |service_provider_informations_form| %>
+        <fieldset>
+          <div class="form-header">
+            <h1>Rejoignez-nous &nbsp;</h1>
+            <h3>Remplissez ce formulaire pour devenir un de nos depanneur</h3>
+          </div>
+          <div class="columns medium-6 medium-centered large-centered">
+            <div class="row">
+
+                <div class="medium-6 large-6 small-12 small-centered  large-uncentered medium-uncentered columns">
+                  <label><b>Société</b>
+                    <%= service_provider_informations_form.text_field :society, :placeholder => "Société",:required => ""%>
+                  </label>
+                </div>
+                <div class="medium-6 large-6 small-12 small-centered  large-uncentered medium-uncentered columns end">
+                  <label><b>Siret</b>
+                    <%= service_provider_informations_form.text_field :siret, :placeholder => "N°Siret",:required => ""%>
+                  </label>
+                </div>
+
+            </div>
+            <div class="row">
+              <div class="medium-12 small-12 small-centered large-centered columns ">
+                <label><b>Adresse Siège</b>
+                  <%= service_provider_informations_form.text_field :siege_address, :placeholder => "Adresse Siège",:required => ""%>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-12 small-12 small-centered large-centered columns ">
+                <label><b>Prenom</b>
+                  <%= service_provider_informations_form.text_field :firstname, :placeholder => "Prenom",:required => ""%>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-12 small-12 small-centered large-centered columns ">
+                <label><b>Nom</b>
+                  <%= service_provider_informations_form.text_field :lastname, :placeholder => "Nom",:required => ""%>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-12 small-12 small-centered large-centered columns ">
+                <label><b>Adresse Email</b>
+                  <%= service_provider_informations_form.email_field :email, :placeholder => "Adresse Email",:required => ""%>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-12 small-12 small-centered large-centered columns ">
+                <label><b>Numero de telephone</b>
+                  <%= service_provider_informations_form.text_field :phone_number, :placeholder => "Numero de telephone",:required => ""%>
+                </label>
+                <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:phone_number][0] %></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="medium-6 small-12 small-centered large-centered columns ">
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend"><b>Professions</b></legend>
+              <p class="help-text" id="passwordHelpText">Vous devez selectionner au moins 1 profession.</p>
+              <div class="row">
+                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_plumber %><label for="checkbox1">Serrurerie</label></div>
+                <div class="columns medium-6 small-12 end"><%= service_provider_informations_form.check_box :is_a_heating_engineer %><label for="checkbox1">Chauffagiste</label></div>
+              </div>
+              <div class="row">
+                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_locksmith %><label for="checkbox2">Plomberie</label></div>
+                <div class="columns medium-6 small-12 end"><%= service_provider_informations_form.check_box :is_an_electrician %><label for="checkbox2">Électricien</label></div>
+              </div>
+              <div class="row">
+                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_glazier %><label for="checkbox2">Vitrerie</label></div>
+                <div class="columns medium-6 small-12 end"><%= service_provider_informations_form.check_box :is_a_drywall_worker %><label for="checkbox2">Plaquiste</label></div>
+              </div>
+              <div class="row">
+                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_painter %><label for="checkbox2">Peintre</label></div>
+                <div class="columns medium-6 small-12 end"><%= service_provider_informations_form.check_box :is_a_ground_setter %><label for="checkbox2">Poseur de sol</label></div>
+              </div>
+              <div class="row">
+                <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:profession][0] %></span>
+              </div>
+
+            </fieldset>
+
+          </div>
+
+          <div class="medium-6 small-12 small-centered large-centered columns ">
+            <label><b>Statut</b>
+              <%= service_provider_informations_form.select :status, options_for_select(["Choisissez votre situation", "Auto-entrepreneur", "SAS", "SARL" ,"EURL" ,"SASU" ,"EI"],:disabled => ["Choisissez votre situation"], :selected => ["Choisissez votre situation"]) %>
+            </label>
+            <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:status][0] %></span>
+          </div>
+
+          <div class="medium-6 small-12 small-centered large-centered columns ">
+            <label for="number_of_employees"><b>Nombre d'employés</b>
+              <%= service_provider_informations_form.number_field :number_of_employees,:placeholder => 0,:value => 0,:required => "",:min => "0" %>
+            </label>
+            <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:number_of_employees][0] %></span>
+          </div>
+
+          <div class="medium-6 small-12 small-centered large-centered columns ">
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend"><b>Fichiers</b></legend>
+              <p class="help-text" id="FilesHelpText">non obligatoire.</p>
+              <label class="control-label">KBIS</label>
+              <%= service_provider_informations_form.file_field :file_kbis,:'data-classButton' => 'button ' %>
+              <label class="control-label">Assurance professionelle/décennale </label>
+              <%= service_provider_informations_form.file_field :file_professional_insurance %>
+              <label class="control-label">RIB(IBAN)</label>
+              <%= service_provider_informations_form.file_field :file_iban %>
+            </fieldset>
+          </div>
+
+          <div class="medium-6 small-12 small-centered large-centered columns ">
+            <p><b>Possedez vous un smartphone ?</b></p>
+            <div class="switch large">
+              <%= service_provider_informations_form.check_box :has_a_smartphone, :id =>"yes-no", :hidden =>"true"%>
+              <label class="switch-paddle" for="yes-no">
+                <span class="show-for-sr">Possedez vous un smartphone?</span>
+                <span class="switch-active" aria-hidden="true">Oui</span>
+                <span class="switch-inactive" aria-hidden="true">Non</span>
+              </label>
+            </div>
+              <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:has_a_smartphone][0] %></span>
+          </div>
+          <br>
+          <div class="row">
+            <div class="medium-6 small-12 small-centered large-centered columns ">
+              <div class="medium-1 small-1 columns">
+                <%= service_provider_informations_form.check_box :have_read_partnership_general_conditions %>
+              </div>
+              <div class="medium-11 small-11 columns">
+
+                  Je déclare avoir lu attentivement l'intégralité des <a href="https://www.ovh.com/fr/support/documents_legaux/Conditions_generales_de_partenariat.pdf" target="_blank">conditions générales de partenariat
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </br>
+          <div class="row">
+            <div class="medium-6 small-12 small-centered large-centered columns ">
+              <div class="medium-1 small-1 columns">
+                <%= service_provider_informations_form.check_box :accepted_partnership_general_conditions %>
+              </div>
+              <div class="medium-11 small-11 columns">
+
+                  J'accepte les <a href="https://www.ovh.com/fr/support/documents_legaux/Conditions_generales_de_partenariat.pdf" target="_blank">conditions générales de partenariat
+                </a>
+
+              </div>
+            </div>
+          </div>
+          <div claa="row">
+            <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:have_read_partnership_general_conditions][0] %></span>
+          </div>
+
+          <div class="medium-6 small-12 small-centered large-centered columns ">
+            <%= service_provider_informations_form.submit :class => "primary button", :value =>"valider" %>
+          </div>
+          <div class="medium-6 small-12 small-centered large-centered columns">
+          </div>
+
+
+
+        </fieldset>
+      <% end %>
+  </div>
+</div>

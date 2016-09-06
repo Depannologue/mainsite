@@ -3,19 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "Depannologue" %></title>
     <%= yield(:extra_head) %>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "client/application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <%= render 'layouts/client/notice' %>
-    <br>
-    <%= render 'layouts/client/menu' %>
     <%= yield %>
   </body>
+  <%= render 'layouts/client/footer3' %>
+  <%= javascript_include_tag "pro/application" %>
 </html>
