@@ -98,6 +98,7 @@ class User < ActiveRecord::Base
     msg = { resource: 'users',
             action: action,
             id: self.id,
+            email: self.email,
             obj: self.restrict_for_api }
 
     $redis.publish 'rt-change', msg.to_json
