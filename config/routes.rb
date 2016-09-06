@@ -11,7 +11,7 @@ end
 
 Rails.application.routes.draw do
 
-  
+  get '/form' , to: 'pro/service_provider#new', as: :service_provider_new
   get 'profession/:profession', to: 'client/profession#show', as: :profession_show
   get '/intervention/:intervention_parent_slug', to: 'client/intervention_type#show', as: :intervention_type_show
   get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#new', as: :intervention_form_new
@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   end
 
   get '/cgu' => 'static_pages#cgu'
-  get '/mentions-legales' => 'static_pages#legals_mentions'
+  get '/mentions-legales' => 'static_pages#legals_mentions', as: :legals_mentions
 
   constraints(AppConstraints.new subdomain: 'www') do
     namespace :client, module: 'client', path: '/' do
