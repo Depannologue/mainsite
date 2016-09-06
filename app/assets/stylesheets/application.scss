@@ -159,22 +159,18 @@ img.repair-logo {
     .card .image img {
       border-radius: 2px 2px 0 0; }
 
-.style3 {
+.footer-menu-text {
     font-size: 20px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.25);
-    color: #FFFFFF;
+    color: $white;
 }
-.style4 {
+.swipe-tab-button {
     font-size: 70px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.25);
-    color: #FFFFFF;
+    color: $white;
 }
-.style5 {
-    font-size: 40px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
-    color: #2199e8;
-}
-.style6 {
+
+.swipe-tab-check-icon {
     text-shadow: 0 1px 3px rgba(0,0,0,0.25);
     color: #00cf21;
     font-size: 20px;
@@ -182,7 +178,7 @@ img.repair-logo {
       font-size: 40px;
     }
 }
-.style7 {
+.swipe-tab-check-text {
 
     text-shadow: 0 1px 3px rgba(0,0,0,0.25);
     color: white;
@@ -191,7 +187,7 @@ img.repair-logo {
       font-size: 40px;
     }
 }
-.style8 {
+.swipe-tab-quote {
 
     text-shadow: 0 1px 3px rgba(0,0,0,0.25);
     color: rgba(255,255,255,0.6);
@@ -200,12 +196,18 @@ img.repair-logo {
       font-size: 32px;
     }
 }
+
 .app-dl-button {
   color: #2199e8;
   background-color: rgba(0,0,0,0.25);
   border: 2px solid white;
   border-radius: 15px;
   transition: all 0.5s;
+  t{
+    font-size: 40px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    color: #2199e8;
+  }
 }
 .app-dl-button:hover {
   background-color: rgba(255,255,255,1);
