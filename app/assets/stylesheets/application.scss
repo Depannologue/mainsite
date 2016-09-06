@@ -1,6 +1,6 @@
-@import "scss/foundation";
+@import "foundation/foundation";
 @include foundation-everything;
-@import 'scss/foundation-icons/foundation-icons';
+@import 'foundation/foundation-icons/foundation-icons';
 @import 'slick';
 @import 'slick-theme';
 
@@ -246,16 +246,8 @@ $swipe-hover-tab-color: #000000;
 
   }
 
-  .swipe-tab-content1 {
-    background: url('hand-shaking.png') no-repeat center center ;
-    background-size: cover;
-  }
-  .swipe-tab-content2 {
-    background: url('hand-shaking.png') no-repeat center center ;
-    background-size: cover;
-  }
-  .swipe-tab-content3 {
-    background: url('hand-shaking.png') no-repeat center center ;
+  .swipe-tab-content {
+    background: asset-url('hand-shaking.png') no-repeat center center ;
     background-size: cover;
   }
 
@@ -288,7 +280,7 @@ $swipe-hover-tab-color: #000000;
 .main-container {
   background: #f1f1f1;
   margin-bottom: 0px;
-  background: url('hand-shaking.png') no-repeat center center ;
+  background: asset-url('hand-shaking.png') no-repeat center center ;
   background-size: cover;
 }
 
@@ -318,7 +310,7 @@ $swipe-hover-tab-color: #000000;
 }
 
 .divSubHeader {
-  background: url('header-wallpaper.png') no-repeat center center ;
+  background: asset-url('header-wallpaper.png') no-repeat center center ;
   background-size: cover;
   color:white;
   $button-background:#000000;
@@ -346,7 +338,7 @@ $grey: #ccc;
   padding: 1.5em 2.5em;
   //border-bottom: 1px solid $grey;
   //background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/form-bk.jpg") no-repeat center center;
-  background: url('hand-shaking.png') no-repeat center center ;
+  background: asset-url('hand-shaking.png') no-repeat center center ;
   background-size: cover;
   color: $white;
 }
@@ -412,7 +404,7 @@ $grey: #ccc;
   box-shadow: inset 0px 20px 40px -6px;
   color:#0c1b2a;
   background-color:transparent;
-  background: url('app-dl-section-background.png') no-repeat center center ;
+  background: asset-url('app-dl-section-background.png') no-repeat center center ;
   background-size: cover;
 
   h1{

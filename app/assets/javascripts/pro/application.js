@@ -1,11 +1,11 @@
-//= require ../application
-//= require_tree .
-//= require_self
+//= require jquery
 //= require slick.js
+//= require foundation
 //= require ./swipetabs
+//= require_self
 
-jQuery(document).ready(function($){
-    $(document).foundation();
+$(document).ready(function(){
+  $(document).foundation();
 });
 
 swipeTabsInit();
