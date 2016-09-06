@@ -36,7 +36,7 @@
 		background-repeat: no-repeat;
 		background-position: center 30%;
 		background-size: cover;
-		height: 550px;
+		height: 600px;
 
 		.text {
 			padding-right: 20px;
@@ -73,7 +73,7 @@
 
 			@media (min-width: 650px) {
 				position: relative;
-				padding-top: 200px;
+				padding-top: 100px;
 
 				a {
 					width:30%;
@@ -97,7 +97,7 @@
 					font-size: 3em;
 				}
 			}
-			
+
 			h4 {
 				text-transform: uppercase;
 				font-weight: 400;
@@ -225,7 +225,7 @@
 			.customer-comment > p {
     		min-height: 155px;
 			}
-			
+
 			.strong {
 				font-weight: bold;
 				font-size: 22px;
@@ -277,7 +277,7 @@
 	    	a {
 	    		text-decoration: none;
 	    	}
-	    } 		
+	    }
 		}
 
 		p.text-center {
@@ -319,4 +319,10 @@
 			padding: 15px 0;
 		}
 	}
+}
+
+.btn-sq-lg {
+  width: 190px !important;
+  height: 190px !important;
+	border-radius:15%;
 }

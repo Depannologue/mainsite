@@ -46,6 +46,10 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (~> 10.4)
     arel (6.0.3)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.10)
     best_in_place (3.0.3)
       actionpack (>= 3.2)
@@ -100,6 +104,8 @@ GEM
     code_analyzer (0.4.5)
       sexp_processor
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -113,6 +119,8 @@ GEM
     connection_pool (2.2.0)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -137,6 +145,7 @@ GEM
       mail (~> 2.2)
     enumerize (1.0.0)
       activesupport (>= 3.2)
+    equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.5.0)
@@ -157,6 +166,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    ice_nine (0.11.2)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -369,6 +379,11 @@ GEM
     uniform_notifier (1.9.0)
     validates_zipcode (0.0.9)
       activemodel (>= 3.2.0)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -446,5 +461,9 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   validates_zipcode
+  virtus
   web-console (~> 2.0)
   wicked
+
+BUNDLED WITH
+   1.12.5

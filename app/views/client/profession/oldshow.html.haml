@@ -1,0 +1,5 @@
+%div.some{ :style => "position: absolute; left: 300px; top: 300px;" }
+  %ul
+    - @intervention_parents.each do |intervention|
+      %li
+        = link_to intervention.short_description, intervention_type_show_path(intervention_parent_slug: intervention.slug)

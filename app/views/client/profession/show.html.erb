@@ -1,0 +1,39 @@
+<%= render partial: 'layouts/client/description', locals: {description: "Vous êtes à un clic de votre intervention de #{@profession.name}!"} %>
+<br>
+<section>
+  <div class="row">
+    <div>
+      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x dark-blue"></i>&nbsp;&nbsp;<span class="bigger blue">Disponible 24h/24 & 7J/7</span></div>
+      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x dark-blue"></i>&nbsp;&nbsp;<span class="bigger blue">Dépanneur qualifié et individuellement selectionné</span></div>
+      <div class="large-offset-3 large-5 end columns"><i class="fa fa-check fa-2x dark-blue"></i>&nbsp;&nbsp;<span class="bigger blue">Prix fixe communiqué à l'avance</span></div>
+    </div>
+    <br>
+  </div>
+</section>
+<br>
+<section>
+  <div class="row">
+    <div class="large-12 columns text-center"><h4>Votre intervention:</h4><br><br></div>
+        <% @intervention_parents.each do |intervention| %>
+          <div class="large-6 columns">
+            <div class="card">
+               <div class="content">
+                 <span class="title"><%= intervention.short_description %></span>
+                 <p class="bigger"><%= intervention.price.to_i %><i class="fa fa-euro fa-6x"></i></p>
+               </div>
+                 <div class="float-left back-link">
+                   <a href="#" class="float-left">En savoir plus</a>
+                 </div>
+                 <div class="action float-right">
+                   <%= link_to '<strong>>> Je reserve</strong>'.html_safe, intervention_form_new_path(intervention_parent_slug: @profession.slug, intervention_child_slug: intervention.slug), class: 'float-right' %>
+                 </div>
+                 <br>
+              </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<br><br><br><br>
+<%= render partial: 'ariane', locals: { profession: @profession } %>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

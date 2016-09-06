@@ -1,0 +1,7 @@
+.nested-fields.user-area-fields
+  #area_from_list
+    = f.error :profession
+    .input-group
+      = f.association :profession, collection: Profession.all.order(:name), disabled: @contractor.professions.pluck(:id), prompt: true, label: false, error: false
+      %span.input-group-btn
+        = link_to_remove_association button_tag("<i class='fa fa-times'></i>".html_safe, type: "button", class:'btn btn-danger last-child'), f, data: {confirm: 'Etes-vous sûr?'}
