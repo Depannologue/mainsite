@@ -33,5 +33,13 @@ module Depannologue
       config.account_sid = Rails.application.secrets.twilio_account_sid
       config.auth_token  = Rails.application.secrets.twilio_auth_token
     end
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+       allow do
+         origins '*'
+         resource '*', :headers => :any, :methods => [:get, :post, :options]
+       end
+     end
+
   end
 end

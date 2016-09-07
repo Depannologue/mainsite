@@ -67,9 +67,15 @@ class Admin::ContractorsController < ApplicationController
         :id
       ],
       user_areas_attributes: [
-        :id, 
-        :user_id, 
-        :area_id, 
+        :id,
+        :user_id,
+        :area_id,
+        :_destroy
+      ],
+      professions_users_attributes: [
+        :id,
+        :user_id,
+        :profession_id,
         :_destroy
       ]
     )
@@ -91,7 +97,7 @@ class Admin::ContractorsController < ApplicationController
       end
     rescue ActiveRecord::RecordNotUnique => e
       flash[:error] = I18n.t('errors.activerecord.contractor.record_not_unique')
-      render :edit      
+      render :edit
     end
   end
 
@@ -102,8 +108,8 @@ class Admin::ContractorsController < ApplicationController
         redirect_to admin_contractors_path
       else
         flash[:error] = "Erreur lors de la mise à jour du professionnel"
-        render :edit 
-      end       
+        render :edit
+      end
     rescue ActiveRecord::RecordNotUnique => e
       flash[:error] = I18n.t('errors.activerecord.contractor.record_not_unique')
       render :edit
@@ -113,6 +119,6 @@ class Admin::ContractorsController < ApplicationController
   def areas
     @areas ||= Area.all.order(:name)
   end
-  helper_method :areas  
+  helper_method :areas
 
 end

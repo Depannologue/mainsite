@@ -1,0 +1,65 @@
+<%= form_for @user_informations_form, url: intervention_form_create_path do |user_informations_form| %>
+    <div class="large-6 columns">
+      <%= user_informations_form.label :firstname, 'Prénom', :class => "control-label" %>
+      <%= user_informations_form.text_field :firstname, :class => "input-xlarge form-control", :'aria-describedby' => "helpBlock2" %>
+      <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:firstname][0] %></span>
+    </div>
+
+    <div class="large-6 columns">
+      <%= user_informations_form.label :lastname, 'Nom', :class => "control-label" %>
+      <%= user_informations_form.text_field :lastname, :class => "input-xlarge form-control" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:lastname][0] %></span>
+    </div>
+
+    <div class="large-12 columns">
+      <%= user_informations_form.label :address1, 'Adresse', :class => "control-label" %>
+      <%= user_informations_form.text_field :address1, :class => "input-xlarge form-control" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:address1][0] %></span>
+    </div>
+
+    <div class="large-12 columns">
+      <%= user_informations_form.label :address2, 'Adresse complémentaire', :class => "control-label" %>
+      <%= user_informations_form.text_field :address2, :class => "input-xlarge form-control" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:address2][0] %></span>
+    </div>
+
+    <div class="large-6 columns">
+      <%= user_informations_form.label :zipcode, 'Code Postal', :class => "control-label" %>
+      <%= user_informations_form.text_field :zipcode, :class => "input-xlarge form-control" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:zipcode][0] %></span>
+    </div>
+
+    <div class="large-6 columns">
+      <%= user_informations_form.label :city, 'Ville', :class => "control-label" %>
+      <%= user_informations_form.text_field :city, :class => "input-xlarge form-control" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:city][0] %></span>
+    </div>
+
+      <div class="large-12 columns">
+      <%= user_informations_form.label :phone_number, 'Téléphone', :class => "control-label" %>
+      <%= user_informations_form.text_field :phone_number, :class => "input-xlarge form-control" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:phone_number][0] %></span>
+    </div>
+
+    <div class="large-12 columns">
+      <%= user_informations_form.label :email, 'Email', :class => "control-label" %>
+      <%= user_informations_form.text_field :email, :class => "input-xlarge form-control" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:email][0] %></span>
+    </div>
+
+    <div class="large-12 columns">
+      <%= user_informations_form.label :immediate_intervention, "Intervention immediate" %>
+      <%= user_informations_form.check_box :immediate_intervention %>
+    </div>
+
+    <div class="large-12 columns">
+      <p><%= user_informations_form.label "Date d'intervention", :class => "control-label" %></p>
+      <%= user_informations_form.datetime_select :intervention_date, :class => "large-2 columns" %>
+      <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:intervention_date][0] %></span>
+    </div>
+
+    <div class="float-right">
+      <%= user_informations_form.submit 'Validez mes coordonnées', :class => "button large" %>
+    </div>
+    <p>
+<% end %>

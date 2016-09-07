@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/kollegorna/active_hash_relation.git
+  revision: ad20d03ccaa97008d1830cc9d6000d47dd5002d7
+  specs:
+    active_hash_relation (1.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -23,6 +29,8 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
     active_link_to (1.0.3)
       actionpack
+    active_model_serializers (0.9.2)
+      activemodel (>= 3.2)
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -46,6 +54,10 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (~> 10.4)
     arel (6.0.3)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.10)
     best_in_place (3.0.3)
       actionpack (>= 3.2)
@@ -100,6 +112,8 @@ GEM
     code_analyzer (0.4.5)
       sexp_processor
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -113,6 +127,8 @@ GEM
     connection_pool (2.2.0)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -137,6 +153,7 @@ GEM
       mail (~> 2.2)
     enumerize (1.0.0)
       activesupport (>= 3.2)
+    equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.5.0)
@@ -157,6 +174,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    ice_nine (0.11.2)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -226,6 +244,7 @@ GEM
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
+    rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -369,6 +388,11 @@ GEM
     uniform_notifier (1.9.0)
     validates_zipcode (0.0.9)
       activemodel (>= 3.2.0)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -386,7 +410,9 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  active_hash_relation!
   active_link_to
+  active_model_serializers (= 0.9.2)
   annotate
   best_in_place (~> 3.0.1)
   better_errors
@@ -427,6 +453,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   quiet_assets (~> 1.1)
+  rack-cors
   rails (= 4.2.4)
   rails-erd
   rails_best_practices (~> 1.15)
@@ -446,5 +473,9 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   validates_zipcode
+  virtus
   web-console (~> 2.0)
   wicked
+
+BUNDLED WITH
+   1.12.5

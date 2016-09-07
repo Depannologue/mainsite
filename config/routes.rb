@@ -1,4 +1,4 @@
-class AppConstraints
+  class AppConstraints
   def initialize(options)
     @subdomain = options[:subdomain]
   end
@@ -10,6 +10,15 @@ class AppConstraints
 end
 
 Rails.application.routes.draw do
+
+  get '/form' , to: 'pro/service_provider#new', as: :service_provider_new
+  get 'profession/:profession', to: 'client/profession#show', as: :profession_show
+  get '/intervention/:intervention_parent_slug', to: 'client/intervention_type#show', as: :intervention_type_show
+  get '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#new', as: :intervention_form_new
+  post '/intervention/:intervention_parent_slug/:intervention_child_slug', to: 'client/form#create', as: :intervention_form_create
+  get '/devis', to: 'client/quotations#new', as: :quotations_new
+
+
   mount Lockup::Engine, at: '/lockup'
   constraints(AppConstraints.new subdomain: 'admin') do
     namespace :admin, module: 'admin', path: '/' do
@@ -39,6 +48,9 @@ Rails.application.routes.draw do
           resources :intervention_steps, only: [:show, :update]
         end
       end
+      get '' , to: 'service_provider#show', as: :service_provider_show
+      get '/form' , to: 'service_provider#new', as: :service_provider_new
+      post '/form/create' , to: 'service_provider#create', as: :service_provider_create
       get '/profile', to: 'profile#edit'
       put '/profile', to: 'profile#update'
       patch '/profile', to: 'profile#update'
@@ -48,7 +60,7 @@ Rails.application.routes.draw do
   end
 
   get '/cgu' => 'static_pages#cgu'
-  get '/mentions-legales' => 'static_pages#legals_mentions'
+  get '/mentions-legales' => 'static_pages#legals_mentions', as: :legals_mentions
 
   constraints(AppConstraints.new subdomain: 'www') do
     namespace :client, module: 'client', path: '/' do
@@ -63,5 +75,15 @@ Rails.application.routes.draw do
       root to: 'home#index'
     end
     devise_for :clients, class_name: 'User'
+  end
+  #api
+  constraints(AppConstraints.new subdomain: 'api') do
+    namespace :api do
+      namespace :v1 do
+
+        resources :professions, only: [:index, :create, :show, :update, :destroy]
+        resources :interventions, only: [:index, :create, :show, :update, :destroy]
+      end
+    end
   end
 end

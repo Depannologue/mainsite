@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'haml'
-
+gem 'rack-cors', :require => 'rack/cors'
 gem 'aasm'
 gem 'cancancan', '~> 1.10'
 gem 'draper', '~> 1.3'
@@ -38,7 +38,9 @@ gem 'sinatra', :require => nil
 gem 'lockup', '~> 1.3'
 gem 'unicorn'
 gem 'bugsnag'
-
+gem 'virtus'
+gem 'active_model_serializers', '0.9.2'
+gem 'active_hash_relation', github: 'kollegorna/active_hash_relation'
 group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'

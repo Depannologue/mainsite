@@ -1,0 +1,19 @@
+<section id="banner">
+  <div class="row">
+    <div class="banner-text">
+      <div class="large-12 text-center columns">
+        <span>Besoin d'un depanneur ?</span><br>
+        <h1>Votre dépanneur en 3 clics à votre domicile</h1><br>
+        <span><h2>Disponible 24/7 - Prix connu à l'avance - Dépanneur qualifié</h2></span><br>
+      </div>
+      <div class="large-12 text-center columns">
+        <% Profession.all.each do |profession| %>
+          <%= link_to profession.name, profession_show_path(profession: profession.slug), class: 'button' %>
+        <% end %>
+      </div>
+      <div class="large-12 text-center columns">
+        <a class="button bg-orange">Tél : 03.66.72.61.67</a>
+      </div>
+    </div>
+  </div>
+</section>

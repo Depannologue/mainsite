@@ -1,0 +1,34 @@
+<%= render partial: 'layouts/client/description', locals: {description: 'Il n\'y a plus qu\'à remplir vos coordonnées'} %>
+<br><br>
+<div class='row'>
+
+  <div class="large-6 columns">
+    <div class="card">
+      <br>
+      <div class="large-12 columns"><i class="fa fa-check"></i>Votre depannage</div>
+      <br><br>
+      <div class="large-12 columns">Intervention en <%= @intervention_type.profession.name %>: <p class="float-right"><%= @intervention_type.short_description %></p></div>
+      <div class="large-12 columns">Nombre de depanneur disponible: <p class="float-right">10</p></div>
+      <div class="large-12 columns">Temps de route estimé: <p class="float-right">30min</p></div>
+      <br><br><br><br><hr>
+      <div class="large-12 columns">Services inclus dans l'intervention:</div>
+      <div class="large-12 columns"><p><i class="fa fa-car blue"></i>&nbsp;Déplacement</p></div>
+      <div class="large-12 columns"><p><i class="fa fa-male blue"></i>&nbsp;Main d'oeuvre</p></div>
+      <div class="large-12 columns"><p><i class="fa fa-check blue"></i>&nbsp;Intevention garantie</p></div>
+      <br><br><br><br><br>
+      <div class="action float-right">
+        <%= link_to '>> Modifier', profession_show_path(profession: @intervention_type.profession.slug)%>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="card">
+      <br>
+      <div class="large-12 columns">Vos coordonnées</div>
+      <br><br>
+      <div class="large-offset-1 large-10 columns end">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

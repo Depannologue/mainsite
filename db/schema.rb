@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420100047) do
+ActiveRecord::Schema.define(version: 20160803233653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,24 @@ ActiveRecord::Schema.define(version: 20160420100047) do
 
   add_index "historical_transitions", ["historisable_id"], name: "index_historical_transitions_on_historisable_id", using: :btree
 
+  create_table "insurers", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "insurers", ["email"], name: "index_insurers_on_email", unique: true, using: :btree
+  add_index "insurers", ["reset_password_token"], name: "index_insurers_on_reset_password_token", unique: true, using: :btree
+
   create_table "intervention_types", force: :cascade do |t|
     t.string   "kind"
     t.string   "short_description"
@@ -67,6 +85,9 @@ ActiveRecord::Schema.define(version: 20160420100047) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "description"
+    t.integer  "profession_id"
+    t.integer  "parent_id"
+    t.string   "slug"
   end
 
   create_table "interventions", force: :cascade do |t|
@@ -83,12 +104,31 @@ ActiveRecord::Schema.define(version: 20160420100047) do
     t.boolean  "is_ok"
     t.text     "opinion"
     t.string   "payment_method"
+    t.boolean  "immediate_intervention"
+    t.datetime "intervention_date"
   end
 
   add_index "interventions", ["client_token_ownership"], name: "index_interventions_on_client_token_ownership", unique: true, using: :btree
   add_index "interventions", ["contractor_id"], name: "index_interventions_on_contractor_id", using: :btree
   add_index "interventions", ["customer_id"], name: "index_interventions_on_customer_id", using: :btree
   add_index "interventions", ["intervention_type_id"], name: "index_interventions_on_intervention_type_id", using: :btree
+
+  create_table "professions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
+  create_table "professions_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "profession_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "professions_users", ["profession_id"], name: "index_professions_users_on_profession_id", using: :btree
+  add_index "professions_users", ["user_id"], name: "index_professions_users_on_user_id", using: :btree
 
   create_table "user_areas", force: :cascade do |t|
     t.integer  "user_id"
