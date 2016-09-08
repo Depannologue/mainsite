@@ -1,0 +1,10 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Édition de la profession
+
+= simple_form_for @profession, url: admin_profession_path(@profession), method: :patch do |f|
+  = f.input :name
+  = f.input :slug
+  = f.button :submit, class: 'btn btn-success'
+  = link_to 'Annuler', admin_professions_path, class: 'btn btn-danger'

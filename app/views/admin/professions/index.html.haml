@@ -1,0 +1,32 @@
+- content_for :page_title do
+  .row
+    .col-md-8
+      %h1 Professions
+    .col-md-4
+      = link_to "Ajouter une profession", new_admin_profession_path, class: 'btn btn-tertiary pull-right'
+
+%table.table
+  %thead
+    %tr
+      %th.col-md-1= Profession.human_attribute_name :id
+      %th.col-md-3= Profession.human_attribute_name :name
+      %th.col-md-3= Profession.human_attribute_name :created_at
+      %th.col-md-3= Profession.human_attribute_name :updated_at
+      %th.col-md-3= Profession.human_attribute_name :slug
+      %th.col-md-3
+  %tbody
+    - @professions.find_each do |profession|
+      %tr
+        %th= profession.id
+        %th= profession.name
+        %th= profession.created_at
+        %th= profession.updated_at
+        %th= profession.slug
+        %th
+          .pull-right
+            = link_to edit_admin_profession_path(profession), title: 'Editer', class: 'btn btn-secondary' do
+              %span.icon-edit
+            = link_to admin_profession_path(profession), title: 'Supprimer', method: :delete, class: 'btn btn-danger', data: { confirm: 'Êtes-vous sûr?' } do
+              %span.icon-trash
+
+= paginate @professions

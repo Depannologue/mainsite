@@ -9,7 +9,7 @@
   %thead
     %tr
       %th.col-md-1= InterventionType.human_attribute_name :id
-      %th.col-md-2= InterventionType.human_attribute_name :kind
+      %th.col-md-2= InterventionType.human_attribute_name :profession
       %th.col-md-2= InterventionType.human_attribute_name :short_description
       %th.col-md-2= InterventionType.human_attribute_name :price
       %th.col-md-2= InterventionType.human_attribute_name :created_at
@@ -19,7 +19,7 @@
       %tr
         - I18n.with_locale(params[:locale]) do
           %th= intervention_type.id
-          %th= t("activerecord.attributes.intervention_type.kinds.#{intervention_type.kind}")
+          %th= intervention_type.profession.name
           %th= intervention_type.short_description
           %th= number_to_currency intervention_type.price, locale: :fr
           %th= l intervention_type.created_at, format: :short

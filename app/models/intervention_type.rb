@@ -15,11 +15,11 @@ class InterventionType < ActiveRecord::Base
   KINDS = %w(
     closed_door
     locked_door
-  ).freeze  
+  ).freeze
 
   belongs_to :profession
 
-  validates :kind,
+  validates :profession_id,
             :short_description,
             :price,
             presence: true

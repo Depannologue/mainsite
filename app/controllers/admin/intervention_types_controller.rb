@@ -11,6 +11,7 @@ class Admin::InterventionTypesController < ApplicationController
 
   def new
     @intervention_type = InterventionType.new
+    @professions = Profession.all
   end
 
   def create
@@ -19,12 +20,14 @@ class Admin::InterventionTypesController < ApplicationController
       flash[:success] = "Type d'intervention créé"
       redirect_to admin_intervention_types_path
     else
+      raise @intervention_type.inspect
       flash[:error] = "Erreur lors de la création du type d'intervention"
       render :new
     end
   end
 
   def edit
+    @professions = Profession.all
   end
 
   def update
@@ -51,7 +54,7 @@ class Admin::InterventionTypesController < ApplicationController
 
   def permitted_params
     params.require(:intervention_type).permit(
-      :kind,
+      :profession_id,
       :short_description,
       :description,
       :price
