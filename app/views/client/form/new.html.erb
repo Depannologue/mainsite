@@ -1,80 +1,34 @@
-<div class='container' id='workflow'>
-  <section id='form-localize'></section>
-  <div class='row'>
-    <div class='col-md-6 col-md-offset-3 col-xs-12'>
-      <div class='step-head'></div>
-      <p>
-      <h2>Remplissez vos coordonnées et obtenez le prix fixe de votre dépannage</h2>
+<%= render partial: 'layouts/client/description', locals: {description: 'Il n\'y a plus qu\'à remplir vos coordonnées'} %>
+<br><br>
+<div class='row'>
 
-      <%= form_for @user_informations_form, url: intervention_form_create_path do |user_informations_form| %>
-        <fieldset>
-
-          <div class="form-group">
-            <%= user_informations_form.label :firstname, :class => "control-label" %>
-            <%= user_informations_form.text_field :firstname, :class => "input-xlarge form-control", :'aria-describedby' => "helpBlock2" %>
-            <span id="helpBlock2" style="text-align:left" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:firstname][0] %></span>
-          </div>
-
-          <div class="control-group">
-            <%= user_informations_form.label :lastname, :class => "control-label" %>
-            <%= user_informations_form.text_field :lastname, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:lastname][0] %></span>
-          </div>
-
-          <div class="control-group">
-            <%= user_informations_form.label :address1, :class => "control-label" %>
-            <%= user_informations_form.text_field :address1, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:address1][0] %></span>
-          </div>
-
-          <div class="control-group">
-            <%= user_informations_form.label :address2, :class => "control-label" %>
-            <%= user_informations_form.text_field :address2, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:address2][0] %></span>
-          </div>
-
-          <div class="control-group">
-            <%= user_informations_form.label :zipcode, :class => "control-label" %>
-            <%= user_informations_form.text_field :zipcode, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:zipcode][0] %></span>
-          </div>
-
-          <div class="control-group">
-            <%= user_informations_form.label :city, :class => "control-label" %>
-            <%= user_informations_form.text_field :city, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:city][0] %></span>
-          </div>
-
-          <div class="control-group">
-            <%= user_informations_form.label :phone_number, :class => "control-label" %>
-            <%= user_informations_form.text_field :phone_number, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:phone_number][0] %></span>
-          </div>
-
-          <div class="control-group">
-            <%= user_informations_form.label :email, :class => "control-label" %>
-            <%= user_informations_form.text_field :email, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:email][0] %></span>
-          </div>
-
-          <div class="field">
-              <%= user_informations_form.label "Intervention immediate" %> <br />
-              <%= user_informations_form.check_box :immediate_intervention %> <br />
-          </div>
-
-          <div class="control-group">
-            <p><%= user_informations_form.label "date d'intervention", :class => "control-label" %></p>
-            <%= user_informations_form.datetime_select :intervention_date, :class => "input-xlarge form-control" %>
-            <span id="helpBlock3" style="text-align:left" class="help-block error"><%= @user_informations_form.errors[:intervention_date][0] %></span>
-          </div>
-
-          <div class="form-actions">
-            <%= user_informations_form.submit :class => "btn btn-primary" %>
-          </div>
-          <p>
-
-        </fieldset>
-      <% end %>
+  <div class="large-6 columns">
+    <div class="card">
+      <br>
+      <div class="large-12 columns"><i class="fa fa-check"></i>Votre depannage</div>
+      <br><br>
+      <div class="large-12 columns">Intervention en <%= @intervention_type.profession.name %>: <p class="float-right"><%= @intervention_type.short_description %></p></div>
+      <div class="large-12 columns">Nombre de depanneur disponible: <p class="float-right">10</p></div>
+      <div class="large-12 columns">Temps de route estimé: <p class="float-right">30min</p></div>
+      <br><br><br><br><hr>
+      <div class="large-12 columns">Services inclus dans l'intervention:</div>
+      <div class="large-12 columns"><p><i class="fa fa-car blue"></i>&nbsp;Déplacement</p></div>
+      <div class="large-12 columns"><p><i class="fa fa-male blue"></i>&nbsp;Main d'oeuvre</p></div>
+      <div class="large-12 columns"><p><i class="fa fa-check blue"></i>&nbsp;Intevention garantie</p></div>
+      <br><br><br><br><br>
+      <div class="action float-right">
+        <%= link_to '>> Modifier', profession_show_path(profession: @intervention_type.profession.slug)%>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="card">
+      <br>
+      <div class="large-12 columns">Vos coordonnées</div>
+      <br><br>
+      <div class="large-offset-1 large-10 columns end">
+        <%= render 'form' %>
+      </div>
     </div>
   </div>
 </div>

@@ -21,7 +21,7 @@ class AddInterventionType < ActiveRecord::Migration
     InterventionType.create(price: 274, kind: 'a', short_description: 'Changement simple vitrage 1m2 à	1,5m2', description: 'Changement simple vitrage 1m2 à	1,5m2', profession: vitrerie)
     InterventionType.create(price: 329, kind: 'a', short_description: 'Changement simple vitrage de 1,5m2 à 2m2', description: 'Changement simple vitrage de 1,5m2 à 2m2', profession: vitrerie)
     InterventionType.create(price: 362, kind: 'a', short_description: 'Changement double vitrage 0m2	et 1m2', description: 'Changement double vitrage 0m2	et 1m2', profession: vitrerie)
-    InterventionType.create(price: 395, kind: 'a', short_description: 'Changement double	vitrage	1m2	à	1,5m2', description: 'Changement doublevitrage	1m2	à	1,5m2', profession: vitrerie)
+    InterventionType.create(price: 395, kind: 'a', short_description: 'Changement double	vitrage	1m2	à	1,5m2', description: 'Changement double	vitrage	1m2	à	1,5m2', profession: vitrerie)
     InterventionType.create(price: 461, kind: 'a', short_description: 'Changement double	vitrage	de 1,5m2	à	2m2', description: 'Changement double	vitrage	de 1,5m2 à 2m2', profession: vitrerie)
     InterventionType.create(price: 149, kind: 'a', short_description: 'Mise en sécurité', description: 'Mise en sécurité', profession: vitrerie)
 

@@ -1,0 +1,66 @@
+Nouvelle demande de depanneur
+<div>&nbsp;</div>
+<b>Prenom</b> : <%=@service_provider_informations.firstname %>
+<div>&nbsp;</div>
+<b>Nom</b> : <%=@service_provider_informations.lastname %>
+<div>&nbsp;</div>
+<b>Email</b> : <%=@service_provider_informations.email %>
+<div>&nbsp;</div>
+<b>Numero de Telephone</b> : <%= @service_provider_informations.phone_number %>
+<div>&nbsp;</div>
+<b>Société</b> : <%= @service_provider_informations.society %>
+<div>&nbsp;</div>
+<b>N°Siret</b> : <%= @service_provider_informations.siret %>
+<div>&nbsp;</div>
+<b>Adresse du siège</b> : <%= @service_provider_informations.siege_address %>
+<div>&nbsp;</div>
+<b>Profession(s)</b> :
+<ul>
+<% if @service_provider_informations.is_a_plumber %>
+  <li>Plombier</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_locksmith %>
+  <li>Serrurier</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_glazier %>
+  <li>Vitrier</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_heating_engineer %>
+  <li>Chauffagiste</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_an_electrician %>
+  <li>Electricien</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_drywall_worker %>
+  <li>Plaquiste</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_painter %>
+  <li>Peintre</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_ground_setter %>
+  <li>Poseur de sol</li>
+  <div>&nbsp;</div>
+<% end %>
+</ul>
+<b>Statut</b> : <%= @service_provider_informations.status %>
+<div>&nbsp;</div>
+<b>Nombre d'employés</b> : <%= @service_provider_informations.number_of_employees %>
+<div>&nbsp;</div>
+<% if @service_provider_informations.has_a_smartphone %>
+<b>Possède un smartphone</b>
+<% else %>
+<b>Ne possède pas de smartphone</b>
+<% end %>
+<div>&nbsp;</div>
+<% if @service_provider_informations.have_read_partnership_general_conditions && @service_provider_informations.accepted_partnership_general_conditions %>
+<b style="color:green">a lu et accepté les conditions générales de partenariat</b>
+<% else %>
+<b style="color:red">n'a pas lu et accepté les conditions générales de partenariat</b>
+<% end %>

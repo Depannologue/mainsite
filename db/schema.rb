@@ -71,9 +71,24 @@ ActiveRecord::Schema.define(version: 20160826170813) do
   add_index "historical_transitions", ["historisable_id"], name: "index_historical_transitions_on_historisable_id", using: :btree
 
   create_table "insurers", force: :cascade do |t|
-    t.string  "name"
-    t.integer "parent_id"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.integer  "parent_id"
   end
+
+  add_index "insurers", ["email"], name: "index_insurers_on_email", unique: true, using: :btree
+  add_index "insurers", ["reset_password_token"], name: "index_insurers_on_reset_password_token", unique: true, using: :btree
 
   create_table "intervention_types", force: :cascade do |t|
     t.string   "kind"
