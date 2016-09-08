@@ -1,18 +1,20 @@
 class Api::V1::ProfessionsController < Api::V1::BaseController
-  include ActiveHashRelation
+
   def index
     professions = Profession.all
-    professions = apply_filters(professions, params)
-    render(
-      json: ActiveModel::ArraySerializer.new(
-        professions,
-        each_serializer: Api::V1::ProfessionSerializer,
-        root: 'professions',
-      )
-    )
+    render :json => array_serializer(professions)
   end
+
   def show
     profession = Profession.find(params[:id])
-    render(json: Api::V1::ProfessionSerializer.new(profession).to_json)
+    render :json => profession.restrict_for_api.to_json
+  end
+
+  def array_serializer interventions
+      interventions_serialized = Array.new
+      interventions.each do |intervention|
+        interventions_serialized.push(intervention.restrict_for_api)
+      end
+      interventions_serialized
   end
 end
