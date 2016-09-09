@@ -38,7 +38,7 @@
             = link_to admin_contractor_path(contractor), title: 'Supprimer',
                                                          method: :delete,
                                                          class: 'btn btn-danger',
-                                                         data: { confirm: 'Êtes-vous sûr?' } do
+                                                         data: { confirm: "Êtes-vous sûr? Cela supprimera aussi les types d'interventions liées à cette profession" } do
               %span.icon-trash
 
 = paginate @contractors

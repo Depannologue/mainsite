@@ -26,7 +26,9 @@ class Admin::ProfessionsController < ApplicationController
   end
 
   def destroy
+    InterventionType.where(profession_id: @profession.id).destroy_all
     @profession.destroy
+
     flash[:success] = "profession supprimée"
     redirect_to admin_professions_path
   end

@@ -18,6 +18,7 @@ class InterventionType < ActiveRecord::Base
   ).freeze
 
   belongs_to :profession
+  has_many :interventions
 
   validates :profession_id,
             :short_description,

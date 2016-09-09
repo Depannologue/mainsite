@@ -1,0 +1,15 @@
+<% content_for :page_title do %>
+  <div class="row">
+    <div class="col-md-8">
+      <h1>DashBoard</h1>
+      <h2>Chiffre d'affaires</h2>
+      <% @professions_revenues.each do |profession_revenues| %>
+          <%=profession_revenues[0]%>
+          :
+          <%=profession_revenues[1]%>€
+        </br>
+      <%end%>
+      Globale : <%= @revenues %>€
+    </div>
+  </div>
+<% end %>
