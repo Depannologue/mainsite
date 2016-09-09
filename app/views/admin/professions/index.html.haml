@@ -9,11 +9,11 @@
   %thead
     %tr
       %th.col-md-1= Profession.human_attribute_name :id
-      %th.col-md-3= Profession.human_attribute_name :name
-      %th.col-md-3= Profession.human_attribute_name :created_at
-      %th.col-md-3= Profession.human_attribute_name :updated_at
-      %th.col-md-3= Profession.human_attribute_name :slug
-      %th.col-md-3
+      %th.col-md-2= Profession.human_attribute_name :name
+      %th.col-md-2= Profession.human_attribute_name :created_at
+      %th.col-md-2= Profession.human_attribute_name :updated_at
+      %th.col-md-2= Profession.human_attribute_name :slug
+
   %tbody
     - @professions.find_each do |profession|
       %tr

@@ -10,11 +10,11 @@
     %tr
       %th.col-md-1= User.human_attribute_name :id
       %th.col-md-2= User.human_attribute_name :full_name
-      %th.col-md-2= User.human_attribute_name :email
-      %th.col-md-2= User.human_attribute_name :phone_number
+      %th.col-md-1= User.human_attribute_name :email
+      %th.col-md-1= User.human_attribute_name :phone_number
       %th.col-md-1= User.human_attribute_name :available_now
       %th.col-md-1= User.human_attribute_name :agglomération
-      %th.col-md-3= User.human_attribute_name :professions
+      %th.col-md-2= User.human_attribute_name :professions
   %tbody
     - @contractors.find_each do |contractor|
       %tr
