@@ -3,13 +3,28 @@
     <div class="col-md-8">
       <h1>DashBoard</h1>
       <h2>Chiffre d'affaires</h2>
-      <% @professions_revenues.each do |profession_revenues| %>
-          <%=profession_revenues[0]%>
-          :
-          <%=profession_revenues[1]%>€
-        </br>
-      <%end%>
-      Globale : <%= @revenues %>€
+      <table style="width:100%">
+        <thead>
+           <tr>
+             <th>Profession</th>
+             <th>Chiffre d'affaire</th>
+           </tr>
+        </thead>
+        <tbody>
+          <% @professions_revenues.each do |profession_revenues| %>
+            <tr>
+              <td><%=profession_revenues[0]%></td>
+              <td><%=profession_revenues[1]%>€</td>
+            </tr>
+          <%end%>
+          <tr>
+            <td>Total :</td>
+            <td><%= @revenues %>€</td>
+          </tr>
+        </tbody>
+      </table>
+
+
     </div>
   </div>
 <% end %>
