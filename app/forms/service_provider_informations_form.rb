@@ -9,10 +9,8 @@ class ServiceProviderInformationsForm
   attribute :society, String
   attribute :siret, String
   attribute :siege_address, String
-
   attribute :is_member_of_network, Boolean
   attribute :network_name, String
-
   attribute :is_a_plumber, Boolean
   attribute :is_a_locksmith, Boolean
   attribute :is_a_glazier, Boolean
@@ -23,20 +21,16 @@ class ServiceProviderInformationsForm
   attribute :is_a_ground_setter, Boolean
   attribute :is_a_shutter_setter, Boolean
   attribute :profession, Boolean
-
   attribute :status, String
   attribute :file_kbis, Tempfile
   attribute :file_professional_insurance, Tempfile
   attribute :file_iban, Tempfile
   attribute :number_of_employees, Integer
   attribute :has_a_smartphone, Boolean
-
   attribute :have_read_partnership_general_conditions, Boolean
   attribute :accepted_partnership_general_conditions, Boolean
 
-
   ## Validation
-
   validates :firstname,
             :lastname,
             :email,

@@ -16,9 +16,9 @@ Nouvelle demande de depanneur
 <div>&nbsp;</div>
 <% if @service_provider_informations.is_member_of_network %>
   <b>Fait parti du réseau</b> : <%=  @service_provider_informations.network_name %>
-<%else%>
+<% else %>
 <b>Ne fais pas parti d'un réseau</b>
-<%end%>
+<% end %>
 <div>&nbsp;</div>
 <b>Profession(s)</b> :
 <ul>
