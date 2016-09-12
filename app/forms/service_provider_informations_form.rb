@@ -10,6 +10,9 @@ class ServiceProviderInformationsForm
   attribute :siret, String
   attribute :siege_address, String
 
+  attribute :is_member_of_network, Boolean
+  attribute :network_name, String
+
   attribute :is_a_plumber, Boolean
   attribute :is_a_locksmith, Boolean
   attribute :is_a_glazier, Boolean
@@ -18,6 +21,7 @@ class ServiceProviderInformationsForm
   attribute :is_a_drywall_worker, Boolean
   attribute :is_a_painter, Boolean
   attribute :is_a_ground_setter, Boolean
+  attribute :is_a_shutter_setter, Boolean
   attribute :profession, Boolean
 
   attribute :status, String
@@ -46,6 +50,7 @@ class ServiceProviderInformationsForm
   validate :number_of_employees_is_positive
   validate :must_have_at_least_one_profession
   validate :must_accept_and_read_partnership_general_conditions
+  validate :network_validation
 
   ###
   def save
@@ -65,7 +70,7 @@ class ServiceProviderInformationsForm
   end
 
   def must_have_at_least_one_profession
-    unless is_a_plumber || is_a_locksmith || is_a_glazier || is_a_heating_engineer || is_an_electrician || is_a_drywall_worker || is_a_painter || is_a_ground_setter
+    unless is_a_plumber || is_a_locksmith || is_a_glazier || is_a_heating_engineer || is_an_electrician || is_a_drywall_worker || is_a_painter || is_a_ground_setter || is_a_shutter_setter
       errors.add(:profession, "Vous devez selectionner au moins une profession")
     end
   end
@@ -73,6 +78,12 @@ class ServiceProviderInformationsForm
   def must_accept_and_read_partnership_general_conditions
     unless have_read_partnership_general_conditions && accepted_partnership_general_conditions
       errors.add(:have_read_partnership_general_conditions, "Vous devez lire et accepter les conditions conditions générales de partenariat")
+    end
+  end
+
+  def network_validation
+    if is_member_of_network && (network_name.empty? || network_name.nil?)
+      errors.add(:is_member_of_network, "Veuillez remplir ce champ ou décocher la case")
     end
   end
 
