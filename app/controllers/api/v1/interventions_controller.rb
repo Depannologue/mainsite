@@ -11,10 +11,9 @@ class Api::V1::InterventionsController < Api::V1::BaseController
   end
 
   def create
-    user_informations_form = UserInformationsForm.new(user_informations_form_params)
-    return api_error(status: 422, errors: user_informations_form.errors) unless user_informations_form.save
-    intervention_type = InterventionType.find_by_id(params[:intervention][:intervention_type_id])
-    intervention = CreateInterventionService.perform(user_informations_form.address, user_informations_form.customer, intervention_type, intervention_type.profession_id,user_informations_form.is_immediate,user_informations_form.date_intervention)
+    #user_informations_form = UserInformationsForm.new(user_informations_form_params)
+    #return api_error(status: 422, errors: user_informations_form.errors) unless user_informations_form.save
+    intervention = CreateInterventionServiceBis.perform(permitted_params)
     return api_error(status: 422, errors: intervention.errors) unless intervention.valid?
     render(
       json:intervention.restrict_for_api,
@@ -33,6 +32,33 @@ class Api::V1::InterventionsController < Api::V1::BaseController
     )
   end
   private
+
+  def permitted_params
+    parameters = params.require(:intervention).permit(
+      :state,
+      :customer_id,
+      :intervention_type_id,
+      :immediate_intervention,
+      address_attributes: [
+        :city,
+        :phone_number,
+        :firstname,
+        :lastname,
+        :address1,
+        :zipcode,
+        :city
+      ]
+    )
+    intervention_time = DateTime.new(
+                        params["intervention_date_attributes"]["intervention_date_1i"].to_i,
+                        params["intervention_date_attributes"]["intervention_date_2i"].to_i,
+                        params["intervention_date_attributes"]["intervention_date_3i"].to_i,
+                        params["intervention_date_attributes"]["intervention_date_4i"].to_i,
+                        params["intervention_date_attributes"]["intervention_date_5i"].to_i,
+                        params["intervention_date_attributes"]["intervention_date_6i"].to_i).change(:offset => "+0200")
+    parameters = parameters.merge(intervention_date: intervention_time)
+
+  end
 
   def user_informations_form_params
     parameters = params.require(:intervention).permit(:firstname, :lastname, :address1, :address2, :zipcode, :phone_number, :city, :email, :intervention_date, :immediate_intervention,:intervention_date_1i, :intervention_date_2i, :intervention_date_3i, :intervention_date_4i, :intervention_date_5i, :intervention_date_6i)

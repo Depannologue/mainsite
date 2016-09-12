@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-
+//= require cocoon
 
 $(function(){
 
@@ -22,7 +22,7 @@ $(function(){
       });
    });
 
-    
+
   // get area attached to a zipcode
   var get_area_by_zip_code = function(that) {
     var display_area = that.parent('.input').find('.help-block');
@@ -43,7 +43,7 @@ $(function(){
   }
 
   var zipcode_attr = $("input[name='intervention[address_attributes][zipcode]']");
-  
+
   if(zipcode_attr.length) {
     // post area to div.help-block on keyup zipcode input
     $(zipcode_attr).keyup(function(){

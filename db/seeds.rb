@@ -14,21 +14,6 @@ User.create(
 
 
 if !Rails.env.production?
-  User.create(
-    email: "pro+1@depannologue.fr",
-    password: "pro_depannologue_fr",
-    role: "contractor",
-    firstname: 'Abc',
-    lastname: 'Def',
-    phone_number: '0606060606'
-  )
-  User.create(
-    email: "user@depannologue.fr",
-    password: "user_depannologue_fr",
-    role: "customer",
-    firstname: 'Abc',
-    lastname: 'Def',
-    phone_number: '0606060606'
-  )
+
 
 end
