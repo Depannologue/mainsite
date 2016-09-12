@@ -15,7 +15,7 @@ Nouvelle demande de depanneur
 <b>Adresse du siège</b> : <%= @service_provider_informations.siege_address %>
 <div>&nbsp;</div>
 <% if @service_provider_informations.is_member_of_network %>
-  <b>Fait parti du réseau</b> : <%=  @service_provider_informations.network_name %>
+  <b>Fait parti du réseau</b> : <%= @service_provider_informations.network_name %>
 <% else %>
 <b>Ne fais pas parti d'un réseau</b>
 <% end %>
