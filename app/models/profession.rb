@@ -15,7 +15,7 @@ class Profession < ActiveRecord::Base
       id: self.id,
       name: self.name,
       slug: self.slug,
-      intervention_types: array_serializer(self.intervention_type)
+      intervention_types: array_serializer(self.intervention_types)
     }
   end
 
