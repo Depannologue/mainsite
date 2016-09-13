@@ -3437,3 +3437,37 @@ ul.support-list li {
 @media (min-width: 1200px) {
 
 }
+
+.dashboard-card {
+  box-shadow: 0px 0px 5px 0px #656565;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.chartist-pie-chart{
+  .ct-label{
+    font-size: 2rem;
+    fill: white;
+    font-style : bold;
+    font-weight: bolder;
+    text-shadow: 0px 0px 5px rgba(0,0,0, 0.5);
+    text-shadow: -1px 0 0 rgba(0, 0, 0, 0.5),
+             1px 0 0 rgba(0, 0, 0, 0.5),
+             0 -1px 0 rgba(0, 0, 0, 0.5),
+             0 1px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.card-header{
+  background-color:#1583cc;
+  color:white;
+  height:50px;
+  text-align: center;
+  font-size:20px;
+  margin-top: -5px;
+  margin-bottom : 5px;
+  border-bottom: 5px solid #0f5e92;
+  .title {
+    margin-top: 15px;
+  }
+}
