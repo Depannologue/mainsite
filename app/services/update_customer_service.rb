@@ -10,9 +10,9 @@ class UpdateCustomerService
   private
 
   def persist(permitted_params, id)
-    customers = User.customers.find_by_id(id)
-    customers.update_attributes permitted_params
-    customers
+    customer = User.customers.find_by_id(id)
+    customer.update_attributes permitted_params
+    customer
   end
 
 end

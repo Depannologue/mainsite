@@ -13,7 +13,7 @@ class CreateInterventionServiceBis
     # send mail and sms to pros available and nearby and matched profession
     pros = intervention.pros_now_available_and_nearby
       pros.each do |pro|
-        if pro.with_client_profession profession_id
+        if pro.with_client_profession intervention.intervention_type.profession_id
           ProMailer.notify_intervention_created(pro, intervention).deliver_later
           NotifyProsBySmsService.perform(intervention, pro)
         end

@@ -29,10 +29,10 @@ class Address < ActiveRecord::Base
   phony_normalize :phone_number, default_country_code: 'FR'
 
   validates :phone_number, phony_plausible: true
+
   validates :zipcode,
             :city,
-            presence: true
-  validates :address1,
+            :address1,
             :phone_number,
             presence: true,
             if: proc { |address|

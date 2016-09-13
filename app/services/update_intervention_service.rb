@@ -1,19 +1,18 @@
 class UpdateInterventionService
-  def self.perform(params, id)
-    new.perform(params, id)
+  def self.perform(permitted_params, params)
+    new.perform(permitted_params, params)
   end
 
-  def perform(params, id)
-    persist(params, id)
+  def perform(permitted_params, params)
+    persist(permitted_params, params)
   end
 
   private
 
-  def persist(params, id)
-    intervention = Intervention.find_by_id(id)
-    intervention.update(state: params[:state]) unless params[:state].blank?
-    intervention.update(contractor_id: params[:contractor_id]) unless params[:contractor_id].blank?
-    intervention.contractors_declines.create(user_id: params[:contractor_decline]) unless params[:contractor_decline].blank?
+  def persist(permitted_params, params)
+    intervention = Intervention.find_by_id(params[:id])
+    intervention.contractors_declines.create(user_id: params[:intervention][:contractors_decline]) unless params[:intervention][:contractors_decline].blank?
+    intervention.update_attributes permitted_params
     intervention
   end
 end

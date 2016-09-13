@@ -180,7 +180,8 @@ class Intervention < ActiveRecord::Base
      customer_firstname: self.customer.firstname,
      customer_lastname:self.customer.lastname,
      customer_email:self.customer.email,
-     customer_phone_number:self.customer.phone_number
+     customer_phone_number:self.customer.phone_number,
+     price: self.price
     }
   end
 

@@ -166,6 +166,17 @@ class User < ActiveRecord::Base
       exceptional_availabilities_available_now: self.exceptional_availabilities.last.available_now,
       weekly_availabilitie: self.weekly_availability
     }
+   elsif self.role == "customer"
+      {
+        id: self.id,
+        firstname: self.firstname,
+        lastname:self.lastname,
+        email:self.email,
+        phone_number:self.phone_number,
+        address1: self.address.address1,
+        city: self.address.city,
+        zipcode: self.address.zipcode
+      }
     else
       {
         id: self.id,
@@ -175,6 +186,6 @@ class User < ActiveRecord::Base
         phone_number:self.phone_number
       }
     end
-
   end
+
 end
