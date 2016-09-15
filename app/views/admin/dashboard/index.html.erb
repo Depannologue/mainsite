@@ -24,11 +24,11 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Chiffre d'affaire</div>
       </div>
-      <table style="width:100%">
+      <table >
         <thead>
            <tr>
              <th>Profession</th>
-             <th>Nombre d'intervention</th>
+             <th>Nb interv</th>
              <th>Chiffre d'affaires</th>
              <th>CA moyen</th>
            </tr>
@@ -59,8 +59,11 @@ tr:nth-child(even) {
       </div>
       <div class="ct-chart ct-perfect-fourth chartist-pie-chart" id="chart1"></div>
     </div>
-    </div>
-      <div class="col-md-1">
+    <div class="col-md-12 col-lg-5 dashboard-card">
+      <div class="row card-header">
+        <div class="title">Nombre d'interventions par profession</div>
+      </div>
+      <div class="ct-chart ct-perfect-fourth chartist-bar-chart" id="chart2"></div>
     </div>
   </div>
   <%= javascript_tag "professions_revenues = #{@professions_revenues.to_json.html_safe};" %>
@@ -73,7 +76,7 @@ tr:nth-child(even) {
     if (professions_revenues[i][1]>0){
       var percentage = Math.round((((professions_revenues[i][2]*100)/total_revenues)*100))/100;
       mylabels.push(professions_revenues[i][0]+' - ' +String(percentage) +'%');
-      mySeries.push(professions_revenues[i][1]);
+      mySeries.push(professions_revenues[i][2]);
     }
   }
 
@@ -84,8 +87,9 @@ tr:nth-child(even) {
 
   var options = {
     labelInterpolationFnc: function(value) {
-      return "test"
+      return value[0]+value[1]+value[2]+value[3]
     }
+
   };
 
   var responsiveOptions = [
@@ -104,5 +108,23 @@ tr:nth-child(even) {
   ];
 
   new Chartist.Pie('#chart1', data, options, responsiveOptions);
+  var mylabels2 = [];
+  var mySeries2 = [];
+  for (var i = 0, len = professions_revenues.length; i < len; i++) {
+      mylabels2.push(professions_revenues[i][0]);
+      mySeries2.push(professions_revenues[i][1]);
+  }
+
+  new Chartist.Bar('#chart2', {
+    labels: mylabels2,
+    series: mySeries2
+  }, {
+    distributeSeries: true,
+    horizontalBars: true,
+    axisY: {
+      offset: 100
+    }
+  });
+
   </script>
 <% end %>
