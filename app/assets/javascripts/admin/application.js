@@ -3,6 +3,8 @@
 //= require bootstrap
 //= require cocoon
 //= require ./chartist
+//= require ./d3
+//= require ./metricsgraphics
 
 
 $(function(){

@@ -19,7 +19,46 @@ tr:nth-child(even) {
   <div class="row">
     <h1>DashBoard</h1>
   </div>
+
+
+  <div class="row" style="margin:5px" data-equalizer="RecentInfoCards">
+    <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+      <div class="row card-header">
+        <div class="title">Nombre d'interventions d'aujourd'hui</div>
+      </div>
+      <center><h1 style="font-size:60px"><%=@today_s_number_of_interventions %></h1></center>
+    </div>
+
+    <div class="col-md-1  visible-md-up">
+    </div>
+
+    <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+      <div class="row card-header">
+        <div class="title">Nombre d'interventions du mois</div>
+      </div>
+      <center><h1 style="font-size:60px"><%=@month_s_number_of_interventions %></h1></center>
+    </div>
+
+    <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+      <div class="row card-header">
+        <div class="title">Chiffre d'affaires d'aujourd'hui</div>
+      </div>
+      <center><h1 style="font-size:60px"><%=@today_s_revenues %>€</h1></center>
+    </div>
+
+
+
+    <div class="col-md-1  visible-md-up">
+    </div>
+    <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+      <div class="row card-header">
+        <div class="title">Chiffre d'affaires du mois</div>
+      </div>
+      <center><h1 style="font-size:60px"><%=@month_s_revenues %>€</h1></center>
+    </div>
+  </div>
   <div class="row" style="margin:5px" data-equalizer="foo">
+
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="foo"  >
       <div class="row card-header">
         <div class="title">Chiffre d'affaire</div>
@@ -51,7 +90,7 @@ tr:nth-child(even) {
         </tbody>
       </table>
     </div>
-      <div class="col-md-1  visible-md-up">
+    <div class="col-md-1  visible-md-up">
     </div>
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="foo">
       <div class="row card-header">
@@ -65,11 +104,41 @@ tr:nth-child(even) {
       </div>
       <div class="ct-chart ct-perfect-fourth chartist-bar-chart" id="chart2"></div>
     </div>
+    <div class="col-md-1  visible-md-up">
+    </div>
+    <div class="col-md-12 col-lg-12 dashboard-card">
+      <div class="row card-header">
+        <div class="title">Nombre d'interventions au fil du temps</div>
+      </div>
+      <div class="ct-chart ct-perfect-fourth chartist-line-chart" id="singleton"></div>
+    </div>
   </div>
   <%= javascript_tag "professions_revenues = #{@professions_revenues.to_json.html_safe};" %>
+  <%= javascript_tag "interventions_among_time = #{@interventions_among_time.to_json.html_safe};" %>
   <%= javascript_tag "total_revenues = #{@total_revenues.to_json.html_safe};" %>
   <script>
-  var mylabels = [];
+
+  var myData = [];
+  // myData.push({'date': new Date('2015-03-05'), 'value': 12000});
+
+   for (var i = 0, len = interventions_among_time.length; i < len; i++) {
+     myData.push({'date': new Date(interventions_among_time[i][0]), 'value': interventions_among_time[i][1]});
+   }
+
+  MG.data_graphic({
+    title: "Singleton",
+    description: "Handling a solitary data point.",
+    data: myData,
+    interpolate: d3.curveLinear,
+    right: 40,
+    height: 600,
+    full_width: true,
+    target: '#singleton'
+});
+
+
+
+    var mylabels = [];
   var mySeries = [];
 
   for (var i = 0, len = professions_revenues.length; i < len; i++) {
