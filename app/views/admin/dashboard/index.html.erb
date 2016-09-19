@@ -1,5 +1,9 @@
 <% content_for :page_title do %>
+
 <style>
+#content {
+  overflow: hidden;
+}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -19,6 +23,7 @@ tr:nth-child(even) {
   <div class="row">
     <h1>DashBoard</h1>
   </div>
+
 
 
   <div class="row" style="margin:5px" data-equalizer="RecentInfoCards">
@@ -110,7 +115,7 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Nombre d'interventions au fil du temps</div>
       </div>
-      <div class="ct-chart ct-perfect-fourth chartist-line-chart" id="singleton"></div>
+      <div class="ct-chart chartist-line-chart" id="interventions_among_time"></div>
     </div>
   </div>
   <%= javascript_tag "professions_revenues = #{@professions_revenues.to_json.html_safe};" %>
@@ -118,23 +123,23 @@ tr:nth-child(even) {
   <%= javascript_tag "total_revenues = #{@total_revenues.to_json.html_safe};" %>
   <script>
 
-  var myData = [];
-  // myData.push({'date': new Date('2015-03-05'), 'value': 12000});
+  // var myData = interventions_among_time;
 
-   for (var i = 0, len = interventions_among_time.length; i < len; i++) {
-     myData.push({'date': new Date(interventions_among_time[i][0]), 'value': interventions_among_time[i][1]});
-   }
+  var myData = interventions_among_time.map(function(stat){
+    stat.date = new Date(stat.date);
+    return stat;
+  });
+
 
   MG.data_graphic({
-    title: "Singleton",
-    description: "Handling a solitary data point.",
+    title: "Interventions au fil du temps",
     data: myData,
     interpolate: d3.curveLinear,
     right: 40,
     height: 600,
     full_width: true,
-    target: '#singleton'
-});
+    target: '#interventions_among_time'
+  });
 
 
 
@@ -189,6 +194,7 @@ tr:nth-child(even) {
     series: mySeries2
   }, {
     distributeSeries: true,
+    onlyInteger: true,
     horizontalBars: true,
     axisY: {
       offset: 100

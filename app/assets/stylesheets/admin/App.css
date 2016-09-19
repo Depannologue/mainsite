@@ -3108,9 +3108,11 @@ table.dataTable th:active {
 
 #content {
   background: #FFF;
-  min-height: 800px;
-  overflow: hidden;
-  z-index: 18;
+  min-height: 1200px;
+  height: inherit;
+    z-index: 18;
+  /*overflow: hidden;*/
+
   padding-bottom: 25px;
   margin-left: 240px;
   margin-right: 20px;
