@@ -31,7 +31,7 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Nombre d'interventions d'aujourd'hui</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@today_s_number_of_interventions %></h1></center>
+      <center><h1 style="font-size:60px"><%=@dashboard_presenter.today_s_number_of_interventions %></h1></center>
     </div>
 
     <div class="col-md-1  visible-md-up">
@@ -41,14 +41,14 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Nombre d'interventions du mois</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@month_s_number_of_interventions %></h1></center>
+      <center><h1 style="font-size:60px"><%=@dashboard_presenter.month_s_number_of_interventions %></h1></center>
     </div>
 
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
       <div class="row card-header">
         <div class="title">Chiffre d'affaires d'aujourd'hui</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@today_s_revenues %>€</h1></center>
+      <center><h1 style="font-size:60px"><%=@dashboard_presenter.today_s_revenues %>€</h1></center>
     </div>
 
 
@@ -59,7 +59,7 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Chiffre d'affaires du mois</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@month_s_revenues %>€</h1></center>
+      <center><h1 style="font-size:60px"><%=@dashboard_presenter.month_s_revenues %>€</h1></center>
     </div>
   </div>
   <div class="row" style="margin:5px" data-equalizer="foo">
@@ -80,17 +80,17 @@ tr:nth-child(even) {
         <tbody>
           <% @professions_revenues.each do |profession_revenues| %>
             <tr>
-              <td><%=profession_revenues[0]%></td>
-              <td><%=profession_revenues[1]%></td>
-              <td><%= '%.2f' % profession_revenues[2]%>€</td>
-              <td><%= '%.2f' % profession_revenues[3]%>€</td>
+              <td><%=profession_revenues[:name]%></td>
+              <td><%=profession_revenues[:nb_interventions]%></td>
+              <td><%= '%.2f' % profession_revenues[:revenues]%>€</td>
+              <td><%= '%.2f' % profession_revenues[:average_revenue]%>€</td>
             </tr>
           <%end%>
           <tr>
             <td>Total :</td>
-            <td><%= @total_number_of_interventions %></td>
-            <td><%= '%.2f' % @total_revenues %>€</td>
-            <td><%= '%.2f' % @total_average_per_intervention %>€</td>
+            <td><%= @dashboard_presenter.total_number_of_interventions %></td>
+            <td><%= '%.2f' % @dashboard_presenter.total_revenues %>€</td>
+            <td><%= '%.2f' % @dashboard_presenter.total_average_per_intervention %>€</td>
           </tr>
         </tbody>
       </table>
@@ -101,13 +101,13 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Pourcentage de CA par profession</div>
       </div>
-      <div class="ct-chart ct-perfect-fourth chartist-pie-chart" id="chart1"></div>
+      <div class="ct-chart ct-perfect-fourth chartist-pie-chart" id="revenue_percentage_chart"></div>
     </div>
     <div class="col-md-12 col-lg-5 dashboard-card">
       <div class="row card-header">
         <div class="title">Nombre d'interventions par profession</div>
       </div>
-      <div class="ct-chart ct-perfect-fourth chartist-bar-chart" id="chart2"></div>
+      <div class="ct-chart ct-perfect-fourth chartist-bar-chart" id="number_of_intervention_by_profession_chart"></div>
     </div>
     <div class="col-md-1  visible-md-up">
     </div>
@@ -115,12 +115,12 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Nombre d'interventions au fil du temps</div>
       </div>
-      <div class="ct-chart chartist-line-chart" id="interventions_among_time"></div>
+      <div class="ct-chart chartist-line-chart" id="interventions_among_time_chart"></div>
     </div>
   </div>
   <%= javascript_tag "professions_revenues = #{@professions_revenues.to_json.html_safe};" %>
   <%= javascript_tag "interventions_among_time = #{@interventions_among_time.to_json.html_safe};" %>
-  <%= javascript_tag "total_revenues = #{@total_revenues.to_json.html_safe};" %>
+  <%= javascript_tag "total_revenues = #{@dashboard_presenter.total_revenues.to_json.html_safe};" %>
   <script>
 
   // var myData = interventions_among_time;
@@ -138,7 +138,7 @@ tr:nth-child(even) {
     right: 40,
     height: 600,
     full_width: true,
-    target: '#interventions_among_time'
+    target: '#interventions_among_time_chart'
   });
 
 
@@ -146,11 +146,11 @@ tr:nth-child(even) {
     var mylabels = [];
   var mySeries = [];
 
-  for (var i = 0, len = professions_revenues.length; i < len; i++) {
-    if (professions_revenues[i][1]>0){
-      var percentage = Math.round((((professions_revenues[i][2]*100)/total_revenues)*100))/100;
-      mylabels.push(professions_revenues[i][0]+' - ' +String(percentage) +'%');
-      mySeries.push(professions_revenues[i][2]);
+  for (var profession in professions_revenues) {
+    if (professions_revenues[profession].revenues>0){
+      var percentage = Math.round((((professions_revenues[profession].revenues*100)/total_revenues)*100))/100;
+      mylabels.push(professions_revenues[profession].name+' - ' +String(percentage) +'%');
+      mySeries.push(professions_revenues[profession].revenues);
     }
   }
 
@@ -181,23 +181,27 @@ tr:nth-child(even) {
     }]
   ];
 
-  new Chartist.Pie('#chart1', data, options, responsiveOptions);
+  new Chartist.Pie('#revenue_percentage_chart', data, options, responsiveOptions);
+
+
+
+
   var mylabels2 = [];
   var mySeries2 = [];
-  for (var i = 0, len = professions_revenues.length; i < len; i++) {
-      mylabels2.push(professions_revenues[i][0]);
-      mySeries2.push(professions_revenues[i][1]);
+
+  for (var profession in professions_revenues) {
+    mylabels2.push(professions_revenues[profession].name);
+    mySeries2.push(professions_revenues[profession].nb_interventions);
   }
 
-  new Chartist.Bar('#chart2', {
+  new Chartist.Bar('#number_of_intervention_by_profession_chart', {
     labels: mylabels2,
     series: mySeries2
   }, {
     distributeSeries: true,
-    onlyInteger: true,
     horizontalBars: true,
     axisY: {
-      offset: 100
+      offset: 100,
     }
   });
 

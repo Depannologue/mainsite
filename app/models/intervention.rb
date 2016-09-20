@@ -19,6 +19,7 @@
 #
 
 class Intervention < ActiveRecord::Base
+  scope :today, -> { where(created_at: Time.now.beginning_of_day..Time.now.end_of_day) }
   extend Enumerize
   include AASM
   RATINGS = %w(
