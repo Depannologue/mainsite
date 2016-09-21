@@ -4,22 +4,8 @@
 #content {
   overflow: hidden;
 }
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #999999;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
 </style>
+
   <div class="row">
     <h1>DashBoard</h1>
   </div>
@@ -68,7 +54,7 @@ tr:nth-child(even) {
       <div class="row card-header">
         <div class="title">Chiffre d'affaires</div>
       </div>
-      <table >
+      <table id="dashboard-table">
         <thead>
            <tr>
              <th>Profession</th>
@@ -193,7 +179,6 @@ tr:nth-child(even) {
     mylabels2.push(professions_revenues[profession].name);
     mySeries2.push(professions_revenues[profession].nb_interventions);
   }
-
   new Chartist.Bar('#number_of_intervention_by_profession_chart', {
     labels: mylabels2,
     series: mySeries2
@@ -202,7 +187,10 @@ tr:nth-child(even) {
     horizontalBars: true,
     axisY: {
       offset: 100,
-    }
+    },
+    axisX: {
+    onlyInteger: true
+  }
   });
 
   </script>
