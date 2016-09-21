@@ -5,6 +5,7 @@
 //= require ./chartist
 //= require ./d3
 //= require ./metricsgraphics
+//= require ./dashboard
 
 
 $(function(){
