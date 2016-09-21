@@ -9,47 +9,37 @@
   <div class="row">
     <h1>DashBoard</h1>
   </div>
-
-
-
-  <div class="row" style="margin:5px" data-equalizer="RecentInfoCards">
+  <div class="row row-card" data-equalizer="RecentInfoCards">
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
       <div class="row card-header">
-        <div class="title">Nombre d'interventions d'aujourd'hui</div>
+        <div class="title">Nombre d'interventions du jour</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@dashboard_presenter.today_s_number_of_interventions %></h1></center>
+      <center><h1><%=@dashboard_presenter.today_s_number_of_interventions %></h1></center>
     </div>
-
     <div class="col-md-1  visible-md-up">
     </div>
-
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
       <div class="row card-header">
         <div class="title">Nombre d'interventions du mois</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@dashboard_presenter.month_s_number_of_interventions %></h1></center>
+      <center><h1><%=@dashboard_presenter.month_s_number_of_interventions %></h1></center>
     </div>
-
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
       <div class="row card-header">
-        <div class="title">Chiffre d'affaires d'aujourd'hui</div>
+        <div class="title">Chiffre d'affaires du jour</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@dashboard_presenter.today_s_revenues %>€</h1></center>
+      <center><h1><%=@dashboard_presenter.today_s_revenues %>€</h1></center>
     </div>
-
-
-
     <div class="col-md-1  visible-md-up">
     </div>
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
       <div class="row card-header">
         <div class="title">Chiffre d'affaires du mois</div>
       </div>
-      <center><h1 style="font-size:60px"><%=@dashboard_presenter.month_s_revenues %>€</h1></center>
+      <center><h1><%=@dashboard_presenter.month_s_revenues %>€</h1></center>
     </div>
   </div>
   <div class="row" style="margin:5px" data-equalizer="foo">
-
     <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="foo"  >
       <div class="row card-header">
         <div class="title">Chiffre d'affaires</div>
@@ -87,7 +77,7 @@
       <div class="row card-header">
         <div class="title">Pourcentage de CA par profession</div>
       </div>
-      <div class="ct-chart ct-perfect-fourth chartist-pie-chart" id="revenue_percentage_chart"></div>
+      <div class="ct-chart ct-perfect-fourth chartist-pie-chart" id="revenue_percentage_chart" chartProfessionsRevenues="<%= @professions_revenues.to_json %>" totalRevenues="<%= @dashboard_presenter.total_revenues.to_json %>"></div>
     </div>
     <div class="col-md-12 col-lg-5 dashboard-card">
       <div class="row card-header">
@@ -101,21 +91,20 @@
       <div class="row card-header">
         <div class="title">Nombre d'interventions au fil du temps</div>
       </div>
-      <div class="ct-chart chartist-line-chart" id="interventions_among_time_chart"></div>
+      <div class="ct-chart chartist-line-chart" id="interventions_among_time_chart" interventionAmongTime="<%= @interventions_among_time.to_json %>"></div>
     </div>
   </div>
-  <%= javascript_tag "professions_revenues = #{@professions_revenues.to_json.html_safe};" %>
-  <%= javascript_tag "interventions_among_time = #{@interventions_among_time.to_json.html_safe};" %>
+
   <%= javascript_tag "total_revenues = #{@dashboard_presenter.total_revenues.to_json.html_safe};" %>
   <script>
 
-  // var myData = interventions_among_time;
+  var interventionAmongTime = document.getElementById('interventions_among_time_chart').getAttribute("interventionAmongTime");
+  var interventionAmongTime = JSON.parse(interventionAmongTime);
 
-  var myData = interventions_among_time.map(function(stat){
+  var myData = interventionAmongTime.map(function(stat){
     stat.date = new Date(stat.date);
     return stat;
   });
-
 
   MG.data_graphic({
     title: "Interventions au fil du temps",
@@ -127,16 +116,16 @@
     target: '#interventions_among_time_chart'
   });
 
-
-
-    var mylabels = [];
+  var mylabels = [];
   var mySeries = [];
+  var chartProfessionsRevenues = JSON.parse(document.getElementById('revenue_percentage_chart').getAttribute("chartProfessionsRevenues"));
+  var totalRevenues = JSON.parse(document.getElementById('revenue_percentage_chart').getAttribute("totalRevenues"));
 
-  for (var profession in professions_revenues) {
-    if (professions_revenues[profession].revenues>0){
-      var percentage = Math.round((((professions_revenues[profession].revenues*100)/total_revenues)*100))/100;
-      mylabels.push(professions_revenues[profession].name+' - ' +String(percentage) +'%');
-      mySeries.push(professions_revenues[profession].revenues);
+  for (var profession in chartProfessionsRevenues) {
+    if (chartProfessionsRevenues[profession].revenues>0){
+      var percentage = Math.round((((chartProfessionsRevenues[profession].revenues*100)/totalRevenues)*100))/100;
+      mylabels.push(chartProfessionsRevenues[profession].name+' - ' +String(percentage) +'%');
+      mySeries.push(chartProfessionsRevenues[profession].revenues);
     }
   }
 
@@ -149,7 +138,6 @@
     labelInterpolationFnc: function(value) {
       return value[0]+value[1]+value[2]+value[3]
     }
-
   };
 
   var responsiveOptions = [
@@ -169,15 +157,13 @@
 
   new Chartist.Pie('#revenue_percentage_chart', data, options, responsiveOptions);
 
-
-
-
   var mylabels2 = [];
   var mySeries2 = [];
+  var chartProfessionsRevenues = JSON.parse(document.getElementById('revenue_percentage_chart').getAttribute("chartProfessionsRevenues"));
 
-  for (var profession in professions_revenues) {
-    mylabels2.push(professions_revenues[profession].name);
-    mySeries2.push(professions_revenues[profession].nb_interventions);
+  for (var profession in chartProfessionsRevenues) {
+    mylabels2.push(chartProfessionsRevenues[profession].name);
+    mySeries2.push(chartProfessionsRevenues[profession].nb_interventions);
   }
   new Chartist.Bar('#number_of_intervention_by_profession_chart', {
     labels: mylabels2,
@@ -192,6 +178,5 @@
     onlyInteger: true
   }
   });
-
   </script>
 <% end %>

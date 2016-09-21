@@ -3569,6 +3569,9 @@ ul.support-list li {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 10px;
+  h1{
+    font-size:60px;
+  }
 }
 
 .card-header{
@@ -3597,5 +3600,12 @@ table#dashboard-table {
   tr:nth-child(even) {
       background-color: #dddddd;
   }
+}
 
+#content-dashboard {
+  overflow: hidden;
+}
+
+.row-card {
+  margin:5px;
 }

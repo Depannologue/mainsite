@@ -14,7 +14,7 @@ class Admin::ProfessionsController < ApplicationController
   end
 
   def create
-    @profession = Profession.new(permitted_params)
+    @profession = Profession.new(profession_params)
     if @profession.save
       flash[:success] = "Profession créée"
       redirect_to admin_professions_path
@@ -26,8 +26,8 @@ class Admin::ProfessionsController < ApplicationController
   end
 
   def destroy
-    InterventionType.where(profession_id: @profession.id).destroy_all
-    @profession.destroy
+    InterventionType.where(profession_id: @profession.id).delete_all
+    @profession.delete
 
     flash[:success] = "profession supprimée"
     redirect_to admin_professions_path
@@ -35,7 +35,7 @@ class Admin::ProfessionsController < ApplicationController
 
   def edit
     def update
-      if @profession.update_attributes permitted_params
+      if @profession.update_attributes profession_params
         flash[:success] = "Profession mise à jour"
         redirect_to admin_professions_path
       else
@@ -62,11 +62,4 @@ class Admin::ProfessionsController < ApplicationController
   def load_profession
     @profession = Profession.find(params[:id])
   end
-end
-
-def permitted_params
-  params.require(:profession).permit(
-    :name,
-    :slug
-  )
 end

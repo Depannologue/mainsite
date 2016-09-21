@@ -4,8 +4,7 @@ class Admin::DashboardController < ApplicationController
   layout 'admin/application'
 
   def index
-    @dashboard_presenter = Admin::InterventionPresenter.new
-    interventions = Intervention.all
+    @dashboard_presenter = Admin::InterventionPresenter.new(Intervention.all)
     @professions_revenues = professions_revenues
     @interventions_among_time = interventions_among_time
   end
@@ -27,5 +26,4 @@ class Admin::DashboardController < ApplicationController
     Intervention.pluck(:created_at).each { |intervention_date| dates_with_count[intervention_date.to_date] += 1 }
     dates_with_count.map { |date, count| {date: date, value: count }}
   end
-
 end
