@@ -20,7 +20,6 @@ class Admin::InterventionTypesController < ApplicationController
       flash[:success] = "Type d'intervention créé"
       redirect_to admin_intervention_types_path
     else
-      raise @intervention_type.inspect
       flash[:error] = "Erreur lors de la création du type d'intervention"
       render :new
     end
