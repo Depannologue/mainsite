@@ -3,7 +3,7 @@
     .col-md-8
       %h1 Nouveau type d'intervention
 = simple_form_for @intervention_type, url: admin_intervention_types_path do |f|
-  = f.input :profession_id,:collection => @professions,:label_method => :name,:value_method => :id,:label => "Profession" ,:include_blank => false
+  = f.input :profession_id,collection: @professions,label_method: :name,value_method: :id,label: 'Profession' ,include_blank: false
   = f.input :short_description
   = f.input :description
   = f.input :price
