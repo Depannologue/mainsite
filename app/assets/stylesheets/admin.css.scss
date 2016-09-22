@@ -3,10 +3,8 @@
  *= require_self
 */
 
-
-
 @import "common/variables";
-@import "pro/variables";
+@import "admin/variables";
 
 @import "common/mixins";
 @import "common/typography";
@@ -22,7 +20,6 @@
 @import "admin/login";
 @import "font-awesome";
 @import "calendar";
-
 
  /* COMMON */
  @import "common/fontawesome";
