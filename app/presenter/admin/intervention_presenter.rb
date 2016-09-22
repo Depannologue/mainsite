@@ -12,11 +12,11 @@ class Admin::InterventionPresenter
   end
 
   def month_s_number_of_interventions
-    @interventions.where(created_at: Time.now.beginning_of_month..Time.now.end_of_day).count
+    @interventions.month.count
   end
 
   def month_s_revenues
-    @interventions.where(created_at: Time.now.beginning_of_month..Time.now.end_of_day).sum(:price)
+    @interventions.month.sum(:price)
   end
 
   def total_number_of_interventions

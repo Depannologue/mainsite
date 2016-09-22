@@ -23,6 +23,7 @@ class Intervention < ActiveRecord::Base
   extend Enumerize
   include AASM
   scope :today, -> { where(created_at: Time.now.beginning_of_day..Time.now.end_of_day) }
+  scope :month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
   RATINGS = %w(
     a
     b
