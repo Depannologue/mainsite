@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20160908145747) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contractors_declines", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "intervention_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contractors_declines", ["intervention_id"], name: "index_contractors_declines_on_intervention_id", using: :btree
+  add_index "contractors_declines", ["user_id"], name: "index_contractors_declines_on_user_id", using: :btree
+
   create_table "exceptional_availabilities", force: :cascade do |t|
     t.integer  "user_id"
     t.boolean  "available_now"
@@ -73,6 +83,8 @@ ActiveRecord::Schema.define(version: 20160908145747) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.integer  "parent_id"
   end
 
   add_index "insurers", ["email"], name: "index_insurers_on_email", unique: true, using: :btree
@@ -105,6 +117,8 @@ ActiveRecord::Schema.define(version: 20160908145747) do
     t.string   "payment_method"
     t.boolean  "immediate_intervention"
     t.datetime "intervention_date"
+    t.integer  "insurer_id"
+    t.text     "picture"
   end
 
   add_index "interventions", ["client_token_ownership"], name: "index_interventions_on_client_token_ownership", unique: true, using: :btree
@@ -172,6 +186,7 @@ ActiveRecord::Schema.define(version: 20160908145747) do
     t.integer  "invitations_count",      default: 0
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "auth_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

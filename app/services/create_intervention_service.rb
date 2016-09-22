@@ -29,6 +29,6 @@ class CreateInterventionService
   private
 
   def persist intervention_address, customer, intervention_type , is_immediate , date_intervention
-    intervention = Intervention.create(address: intervention_address, customer: customer, intervention_type: intervention_type, state: 'pending_pro_validation', immediate_intervention: is_immediate , intervention_date: date_intervention)
+    intervention = Intervention.create(address: intervention_address, customer: customer, intervention_type: intervention_type, state: 'pending_pro_validation', immediate_intervention: is_immediate , intervention_date: date_intervention, price: intervention_type.price )
   end
 end

@@ -7,7 +7,6 @@
 //= require ./metricsgraphics
 //= require ./dashboard
 
-
 $(function(){
 
   // Insert new AREA after the olders
@@ -26,7 +25,6 @@ $(function(){
         $(this).children("a.add_fields").hide();
       });
    });
-
 
   // get area attached to a zipcode
   var get_area_by_zip_code = function(that) {

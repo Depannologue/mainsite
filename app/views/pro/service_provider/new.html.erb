@@ -59,18 +59,42 @@
                 <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:phone_number][0] %></span>
               </div>
             </div>
+
           </div>
 
+          <div class="medium-6 small-12 small-centered large-centered columns ">
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend"><b>Réseau de depanneur</b></legend>
+              <p class="help-text" id="passwordHelpText">Remplissez cet encadré si vous faites parti d'un réseau de dépanneur.</p>
+              <div class="medium-1 small-1 columns">
+                <%= service_provider_informations_form.check_box :is_member_of_network %>
+              </div>
+              <div class="medium-11 small-11 columns">
+                je fais parti d'un réseau de dépanneur
+              </div>
+              <div class="medium-12 small-12 small-centered large-centered columns ">
+                <label><b>Réseau</b>
+                  <%= service_provider_informations_form.text_field :network_name, :placeholder => "Nom du réseau de dépanneurs"%>
+                </label>
+              </div>
+
+              <div class="row">
+                <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:is_member_of_network][0] %></span>
+              </div>
+
+            </fieldset>
+
+          </div>
           <div class="medium-6 small-12 small-centered large-centered columns ">
             <fieldset class="fieldset">
               <legend class="fieldset-legend"><b>Professions</b></legend>
               <p class="help-text" id="passwordHelpText">Vous devez selectionner au moins 1 profession.</p>
               <div class="row">
-                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_plumber %><label for="checkbox1">Serrurerie</label></div>
+                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_locksmith %><label for="checkbox1">Serrurerie</label></div>
                 <div class="columns medium-6 small-12 end"><%= service_provider_informations_form.check_box :is_a_heating_engineer %><label for="checkbox1">Chauffagiste</label></div>
               </div>
               <div class="row">
-                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_locksmith %><label for="checkbox2">Plomberie</label></div>
+                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_plumber %><label for="checkbox2">Plomberie</label></div>
                 <div class="columns medium-6 small-12 end"><%= service_provider_informations_form.check_box :is_an_electrician %><label for="checkbox2">Électricien</label></div>
               </div>
               <div class="row">
@@ -80,6 +104,9 @@
               <div class="row">
                 <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_painter %><label for="checkbox2">Peintre</label></div>
                 <div class="columns medium-6 small-12 end"><%= service_provider_informations_form.check_box :is_a_ground_setter %><label for="checkbox2">Poseur de sol</label></div>
+              </div>
+              <div class="row">
+                <div class="columns medium-6 small-12"><%= service_provider_informations_form.check_box :is_a_shutter_setter %><label for="checkbox2">Dépanneur de volet roulant</label></div>
               </div>
               <div class="row">
                 <span id="helpBlock2" style="text-align:left" class="form-error is-visible"> <%= @service_provider_informations_form.errors[:profession][0] %></span>
