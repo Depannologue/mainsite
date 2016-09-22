@@ -21,7 +21,6 @@ class Client::FormController < ApplicationController
   end
 
   def edit
-    raise 'ok'
   end
   private
 

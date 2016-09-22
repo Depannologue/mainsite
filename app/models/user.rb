@@ -56,6 +56,7 @@ class User < ActiveRecord::Base
   has_many :zip_codes, through: :areas
   has_and_belongs_to_many :professions
   has_many :professions_users
+
   accepts_nested_attributes_for :professions
   accepts_nested_attributes_for :professions_users, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :areas
@@ -89,6 +90,19 @@ class User < ActiveRecord::Base
   scope :customers, -> { where(role: 'customer') }
   scope :contractors, -> { where(role: 'contractor') }
   scope :admins, -> { where(role: 'admin') }
+
+  after_create {|user| user.message 'create' }
+  after_update {|user| user.message 'update' }
+  after_destroy {|user| user.message 'destroy' }
+  def message action
+    msg = { resource: 'users',
+            action: action,
+            id: self.id,
+            email: self.email,
+            obj: self.restrict_for_api }
+
+    $redis.publish 'rt-change', msg.to_json
+  end
 
   def areas_name
     self.areas.map(&:name).join(", ")
@@ -134,11 +148,33 @@ class User < ActiveRecord::Base
   #
   def with_client_profession profession_id
     profession = Profession.find_by_id(profession_id)
-    #raise self.professions.inspect
     if self.professions.include? profession
       true
     else
       false
     end
+  end
+
+  def restrict_for_api
+    if self.role == "contractor"
+    {
+      id: self.id,
+      firstname: self.firstname,
+      lastname:self.lastname,
+      email:self.email,
+      phone_number:self.phone_number,
+      exceptional_availabilities_available_now: self.exceptional_availabilities.last.available_now,
+      weekly_availabilitie: self.weekly_availability
+    }
+    else
+      {
+        id: self.id,
+        firstname: self.firstname,
+        lastname:self.lastname,
+        email:self.email,
+        phone_number:self.phone_number
+      }
+    end
+
   end
 end

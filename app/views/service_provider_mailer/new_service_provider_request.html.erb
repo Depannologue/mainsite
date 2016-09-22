@@ -14,6 +14,12 @@ Nouvelle demande de depanneur
 <div>&nbsp;</div>
 <b>Adresse du siège</b> : <%= @service_provider_informations.siege_address %>
 <div>&nbsp;</div>
+<% if @service_provider_informations.is_member_of_network %>
+  <b>Fait parti du réseau</b> : <%= @service_provider_informations.network_name %>
+<% else %>
+<b>Ne fais pas parti d'un réseau</b>
+<% end %>
+<div>&nbsp;</div>
 <b>Profession(s)</b> :
 <ul>
 <% if @service_provider_informations.is_a_plumber %>
@@ -46,6 +52,10 @@ Nouvelle demande de depanneur
 <% end %>
 <% if @service_provider_informations.is_a_ground_setter %>
   <li>Poseur de sol</li>
+  <div>&nbsp;</div>
+<% end %>
+<% if @service_provider_informations.is_a_shutter_setter %>
+  <li>Depanneur de volet roulant</li>
   <div>&nbsp;</div>
 <% end %>
 </ul>

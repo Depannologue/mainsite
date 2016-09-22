@@ -26,4 +26,12 @@ class InterventionType < ActiveRecord::Base
             presence: true
 
   validates :price, numericality: { greater_than_or_equal_to: 0 }
+  
+  def restrict_for_api
+    {
+      id: self.id,
+      short_description:  self.short_description,
+      price: self.price
+    }
+  end
 end
