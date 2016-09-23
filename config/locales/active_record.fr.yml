@@ -29,6 +29,11 @@ fr:
         phone_number: Numéro de téléphone portable
         latitude: Latitude
         longitude: Longitude
+      profession:
+        name: Nom de profession
+        slug: Nom pour lien
+        created_at: créé le
+        updated_at: mis à jour le
       intervention_type:
         kind: Catégorie
         created_at: Date de création

@@ -36,11 +36,11 @@
         %label.col-lg-3.control-label Adresse
         .col-lg-8
           %textarea.form-control{disabled: true, rows:5}
-            #{@contractor.address.try(:address1)} &#13; 
+            #{@contractor.address.try(:address1)} &#13;
             - if @contractor.address.try(:address2)
-              #{@contractor.address.try(:address2)} &#13; 
-            #{@contractor.address.try(:zipcode)} &#13; 
-            #{@contractor.address.try(:city)} &#13; 
+              #{@contractor.address.try(:address2)} &#13;
+            #{@contractor.address.try(:zipcode)} &#13;
+            #{@contractor.address.try(:city)} &#13;
     .row
       .form-group
         %label.col-lg-3.control-label Agglomérations
@@ -73,7 +73,3 @@
 
 %hr
 = link_to 'Retour', admin_contractors_path, class: 'btn btn-danger'
-
-
-
-

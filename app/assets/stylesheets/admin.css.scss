@@ -4,7 +4,7 @@
 */
 
 @import "common/variables";
-@import "pro/variables";
+@import "admin/variables";
 
 @import "common/mixins";
 @import "common/typography";
@@ -14,72 +14,12 @@
 @import "common/flexbox";
 @import "common/alerts";
 
- @import "admin/App";
- @import "admin/Login";
- @import "font-awesome";
- @import "pro/calendar";
-
+@import "admin/chartist";
+@import "admin/metricsgraphics";
+@import "admin/app";
+@import "admin/login";
+@import "font-awesome";
+@import "calendar";
 
  /* COMMON */
  @import "common/fontawesome";
-
- #content-header .btn.pull-right {
-   margin-top: 30px;
-   margin-right: 20px;
- }
-
- #login-container .navbar-brand > img {
-   margin: 10px 0 0 10px;
- }
-
-.input-group-addon{
-	padding: 0;
-	border: none;
-}
-
-button.btn.btn-danger.last-child {
-    border-radius: 0 5px 5px 0px;
-}
-
-.clean-margin{
-	margin-left: -15px;
-}
-
-.btn-association{
-	margin-top: 15px;
-}
-
-.alert {
-    display: block;
-    margin: 60px auto;
-    text-align: center;
-    border-radius: 4px;
-    z-index: 10;
-    position: relative;
-    left: 0;
-    width: 90%;
-}
-
-.close{
-  opactity: 1 !important;
-  color: black;
-}
-
-#search .form-control{
-	top:6px;
-}
-
-#calendar .table-dispo.no-hover,
-#calendar .table-dispo.no-hover label {
-  cursor: default !important;
-}
-
-#calendar .table-dispo.no-hover label:hover {
-  background-color: transparent;
-  opacity: 1;
-  cursor: default !important;
-}
-
-#calendar .table-dispo.no-hover label.is-checked:hover{
-  background-color:#49CC84;
-}
