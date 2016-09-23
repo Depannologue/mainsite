@@ -5,6 +5,7 @@
 
 = simple_form_for @intervention_type, url: admin_intervention_type_path(@intervention_type), method: :patch do |f|
   = f.input :profession_id,collection: @professions,label_method: :name,value_method: :id,label: 'Profession' ,include_blank: false
+  = f.input :short_description
   = f.input :description
   = f.input :price
   = f.button :submit, class: 'btn btn-success'
