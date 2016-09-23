@@ -19,7 +19,6 @@ class Admin::ProfessionsController < ApplicationController
       flash[:success] = "Profession créée"
       redirect_to admin_professions_path
     else
-      raise @profession.inspect
       flash[:error] = "Erreur lors de la création de la profession"
       render :new
     end

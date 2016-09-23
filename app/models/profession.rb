@@ -12,6 +12,10 @@ class Profession < ActiveRecord::Base
   has_and_belongs_to_many :users
   delegate :count, to: :interventions, prefix: true
 
+  validates :name,
+            :slug,
+            presence: true
+
   def restrict_for_api
     {
       id: self.id,

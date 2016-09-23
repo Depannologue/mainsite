@@ -21,6 +21,7 @@ class Admin::InterventionTypesController < ApplicationController
       redirect_to admin_intervention_types_path
     else
       flash[:error] = "Erreur lors de la création du type d'intervention"
+      @professions = Profession.all
       render :new
     end
   end
