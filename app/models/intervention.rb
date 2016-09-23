@@ -22,34 +22,18 @@ class Intervention < ActiveRecord::Base
   extend Enumerize
   include AASM
   serialize :preferences, JSON
-  RATINGS = %w(
-    a
-    b
-    c
-    d
-    e
-  ).freeze
+  RATINGS = %w(a b c d e).freeze
 
   enumerize :payment_method, in: [:credit_card, :cheque]
-  belongs_to :intervention_type
+  belongs_to :intervention_type, :insurer
   belongs_to :customer, class_name: 'User', foreign_key: 'customer_id'
   belongs_to :contractor, class_name: 'User', foreign_key: 'contractor_id'
-  belongs_to :insurer
+
   has_one :address, as: :addressable, dependent: :destroy
   has_many :historical_transitions, as: :historisable, dependent: :destroy
   has_many :contractors_declines
-  validates :address, presence: true,
-            if: proc { |intervention|
-              !intervention.pending?
-            }
-  # validates :is_ok, inclusion: [true, false],
-  #           if: proc { |intervention|
-  #             intervention.closed? || intervention.archived?
-  #           }
-  # validates :rating, inclusion: RATINGS,
-  #           if: proc { |intervention|
-  #             intervention.closed? || intervention.archived?
-  #           }
+
+  validates :address, presence: true, if: proc { |intervention| !intervention.pending? }
 
   accepts_nested_attributes_for :customer, :address
 
@@ -57,14 +41,16 @@ class Intervention < ActiveRecord::Base
     self.client_token_ownership = SecureRandom.hex(25)
   end
 
-  after_create {|intervention| intervention.message 'create' }
-  after_update {|intervention| intervention.message 'update' }
-  after_destroy {|intervention| intervention.message 'destroy' }
+  after_create  { |intervention| intervention.message 'create'  }
+  after_update  { |intervention| intervention.message 'update'  }
+  after_destroy { |intervention| intervention.message 'destroy' }
+
   def message action
     msg = { resource: 'interventions',
-            action: action,
-            id: self.id,
-            obj: self.restrict_for_api }
+            action:   action,
+            id:       id,
+            obj:      restrict_for_api
+          }
 
     $redis.publish 'rt-change', msg.to_json
   end
@@ -164,28 +150,26 @@ class Intervention < ActiveRecord::Base
 
   def restrict_for_api
     {
-     id: self.id,
-     state: self.state,
-     profession_name: self.intervention_type.profession.name,
-     profession_slug: self.intervention_type.profession.slug,
-     created_at: self.created_at,
-     intervention_date: self.intervention_date,
-     immediate_intervention: self.immediate_intervention,
-     intervention_type_short_description: self.intervention_type.short_description,
-     intervention_type_price: self.intervention_type.price,
-     address_address1: self.address.address1,
-     address_address2:self.address.address2,
-     address_zipcode:self.address.zipcode,
-     address_city: self.address.city,
-     customer_firstname: self.customer.firstname,
-     customer_lastname:self.customer.lastname,
-     customer_email:self.customer.email,
-     customer_phone_number:self.customer.phone_number,
-     price: self.price
+     id:                                  id,
+     state:                               state,
+     profession_name:                     intervention_type.profession.name,
+     profession_slug:                     intervention_type.profession.slug,
+     created_at:                          created_at,
+     intervention_date:                   intervention_date,
+     immediate_intervention:              immediate_intervention,
+     intervention_type_short_description: intervention_type.short_description,
+     intervention_type_price:             intervention_type.price,
+     address_address1:                    address.address1,
+     address_address2:                    address.address2,
+     address_zipcode:                     address.zipcode,
+     address_city:                        address.city,
+     customer_firstname:                  customer.firstname,
+     customer_lastname:                   customer.lastname,
+     customer_email:                      customer.email,
+     customer_phone_number:               customer.phone_number,
+     price:                               price
     }
   end
-
-
 
   private
 

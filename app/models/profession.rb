@@ -15,15 +15,7 @@ class Profession < ActiveRecord::Base
       id: self.id,
       name: self.name,
       slug: self.slug,
-      intervention_types: array_serializer(self.intervention_types)
+      intervention_types: intervention_types.map(&:restrict_for_api)
     }
-  end
-
-  def array_serializer intervention_types
-      intervention_types_serialized = Array.new
-      intervention_types.each do |intervention_type|
-        intervention_types_serialized.push(intervention_type.restrict_for_api)
-      end
-      intervention_types_serialized
   end
 end
