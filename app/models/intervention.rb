@@ -25,7 +25,8 @@ class Intervention < ActiveRecord::Base
   RATINGS = %w(a b c d e).freeze
 
   enumerize :payment_method, in: [:credit_card, :cheque]
-  belongs_to :intervention_type, :insurer
+  belongs_to :intervention_type
+  belongs_to :insurer
   belongs_to :customer, class_name: 'User', foreign_key: 'customer_id'
   belongs_to :contractor, class_name: 'User', foreign_key: 'contractor_id'
 
@@ -84,8 +85,6 @@ class Intervention < ActiveRecord::Base
       transitions from:  :pending,
                   to:    :pending_pro_validation,
                   after: :_build_historical_transition
-
-
     end
 
     event :assign_to do
@@ -105,7 +104,6 @@ class Intervention < ActiveRecord::Base
     event :unassign do
       before do
         self.contractor = nil
-
       end
 
       transitions from:  :pro_on_the_road,
@@ -181,6 +179,4 @@ class Intervention < ActiveRecord::Base
       processed_at: Time.now
     )
   end
-
-
 end

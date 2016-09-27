@@ -47,12 +47,17 @@ class User < ActiveRecord::Base
 
   ROLES = %w(customer contractor admin).freeze
 
-  has_many :user_areas, :professions_users, :exceptional_availabilities
+  has_many :user_areas
+  has_many :professions_users
+  has_many :exceptional_availabilities
   has_many :areas, through: :user_areas, class_name: 'Area', inverse_of: :users
   has_many :zip_codes, through: :areas
   has_and_belongs_to_many :professions
 
-  accepts_nested_attributes_for :professions, :areas, :weekly_availability, :exceptional_availabilities,:address
+
+  accepts_nested_attributes_for :professions
+  accepts_nested_attributes_for :areas
+
   accepts_nested_attributes_for :professions_users, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :user_areas, reject_if: :all_blank, allow_destroy: true
 
@@ -65,7 +70,9 @@ class User < ActiveRecord::Base
           },
           class_name: 'ExceptionalAvailability'
 
-
+  accepts_nested_attributes_for :weekly_availability,
+                                :exceptional_availabilities,
+                                :address
   phony_normalize :phone_number, default_country_code: 'FR'
 
   validates :phone_number, phony_plausible: true
@@ -143,24 +150,28 @@ class User < ActiveRecord::Base
 
   def restrict_for_api
     user = {
-      id:           id,
-      firstname:    firstname,
-      lastname:     lastname,
-      email:        email,
-      phone_number: phone_number
+    id: self.id,
+    firstname: self.firstname,
+    lastname:self.lastname,
+    email:self.email,
+    phone_number:self.phone_number
     }
 
     if contractor?
-      user.merge {
+      user = user.merge ({
         exceptional_availabilities_available_now: exceptional_availabilities.last.available_now,
-        weekly_availabilitie:                     weekly_availability
-      }
-    if customer?
-      user.merge {
-        address1: address.address1,
-        city:     address.city,
-        zipcode:  address.zipcode
-      }
+        weekly_availabilitie: weekly_availability
+      })
     end
+
+    if customer?
+      user = user.merge ({
+        address1: self.address.address1,
+        city: self.address.city,
+        zipcode: self.address.zipcode
+      })
+    end
+    user
   end
+
 end
