@@ -45,26 +45,24 @@ class User < ActiveRecord::Base
         #  :lockable,
          :validatable
 
-  ROLES = %w(
-    customer
-    contractor
-    admin
-  ).freeze
+  ROLES = %w(customer contractor admin).freeze
 
   has_many :user_areas
+  has_many :professions_users
+  has_many :exceptional_availabilities
   has_many :areas, through: :user_areas, class_name: 'Area', inverse_of: :users
   has_many :zip_codes, through: :areas
   has_and_belongs_to_many :professions
-  has_many :professions_users
+
 
   accepts_nested_attributes_for :professions
-  accepts_nested_attributes_for :professions_users, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :areas
+
+  accepts_nested_attributes_for :professions_users, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :user_areas, reject_if: :all_blank, allow_destroy: true
 
   has_one :address, as: :addressable, dependent: :destroy
   has_one :weekly_availability
-  has_many :exceptional_availabilities
   has_one :current_exceptional_availability,
           -> {
             where(created_at: WeeklyAvailability.current_daily_time_slot_start_at..WeeklyAvailability.current_daily_time_slot_end_at)
@@ -72,50 +70,41 @@ class User < ActiveRecord::Base
           },
           class_name: 'ExceptionalAvailability'
 
-
-  phony_normalize :phone_number, default_country_code: 'FR'
-
-  validates :phone_number, phony_plausible: true
-  validates :firstname, :lastname, :phone_number, presence: true, if: proc { |user|
-              not user.has_role? :admin
-            }
-  validates :role,
-            presence: true,
-            inclusion: { in: ROLES }
-
   accepts_nested_attributes_for :weekly_availability,
                                 :exceptional_availabilities,
                                 :address
+  phony_normalize :phone_number, default_country_code: 'FR'
 
-  scope :customers, -> { where(role: 'customer') }
+  validates :phone_number, phony_plausible: true
+  validates :firstname, :lastname, :phone_number, presence: true, if: proc { |user| not user.has_role? :admin }
+  validates :role, presence: true, inclusion: { in: ROLES }
+
+
+  scope :customers,   -> { where(role: 'customer') }
   scope :contractors, -> { where(role: 'contractor') }
-  scope :admins, -> { where(role: 'admin') }
+  scope :admins,      -> { where(role: 'admin') }
 
-  after_create {|user| user.message 'create' }
-  after_update {|user| user.message 'update' }
-  after_destroy {|user| user.message 'destroy' }
+  after_create  { |user| user.message 'create' }
+  after_update  { |user| user.message 'update' }
+  after_destroy { |user| user.message 'destroy' }
+
   def message action
     msg = { resource: 'users',
-            action: action,
-            id: self.id,
-            email: self.email,
-            obj: self.restrict_for_api }
+            action:   action,
+            id:       id,
+            email:    email,
+            obj:      restrict_for_api }
 
     $redis.publish 'rt-change', msg.to_json
   end
 
   def areas_name
-    self.areas.map(&:name).join(", ")
+    areas.map(&:name).join(', ')
   end
 
-  # TODO: convert to 'scope :available_now, -> { ... }'
   def self.available_now
-    User.contractors.to_a.delete_if { |user|
-      !user.available_now?
-    }
+    User.contractors.to_a.delete_if { |user| !user.available_now? }
   end
-
-  # TODO: scope :nearby, -> { ... }
 
   def available_now?
     if current_exceptional_availability.present?
@@ -139,42 +128,50 @@ class User < ActiveRecord::Base
 
   # overriding Devise::Models::Validatable
   def password_required?
-    if has_role? :customer
+    if
       !password.nil? || !password_confirmation.nil?
     else
       super
     end
   end
-  #
+
   def with_client_profession profession_id
     profession = Profession.find_by_id(profession_id)
-    if self.professions.include? profession
-      true
-    else
-      false
-    end
+    professions.include?(profession)
+  end
+
+  def contractor?
+    has_role? :contractor
+  end
+
+  def customer?
+    has_role? :customer
   end
 
   def restrict_for_api
-    if self.role == "contractor"
-    {
-      id: self.id,
-      firstname: self.firstname,
-      lastname:self.lastname,
-      email:self.email,
-      phone_number:self.phone_number,
-      exceptional_availabilities_available_now: self.exceptional_availabilities.last.available_now,
-      weekly_availabilitie: self.weekly_availability
+    user = {
+    id: self.id,
+    firstname: self.firstname,
+    lastname:self.lastname,
+    email:self.email,
+    phone_number:self.phone_number
     }
-    else
-      {
-        id: self.id,
-        firstname: self.firstname,
-        lastname:self.lastname,
-        email:self.email,
-        phone_number:self.phone_number
-      }
+
+    if contractor?
+      user = user.merge ({
+        exceptional_availabilities_available_now: exceptional_availabilities.last.available_now,
+        weekly_availabilitie: weekly_availability
+      })
     end
 
+    if customer?
+      user = user.merge ({
+        address1: self.address.address1,
+        city: self.address.city,
+        zipcode: self.address.zipcode
+      })
+    end
+    user
   end
+
 end

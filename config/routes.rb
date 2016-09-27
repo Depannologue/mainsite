@@ -85,6 +85,7 @@ Rails.application.routes.draw do
         resources :professions, only: [:index, :create, :show, :update, :destroy]
         resources :interventions, only: [:index, :create, :show, :update, :destroy]
         resources :contractors, only: [:index, :create, :show, :update, :destroy]
+        resources :customers, only: [:index, :create, :show, :update, :destroy] 
       end
     end
   end

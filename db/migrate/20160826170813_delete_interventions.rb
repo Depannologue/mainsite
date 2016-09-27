@@ -1,6 +1,5 @@
 class DeleteInterventions < ActiveRecord::Migration
   def change
-    Intervention.delete_all
-
+    Intervention.destroy_all
   end
 end
