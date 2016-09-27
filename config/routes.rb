@@ -34,6 +34,8 @@ Rails.application.routes.draw do
       resources :intervention_types, except: :show
       resources :interventions, only: [:index, :edit, :update, :destroy]
       resources :customers, only: [:index, :edit, :update]
+      resources :professions
+      resources :dashboard, only: [:index]
       resources :contractors
       root to: 'interventions#index'
     end

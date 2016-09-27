@@ -1,0 +1,85 @@
+<div class="row row-card" data-equalizer="RecentInfoCards">
+  <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+    <div class="row card-header">
+      <div class="title">Nombre d'interventions du jour</div>
+    </div>
+    <center><h1><%=@dashboard_presenter.today_s_number_of_interventions %></h1></center>
+  </div>
+  <div class="col-md-1  visible-md-up">
+  </div>
+  <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+    <div class="row card-header">
+      <div class="title">Nombre d'interventions du mois</div>
+    </div>
+    <center><h1><%=@dashboard_presenter.month_s_number_of_interventions %></h1></center>
+  </div>
+  <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+    <div class="row card-header">
+      <div class="title">Chiffre d'affaires du jour</div>
+    </div>
+    <center><h1><%=@dashboard_presenter.today_s_revenues %>€</h1></center>
+  </div>
+  <div class="col-md-1  visible-md-up">
+  </div>
+  <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="RecentInfoCards">
+    <div class="row card-header">
+      <div class="title">Chiffre d'affaires du mois</div>
+    </div>
+    <center><h1><%=@dashboard_presenter.month_s_revenues %>€</h1></center>
+  </div>
+</div>
+<div class="row" style="margin:5px" data-equalizer="foo">
+  <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="foo"  >
+    <div class="row card-header">
+      <div class="title">Chiffre d'affaires</div>
+    </div>
+    <table id="dashboard-table">
+      <thead>
+         <tr>
+           <th>Profession</th>
+           <th>Nb interv</th>
+           <th>Chiffre d'affaires</th>
+           <th>CA moyen</th>
+         </tr>
+      </thead>
+      <tbody>
+        <% @professions_revenues.each do |profession_revenues| %>
+          <tr>
+            <td><%=profession_revenues[:name]%></td>
+            <td><%=profession_revenues[:nb_interventions]%></td>
+            <td><%= '%.2f' % profession_revenues[:revenues]%>€</td>
+            <td><%= '%.2f' % profession_revenues[:average_revenue]%>€</td>
+          </tr>
+        <%end%>
+        <tr>
+          <td>Total :</td>
+          <td><%= @dashboard_presenter.total_number_of_interventions %></td>
+          <td><%= '%.2f' % @dashboard_presenter.total_revenues %>€</td>
+          <td><%= '%.2f' % @dashboard_presenter.total_average_per_intervention %>€</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-1  visible-md-up">
+  </div>
+  <div class="col-md-12 col-lg-5 dashboard-card" data-equalizer-watch="foo">
+    <div class="row card-header">
+      <div class="title">Pourcentage de CA par profession</div>
+    </div>
+    <div class="ct-chart ct-perfect-fourth chartist-pie-chart" id="revenue_percentage_chart" chartProfessionsRevenues="<%= @professions_revenues.to_json %>" totalRevenues="<%= @dashboard_presenter.total_revenues.to_json %>"></div>
+  </div>
+  <div class="col-md-12 col-lg-5 dashboard-card">
+    <div class="row card-header">
+      <div class="title">Nombre d'interventions par profession</div>
+    </div>
+    <div class="ct-chart ct-perfect-fourth chartist-bar-chart" id="number_of_intervention_by_profession_chart"></div>
+  </div>
+  <div class="col-md-1  visible-md-up">
+  </div>
+  <div class="col-md-12 col-lg-12 dashboard-card">
+    <div class="row card-header">
+      <div class="title">Nombre d'interventions au fil du temps</div>
+    </div>
+    <div class="ct-chart chartist-line-chart" id="interventions_among_time_chart" interventionAmongTime="<%= @interventions_among_time.to_json %>"></div>
+  </div>
+</div>

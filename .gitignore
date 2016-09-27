@@ -27,6 +27,9 @@ depannologue.pid
 .env
 .env~
 
+# Ignore node_modules
+/realtime/node_modules/*
+/vendor/assets/bower_components
 
 # RubyMine
 .idea
