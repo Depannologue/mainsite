@@ -160,7 +160,7 @@ class User < ActiveRecord::Base
     if contractor?
       user = user.merge ({
         exceptional_availabilities_available_now: exceptional_availabilities.last.available_now,
-        weekly_availabilitie: weekly_availability
+        weekly_availability: weekly_availability
       })
     end
 
