@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
 
   ROLES = %w(customer contractor admin).freeze
 
+  has_secure_password
   has_many :user_areas
   has_many :professions_users
   has_many :exceptional_availabilities

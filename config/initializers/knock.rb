@@ -1,7 +1,5 @@
-require 'base64'
 Knock.setup do |config|
-  config.current_user_from_token = -> (claims) { User.find_or_create_by(auth_id: claims['sub']) }
-  # extracted from original [method](http://www.rubydoc.info/github/jwt/ruby-jwt/JWT.base64url_decode)
+
   ## User handle attribute
   ## ---------------------
   ##
@@ -23,7 +21,7 @@ Knock.setup do |config|
   ## You must raise ActiveRecord::RecordNotFound if the resource cannot be retrieved.
   ##
   ## Default:
-   #config.current_user_from_handle = -> (handle) { User.find_by! Knock.handle_attr => handle }
+  # config.current_user_from_handle = -> (handle) { User.find_by! Knock.handle_attr => handle }
 
   ## Current user retrieval when validating token
   ## --------------------------------------------
@@ -35,7 +33,7 @@ Knock.setup do |config|
   ## You must raise ActiveRecord::RecordNotFound if the resource cannot be retrieved.
   ##
   ## Default:
-  # config.current_user_from_token = -> (claims) { User.findclaims['sub'] }
+  # config.current_user_from_token = -> (claims) { User.find claims['sub'] }
 
 
   ## Expiration claim
@@ -57,7 +55,7 @@ Knock.setup do |config|
   # config.token_audience = nil
 
   ## If using Auth0, uncomment the line below
-  config.token_audience = -> { Rails.application.secrets.auth0_client_id }
+  # config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 
   ## Signature algorithm
   ## -------------------
@@ -77,11 +75,7 @@ Knock.setup do |config|
 
   ## If using Auth0, uncomment the line below
   # config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
-  config.token_secret_signature_key = lambda {
-  secret = Rails.application.secrets.auth0_client_secret
-  secret += '=' * (4 - secret.length.modulo(4))
-  Base64.decode64(secret.tr('-_', '+/'))
-}
+
   ## Public key
   ## ----------
   ##
@@ -89,5 +83,4 @@ Knock.setup do |config|
   ##
   ## Default:
   # config.token_public_key = nil
-
 end

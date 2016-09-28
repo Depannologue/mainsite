@@ -39,7 +39,7 @@ gem 'lockup', '~> 1.3'
 gem 'unicorn'
 gem 'bugsnag'
 gem 'virtus'
-gem 'knock', '~> 1.4.2'
+gem 'knock', '~> 1.5'
 gem 'realtime'
 group :development, :test do
   gem 'capistrano-rails'

@@ -82,10 +82,11 @@ Rails.application.routes.draw do
   constraints(AppConstraints.new subdomain: 'api') do
     namespace :api do
       namespace :v1 do
+        post 'api_user_token' => 'api_user_token#create'
         resources :professions, only: [:index, :create, :show, :update, :destroy]
         resources :interventions, only: [:index, :create, :show, :update, :destroy]
         resources :contractors, only: [:index, :create, :show, :update, :destroy]
-        resources :customers, only: [:index, :create, :show, :update, :destroy] 
+        resources :customers, only: [:index, :create, :show, :update, :destroy]
       end
     end
   end

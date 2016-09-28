@@ -1,6 +1,8 @@
 class Api::V1::BaseController < ApplicationController
+  include Knock::Authenticable
   protect_from_forgery with: :null_session
   before_action :destroy_session
+  before_action :authenticate_user
   # before_action :authenticate
 
   def destroy_session
